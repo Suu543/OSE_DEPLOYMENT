@@ -24,9 +24,9 @@ const {
 
 const router = express.Router();
 
-router.post('/signup', userSignupValidator, runValidation, signup);
-router.post('/account-activation', activateSignup);
-router.post('/signin', userSigninValidator, runValidation, signin);
+router.post('/signup', userSignupValidator, runValidation, signup); // pass
+router.post('/account-activation', activateSignup); // pass
+router.post('/signin', userSigninValidator, runValidation, signin); // pass
 // Reset Password
 router.put(
   '/forgot-password',

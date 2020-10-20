@@ -46,9 +46,8 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
-const User = mongoose.model('User', userSchema);
-
 userSchema.pre('save', async function (next) {
+  console.log('user');
   // Hash the password before saving the user model
   const user = this;
   if (user.isModified('password')) {
@@ -63,6 +62,7 @@ userSchema.methods.generateAuthToken = async function () {
     expiresIn: '10m',
   });
 
+  await user.save();
   return token;
 };
 
@@ -80,5 +80,7 @@ userSchema.statics.findByCredentials = async function (email, password) {
 
   return user;
 };
+
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

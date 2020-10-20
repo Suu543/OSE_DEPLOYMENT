@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.97% </span>
+                <span class="strong">14.39% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/132</span>
+                <span class='fraction'>19/132</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">4.17% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/24</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">14.29% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/14</span>
+                <span class='fraction'>0/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.97% </span>
+                <span class="strong">14.39% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>29/132</span>
+                <span class='fraction'>19/132</span>
             </div>
         
             
@@ -445,18 +445,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -464,13 +464,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -796,19 +796,19 @@ const AWS_SES = new AWS.SES(SES_CONFIG);
 &nbsp;
 3. 전달한 메세지 url의 끝 부분에 생성한 token 값을 붙여준다. 
 */
-exports.signup = async (req, res) =&gt; {
-  const { name, email, password } = req.body;
+exports.signup = <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
+  const { name, email, password } = <span class="cstat-no" title="statement not covered" >req.body;</span>
 &nbsp;
-  try {
-    const isSigned = await User.findOne({ email });
+<span class="cstat-no" title="statement not covered" >  try {</span>
+    const isSigned = <span class="cstat-no" title="statement not covered" >await User.findOne({ email });</span>
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (isSigned) {
+<span class="cstat-no" title="statement not covered" >    if (isSigned) {</span>
 <span class="cstat-no" title="statement not covered" >      return res.status(400).json({</span>
         error: 'Already Signed User...',
       });
     }
 &nbsp;
-    const token = JWT.sign(
+    const token = <span class="cstat-no" title="statement not covered" >JWT.sign(</span>
       { name, email, password },
       process.env.JWT_ACCOUNT_ACTIVATION,
       {
@@ -816,13 +816,13 @@ exports.signup = async (req, res) =&gt; {
       }
     );
 &nbsp;
-    const params = signupEmailParams(email, token);
-    const sendEmailOnSignup = AWS_SES.sendEmail(params).promise();
+    const params = <span class="cstat-no" title="statement not covered" >signupEmailParams(email, token);</span>
+    const sendEmailOnSignup = <span class="cstat-no" title="statement not covered" >AWS_SES.sendEmail(params).promise();</span>
 &nbsp;
-    sendEmailOnSignup
-      .then((data) =&gt; {
-        console.log('Email Submitted to SES', data);
-        return res.status(200).json({
+<span class="cstat-no" title="statement not covered" >    sendEmailOnSignup</span>
+      .then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
+<span class="cstat-no" title="statement not covered" >        console.log('Email Submitted to SES', data);</span>
+<span class="cstat-no" title="statement not covered" >        return res.status(200).json({</span>
           message: `Email has been sent to ${email}, Follow the instructions to complete your registration`,
         });
       })
@@ -895,7 +895,7 @@ exports.signin = <span class="fstat-no" title="function not covered" >as</span>y
 <span class="cstat-no" title="statement not covered" >    user.resetPasswordLink = '';</span>
 <span class="cstat-no" title="statement not covered" >    user.password = '';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return res.send({ user, token });</span>
+<span class="cstat-no" title="statement not covered" >    return res.status(200).send({ user, token });</span>
   } catch (error) {
 <span class="cstat-no" title="statement not covered" >    return res.status(400).json({</span>
       error:
@@ -1120,7 +1120,7 @@ exports.facebookLogin = <span class="fstat-no" title="function not covered" >as<
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Oct 19 2020 20:25:12 GMT+0900 (GMT+09:00)
+                at Tue Oct 20 2020 20:22:48 GMT+0900 (GMT+09:00)
             </div>
         </div>
         <script src="../../prettify.js"></script>

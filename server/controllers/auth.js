@@ -132,7 +132,7 @@ exports.signin = async (req, res) => {
     user.resetPasswordLink = '';
     user.password = '';
 
-    return res.send({ user, token });
+    return res.status(200).send({ user, token });
   } catch (error) {
     return res.status(400).json({
       error:
