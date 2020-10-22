@@ -14,6 +14,7 @@ export const homeObjOne = {
   dark: true,
   primary: true,
   darkText: false,
+  url: '/about',
 };
 
 export const homeObjTwo = {
@@ -32,6 +33,7 @@ export const homeObjTwo = {
   dark: false,
   primary: false,
   darkText: true,
+  url: '/contact',
 };
 
 export const homeObjThree = {
@@ -43,13 +45,14 @@ export const homeObjThree = {
   headline: 'Understand Solutions to climate change',
   description:
     'a change in global or regional climate patterns, in particular a change apparent from the mid to late 20th century onwards and attributed largely to the increased levels of atmospheric carbon dioxide produced by the use of fossil fuels.',
-  buttonLabel: 'Start Now',
+  buttonLabel: 'Show Blog',
   imgStart: false,
   img: require('../../../images/svg-3.svg'),
   alt: 'Car',
   dark: false,
   primary: false,
   darkText: true,
+  url: '/blogs',
 };
 
 export const homeObjFour = {
@@ -68,4 +71,5 @@ export const homeObjFour = {
   dark: false,
   primary: false,
   darkText: true,
+  url: '/donate',
 };

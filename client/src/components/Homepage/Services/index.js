@@ -19,21 +19,28 @@ const Services = () => {
       <ServicesWrapper>
         <ServicesCard>
           <ServicesIcon src={Icon1} />
-          <ServicesH2>Reduce Expenses</ServicesH2>
+          <ServicesH2>
+            Advertise <br /> Eco-Product
+          </ServicesH2>
           <ServicesP>
             We Help reduce your fess and increase your overall revenue.
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon2} />
-          <ServicesH2>Virtual Offices</ServicesH2>
+          <ServicesH2>
+            Environment <br /> Information
+          </ServicesH2>
           <ServicesP>
             You can access our platform online anywhere in the world.
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon3} />
-          <ServicesH2>Premium Benefits</ServicesH2>
+          <ServicesH2>
+            Environment <br />
+            Campaign
+          </ServicesH2>
           <ServicesP>
             We Help reduce your fess and increase your overall revenue.
           </ServicesP>

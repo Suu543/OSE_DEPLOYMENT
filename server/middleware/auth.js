@@ -17,7 +17,7 @@ exports.auth = async (req, res, next) => {
       }
 
       req.user = user;
-      //   req.token = token;
+      req.token = token;
       next();
     } catch (error) {
       return res

@@ -18,6 +18,7 @@ const blogSchema = new mongoose.Schema(
     title: {
       type: String,
       min: 5,
+      max: 70,
     },
 
     excerpt: {

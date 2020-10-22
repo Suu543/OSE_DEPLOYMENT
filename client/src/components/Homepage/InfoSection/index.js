@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../../ButtonElements';
 import {
   InfoContainer,
@@ -30,6 +31,7 @@ const InfoSection = ({
   primary,
   dark,
   dark2,
+  url,
 }) => {
   return (
     <Fragment>
@@ -53,7 +55,7 @@ const InfoSection = ({
                     dark={dark ? 1 : 0}
                     dark2={dark2 ? 1 : 0}
                   >
-                    {buttonLabel}
+                    <Link to={url}>{buttonLabel}</Link>
                   </Button>
                 </BtnWrap>
               </TextWrapper>
