@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react';
-import ScrollToTop from '../components/ScrollToTop';
-import SignIn from '../components/Signin';
+import Signin from '../components/AuthPage/Signin';
 
 const SigninPage = () => {
   return (
     <Fragment>
-      <ScrollToTop />
-      <SignIn />
+      <Signin />
     </Fragment>
   );
 };
