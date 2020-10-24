@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
+import { isAuth } from '../../../actions/authHelpers';
 import {
   Nav,
   NavbarContainer,
@@ -23,6 +24,21 @@ const Navbar = ({ toggle }) => {
       setScrollNav(false);
     }
   };
+
+  const [auth, setAuth] = useState({
+    check: false,
+    role: '',
+    name: '',
+  });
+
+  const { check, role, name } = auth;
+
+  useEffect(() => {
+    const checkAuth = isAuth();
+    console.log(checkAuth);
+    if (checkAuth)
+      setAuth({ check: true, role: checkAuth.role, name: checkAuth.name });
+  }, []);
 
   const toggleHome = () => {
     scroll.scrollToTop();
@@ -106,7 +122,13 @@ const Navbar = ({ toggle }) => {
               </NavItem>
             </NavMenu>
             <NavBtn>
-              <NavBtnLink to="/signin">Sign in</NavBtnLink>
+              {!check && <NavBtnLink to="/signin">Sign in</NavBtnLink>}
+              {check && role === 'admin' && (
+                <NavBtnLink to="/signin">{name}</NavBtnLink>
+              )}
+              {check && role === 'user' && (
+                <NavBtnLink to="/signin">{name}</NavBtnLink>
+              )}
             </NavBtn>
           </NavbarContainer>
         </Nav>

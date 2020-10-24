@@ -53,11 +53,10 @@ export const authenticate = (res, next) => {
 // Access User Info from localStorage
 export const isAuth = () => {
   if (window !== 'undefined') {
-    const isCookie = getCookie('token');
-    if (isCookie) {
-      const isLocalStorage = getLocalStorage('user');
-      if (isLocalStorage) {
-        return JSON.parse(isLocalStorage);
+    const cookieChecked = getCookie('token');
+    if (cookieChecked) {
+      if (localStorage.getItem('user')) {
+        return JSON.parse(localStorage.getItem('user'));
       } else {
         return false;
       }

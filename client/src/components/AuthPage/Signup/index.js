@@ -34,6 +34,7 @@ const Signup = () => {
 
   const { handleSubmit, register, errors } = useForm({
     resolver: yupResolver(Schema),
+    reValidateMode: 'onSubmit',
   });
 
   const onSubmit = async (formData) => {
