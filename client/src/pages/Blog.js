@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import NavSection from '../components/BlogPage/NavSection';
 import HeroSection from '../components/BlogPage/HeroSection';
 import InfoSection from '../components/BlogPage/InfoSection';

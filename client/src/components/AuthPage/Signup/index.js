@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ToastContainer, toast } from 'react-toastify';
 import * as yup from 'yup';
+import 'react-toastify/dist/ReactToastify.min.css';
 import {
   Container,
   FormWrap,
@@ -13,8 +15,8 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  Text,
-} from './SignupElements';
+  LinkBtn,
+} from '../AuthElements';
 
 const Schema = yup.object().shape({
   name: yup.string().required('Tell me your name...').min(3),
@@ -28,38 +30,52 @@ const Schema = yup.object().shape({
 });
 
 const Signup = () => {
+  const [text, setText] = useState('Sign Up');
+
   const { handleSubmit, register, errors } = useForm({
     resolver: yupResolver(Schema),
   });
 
   const onSubmit = async (formData) => {
-    // console.log(formData);
-    let response = await axios.post(
-      `${process.env.REACT_APP_API}/signup`,
-      formData,
-    );
+    try {
+      let response = await axios.post(
+        `${process.env.REACT_APP_API}/signup`,
+        formData,
+      );
 
-    console.log('response', response);
-    return response;
+      if (response) {
+        setText('Done');
+        toast.info(`🦄 + ${response.data.message}`);
+      }
+    } catch (error) {
+      toast.error(error.response.data.error);
+    }
   };
 
   console.log(errors);
 
   return (
     <Container>
+      <ToastContainer
+        position="top-center"
+        autoClose={10000}
+        pauseOnFocusLoss
+        pauseOnHover
+        style={{ fontSize: '1.5rem' }}
+      />
       <FormWrap>
         <Icon to="/">OSE</Icon>
         <FormContent>
           <Form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-            <FormH1>Signin to your account</FormH1>
+            <FormH1>Signup to your account</FormH1>
             <FormLabel htmlFor="for">name</FormLabel>
             <FormInput type="text" name="name" ref={register} required />
-            {errors.name && <p>{errors.name.message}</p>}
+            {errors.name && toast.error(errors.name.message)}
 
             <FormLabel htmlFor="for">Email</FormLabel>
             <FormInput type="email" name="email" ref={register} required />
             <FormLabel htmlFor="for">Password</FormLabel>
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && toast.error(errors.email.message)}
 
             <FormInput
               type="password"
@@ -68,7 +84,7 @@ const Signup = () => {
               required
             />
             <FormLabel htmlFor="for">Confirm</FormLabel>
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && toast.error(errors.password.message)}
 
             <FormInput
               type="password"
@@ -76,10 +92,11 @@ const Signup = () => {
               ref={register}
               required
             />
-            <FormButton type="submit">Continue</FormButton>
-            {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+            <FormButton type="submit">{text}</FormButton>
+            {errors.confirmPassword &&
+              toast.error(errors.confirmPassword.message)}
 
-            <Text>Forgot Password</Text>
+            <LinkBtn to="/signin">Already have an account?</LinkBtn>
           </Form>
         </FormContent>
       </FormWrap>

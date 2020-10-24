@@ -19,7 +19,6 @@ exports.forgotPasswordValidator = [
   check('email')
     .not()
     .isEmpty()
-    .isEmpty()
     .withMessage('Must be a valid email address...'),
 ];
 

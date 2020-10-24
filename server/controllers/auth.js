@@ -184,6 +184,9 @@ exports.forgotPassword = async (req, res) => {
       })
       .catch((error) => {
         console.log('SES Reset Password Failed', error);
+        return res.status(401).json({
+          error,
+        });
       });
   } catch (error) {
     return res.status(400).json({

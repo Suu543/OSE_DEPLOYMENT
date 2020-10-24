@@ -28,7 +28,7 @@ router.post('/signup', userSignupValidator, runValidation, signup); // pass
 router.post('/account-activation', activateSignup); // pass
 router.post('/signin', userSigninValidator, runValidation, signin); // pass
 // Reset Password
-router.put(
+router.post(
   '/forgot-password',
   forgotPasswordValidator,
   runValidation,
