@@ -78,9 +78,21 @@ export const FormH1 = styled.h1`
   text-align: center;
 `;
 
+export const FormImage = styled.div`
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  margin-bottom: 2rem;
+  border-radius: 50px;
+  background: url("https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+`
+
 export const FormLabel = styled.label`
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 2rem;
   color: #fff;
 `;
 

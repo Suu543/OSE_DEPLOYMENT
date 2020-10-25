@@ -7,6 +7,7 @@ import SigninPage from './pages/Signin';
 import blog from './pages/Blog';
 import SingleTopic from './pages/SingleTopic';
 import SingleBlog from './pages/SingleBlog';
+import PrivatePage from "./pages/Private"
 
 import ActivateAccount from './components/AuthPage/Activate';
 import ForgotPassword from './components/AuthPage/Forgot';
@@ -21,6 +22,7 @@ const Routes = () => (
       <Route path="/" component={Home} exact />
       <PublicRoute path="/signup" component={SignupPage} exact />
       <PublicRoute path="/signin" component={SigninPage} exact />
+      <PrivateRoute path="/private" component={PrivatePage} exact />
       <Route path="/blogs" component={blog} exact />
       <Route path="/topic/:slug" component={SingleTopic} exact />
       <Route path="/blog/:slug" component={SingleBlog} exact />

@@ -124,10 +124,10 @@ const Navbar = ({ toggle }) => {
             <NavBtn>
               {!check && <NavBtnLink to="/signin">Sign in</NavBtnLink>}
               {check && role === 'admin' && (
-                <NavBtnLink to="/signin">{name}</NavBtnLink>
+                <NavBtnLink to="/private">{name}</NavBtnLink>
               )}
               {check && role === 'user' && (
-                <NavBtnLink to="/signin">{name}</NavBtnLink>
+                <NavBtnLink to="/private">{name}</NavBtnLink>
               )}
             </NavBtn>
           </NavbarContainer>

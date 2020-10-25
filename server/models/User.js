@@ -47,6 +47,18 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
+// photo: {
+//   url: {
+//     type: String,
+//     required: true,
+//     default:
+//       'https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png',
+//   },
+//   key: { type: String, required: true },
+// },
+
+// bio: String,
+
 userSchema.pre('save', async function (next) {
   console.log('user');
   // Hash the password before saving the user model
