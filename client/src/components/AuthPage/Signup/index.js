@@ -27,6 +27,7 @@ const Schema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], "Wait! Your Password doesn't match..."),
+  bio: yup.string()
 });
 
 const Signup = () => {
@@ -93,6 +94,14 @@ const Signup = () => {
               ref={register}
               required
             />
+
+            <FormLabel htmlFor="for">Bio</FormLabel>
+            <FormInput 
+              type="text"
+              name="bio"
+              ref={register}
+            />
+
             <FormButton type="submit">{text}</FormButton>
             {errors.confirmPassword &&
               toast.error(errors.confirmPassword.message)}

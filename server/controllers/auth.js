@@ -34,7 +34,7 @@ const AWS_SES = new AWS.SES(SES_CONFIG);
 3. 전달한 메세지 url의 끝 부분에 생성한 token 값을 붙여준다. 
 */
 exports.signup = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, bio } = req.body;
 
   try {
     const isSigned = await User.findOne({ email });
@@ -46,7 +46,7 @@ exports.signup = async (req, res) => {
     }
 
     const token = JWT.sign(
-      { name, email, password },
+      { name, email, password, bio },
       process.env.JWT_ACCOUNT_ACTIVATION,
       {
         expiresIn: '10m',
@@ -94,10 +94,10 @@ exports.activateSignup = async (req, res) => {
         .json({ error: 'Expired Link... Please Try Again...' });
     }
 
-    const { name, email, password } = decoded;
+    const { name, email, password, bio } = decoded;
 
     try {
-      const user = new User({ name, email, password });
+      const user = new User({ name, email, password, bio });
       await user.save();
       return res
         .status(200)

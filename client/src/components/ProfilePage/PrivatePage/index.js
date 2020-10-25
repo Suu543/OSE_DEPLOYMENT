@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { isAuth, getCookie } from "../../../actions/authHelpers";
+import { isAuth, getCookie, signout } from "../../../actions/authHelpers";
 import axios from "axios";
 import {
     Container,
@@ -23,9 +23,10 @@ const PrivatePage = () => {
         role: "",
         name: "",
         email: "",
+        bio: ""
     })
 
-    const { role, name, email } = values;
+    const { role, name, email, bio } = values;
 
     const userID = isAuth()._id;
     const token = getCookie("token");
@@ -36,13 +37,15 @@ const PrivatePage = () => {
                     Authorization: `Bearer ${token}`,
                 }
             });
-            const { role, name, email} = response.data;
+            const { role, name, email, bio} = response.data;
 
             setValues({
-                role, name, email
+                role, name, email, bio
             });
         } catch (error) {
-            toast.error("Error Occurred...")
+            signout(() => {
+                console.log("Error Occurred... Please Login Again...")
+            });    
         }
     }
 
@@ -61,22 +64,28 @@ const PrivatePage = () => {
 
                         <FormImage />
                         <FormLabel>Role</FormLabel>
-                        <FormInput 
+                        <FormInput
+                            readOnly 
                             value={role}
                         />
 
                         <FormLabel>Name</FormLabel>
                         <FormInput 
+                            readOnly
                             value={name}
                         />
 
                         <FormLabel>Email</FormLabel>
                         <FormInput 
+                            readOnly
                             value={email}
                         />  
 
                         <FormLabel>Bio</FormLabel>
-                        <FormInput />
+                        <FormInput
+                            readOnly
+                            value={bio}                        
+                        />
                         
                         <LinkBtn to={`/private/update/${userID}`}>Update Profile</LinkBtn>
                     </Form>

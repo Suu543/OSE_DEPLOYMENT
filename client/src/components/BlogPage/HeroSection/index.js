@@ -62,15 +62,22 @@ const HeroSection = () => {
     }
   };
 
+  // {topics.map((t, i) => (
+  //   <HeroTopic>
+  //     <Link to={`/topic/${t.slug}`}>{t.name}</Link>
+  //   </HeroTopic>
+  // ))}
+
+
   return (
     <HeroContainer>
       <HeroTopicWrapper>
         <HeroTopic>Topics</HeroTopic>
-        {topics.map((t, i) => (
-          <HeroTopic>
-            <Link to={`/topic/${t.slug}`}>{t.name}</Link>
-          </HeroTopic>
-        ))}
+        <select>
+          {topics.map((t, i) => (
+            <option>{t.name}</option>
+          ))}
+        </select>
       </HeroTopicWrapper>
       <HeroEntryRow>
         <HeroEntryRowColumn1>

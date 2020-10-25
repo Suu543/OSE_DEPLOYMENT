@@ -40,7 +40,7 @@ const ReadBlog = () => {
 
   const loadBlog = async () => {
     let response = await readBlog(slug);
-    console.log('reso', response);
+
     setBlog({
       topics: response.topics,
       image: response.image,

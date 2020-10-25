@@ -8,7 +8,8 @@ export const HeroContainer = styled.div`
 export const HeroTopicWrapper = styled.div`
   display: flex;
   max-width: 1200px;
-  width: 1200px;
+  width: 100%;
+  /* load more */
   border-top: 1px solid #d1d4d7;
   border-bottom: 1px solid #d1d4d7;
   gap: 1rem;
@@ -37,7 +38,7 @@ export const HeroTopic = styled.span`
 export const HeroEntryRow = styled.div`
   margin-top: 5vh;
   display: grid;
-  width: 1200px;
+   /* ax0width: 1200px; */
   grid-template-columns: 6fr 6fr;
   grid-template-areas: 'column1 column2';
   box-shadow: 1px 1px 20px 1px #f9f9f9;
@@ -46,6 +47,13 @@ export const HeroEntryRow = styled.div`
   &:hover {
     box-shadow: 2px 2px 20px 1px gray;
   }
+
+  @media all and (max-width: 1100px ){
+    grid-template-columns: 12fr;
+    grid-template-areas: 
+       "Image"
+       "Content"
+  }
 `;
 
 export const HeroEntryRowColumn1 = styled.div`
@@ -53,6 +61,10 @@ export const HeroEntryRowColumn1 = styled.div`
     display: block;
     width: 100%;
     height: 100%;
+  }
+
+  @media all and (max-width: 1100px ){
+    grid-area: Image;
   }
 `;
 
@@ -75,6 +87,10 @@ export const HeroEntryRowColumn2 = styled.div`
       color: white;
       background: linear-gradient(90deg, #5f35d4, #62ebff);
     }
+
+    @media all and (max-width: 1100px ){
+     grid-area: Content;
+  }
   }
 
   h1 {
@@ -123,6 +139,18 @@ export const HeroPostCard = styled.div`
   width: 30%;
   border: 3px solid #f9f9f9;
   height: 44vh;
+
+  @media all and (max-width: 1100px ){
+    width: 45%;
+    justify-content: space-evenly;
+    margin: auto;
+  }
+
+  @media all and (max-width: 750px) {
+    width: 90%;
+    justify-content: center;
+    margin: auto;
+  }
 `;
 
 export const HeroPostCardWrapper = styled.article`
