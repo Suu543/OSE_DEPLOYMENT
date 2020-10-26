@@ -12,6 +12,11 @@ export const Nav = styled.nav`
   align-items: center;
   padding: 8vh 0;
   z-index: 10;
+
+  @media all and (max-width: 1100px ){
+    width: 95%;
+    margin: auto;
+  }
 `;
 
 export const NavLogo = styled.div`
@@ -46,11 +51,9 @@ export const Bars = styled(FaBars)`
 
   @media screen and (max-width: 768px) {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-right: 2rem;
     /* transform: translate(-100%, 75%); */
-    font-size: 1.8rem;
+    font-size: 3rem;
     cursor: pointer;
   }
 `;

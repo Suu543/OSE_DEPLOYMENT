@@ -14,7 +14,25 @@ export const HeroTopicWrapper = styled.div`
   border-bottom: 1px solid #d1d4d7;
   gap: 1rem;
   padding: 1.5rem 0;
+
+  @media all and (max-width: 1250px ){
+    display: none;
+  }
 `;
+
+export const HeroTopicSelectWrapper = styled.div`
+  display: none;
+
+  @media all and (max-width: 1250px) {
+    display: flex;
+    width: 95%;
+    margin: auto;
+    border-top: 1px solid #d1d4d7;
+    border-bottom: 1px solid #d1d4d7;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+`
 
 export const HeroTopic = styled.span`
   font-size: 1.2rem;
@@ -35,6 +53,13 @@ export const HeroTopic = styled.span`
   }
 `;
 
+export const HeroSelect = styled.select`
+  display: block;
+  font-weight: bold;
+  border: none;
+  outline: none;
+`
+
 export const HeroEntryRow = styled.div`
   margin-top: 5vh;
   display: grid;
@@ -49,10 +74,13 @@ export const HeroEntryRow = styled.div`
   }
 
   @media all and (max-width: 1100px ){
+    width: 95%;
+    margin: auto;
+    margin-top: 2rem;
     grid-template-columns: 12fr;
     grid-template-areas: 
        "Image"
-       "Content"
+       "Content";
   }
 `;
 

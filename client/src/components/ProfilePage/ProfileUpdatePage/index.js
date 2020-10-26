@@ -10,7 +10,7 @@ import * as yup from 'yup';
 import 'react-toastify/dist/ReactToastify.min.css';
 import {
     FormWrap,
-    Icon,
+    ProfileUpdateIcon,
     FormContent,
 } from "../../AuthPage/AuthElements"
 import UpdateNameSection from "./UpdateName";
@@ -33,6 +33,7 @@ const Container = styled.div`
     rgba(10, 201, 122, 1) 100%
   );
 `
+
 
 const ProfileUpdate = () => {
     const { id } = useParams();
@@ -80,12 +81,12 @@ const ProfileUpdate = () => {
         <Container>
             <ToastContainer
               position="top-center"
-              autoClose={10000}
+              autoClose={2000}
               pauseOnFocusLoss
               pauseOnHover
               style={{ fontSize: '1.5rem' }}
             />
-            <Icon to="/">OSE</Icon>
+            <ProfileUpdateIcon to="/">OSE <b> - Profile Update</b></ProfileUpdateIcon>
             <FormWrap>
                 <FormContent>
                     <UpdateNameSection name={name} />

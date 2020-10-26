@@ -33,6 +33,9 @@ const UpdateNameSection = ({ name }) => {
             if (response) {
                 setText('Done');
                 toast.info(`🦄 + ${response.data.message}`);
+                setTimeout(() => {
+                    window.location.reload(false);
+                }, 2000);
             }
         } catch (error) {
             toast.error(error.response.data.error);

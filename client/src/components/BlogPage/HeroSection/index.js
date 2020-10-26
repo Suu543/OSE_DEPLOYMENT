@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useReactRouter from 'use-react-router';
 import { getTopics } from '../../../actions/topic';
 import { readBlogsByTopic } from '../../../actions/blog';
 import smartTrim from '../../../helpers/smartTrim';
@@ -7,7 +8,9 @@ import smartTrim from '../../../helpers/smartTrim';
 import {
   HeroContainer,
   HeroTopicWrapper,
+  HeroTopicSelectWrapper,
   HeroTopic,
+  HeroSelect,
   HeroEntryRow,
   HeroEntryRowColumn1,
   HeroEntryRowColumn2,
@@ -20,6 +23,7 @@ import {
 } from './HeroElements';
 
 const HeroSection = () => {
+  const { history, location, match } = useReactRouter();
   const [topics, setTopics] = useState([]);
   const [blog, setBlog] = useState([]);
   const [single, setSingle] = useState({
@@ -62,23 +66,32 @@ const HeroSection = () => {
     }
   };
 
-  // {topics.map((t, i) => (
-  //   <HeroTopic>
-  //     <Link to={`/topic/${t.slug}`}>{t.name}</Link>
-  //   </HeroTopic>
-  // ))}
+  const changeTopic = (e) => {
+    e.preventDefault();
+    const topicLink = e.target.value;
+    history.push(`${topicLink}`)
+  }
+
 
 
   return (
     <HeroContainer>
       <HeroTopicWrapper>
-        <HeroTopic>Topics</HeroTopic>
-        <select>
-          {topics.map((t, i) => (
-            <option>{t.name}</option>
-          ))}
-        </select>
+        <HeroTopic>Filter By Topcis</HeroTopic>
+        {topics.map((t, i) => (
+          <HeroTopic>
+            <Link to={`/topic/${t.slug}`}>{t.name}</Link>
+          </HeroTopic>
+        ))}
       </HeroTopicWrapper>
+      <HeroTopicSelectWrapper>
+        <HeroSelect onChange={changeTopic}>
+          <option selected disabled>Filter By Topcis</option>
+          {topics.map((t, i) => (
+            <option value={`/topic/${t.slug}`}>{t.name}</option>
+          ))}
+        </HeroSelect>
+      </HeroTopicSelectWrapper>
       <HeroEntryRow>
         <HeroEntryRowColumn1>
           <img src={single.image.url} alt="HeroFirstImage" />

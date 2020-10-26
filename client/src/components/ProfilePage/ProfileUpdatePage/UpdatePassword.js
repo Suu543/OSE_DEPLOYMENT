@@ -34,6 +34,9 @@ const UpdatePasswordSection = () => {
             if (response) {
                 setText('Done');
                 toast.info(`🦄 + ${response.data.message}`);
+                setTimeout(() => {
+                    window.location.reload(false);
+                }, 2000);
             }
         } catch (error) {
             toast.error(error.response.data.error);
@@ -43,8 +46,10 @@ const UpdatePasswordSection = () => {
     return (
         <Form style={{ margin: '2rem'}} onSubmit={handleSubmit(onSubmit)}>
             <FormLabel>Password</FormLabel>
+            {errors.password && toast.error(errors.password.message)}
             <FormInput type="password" name="password" ref={register} />
             <FormLabel>ConfirmPassword</FormLabel>
+            {errors.password && toast.error(errors.confirmPassword.message)}
             <FormInput type="password" name="confirmPassword" ref={register} />
             <FormButton type="submit">{text}</FormButton>
         </Form>
