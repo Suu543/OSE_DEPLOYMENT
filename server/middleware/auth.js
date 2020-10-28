@@ -5,27 +5,22 @@ const User = require('../models/User');
 dotenv.config();
 
 exports.auth = async (req, res, next) => {
-  if (req.header('Authorization')) {
+  try {
     const token = req.header('Authorization').replace('Bearer ', '');
+    const data = await JWT.verify(token, process.env.JWT_KEY);
+    const user = await User.findOne({ _id: data._id });
 
-    try {
-      const data = await JWT.verify(token, process.env.JWT_KEY);
-      const user = await User.findOne({ _id: data._id });
-
-      if (!user) {
-        throw new Error({ error: 'User Not Found or Not Valid Token' });
-      }
-
-      req.user = user;
-      req.token = token;
-      next();
-    } catch (error) {
-      return res
-        .status(401)
-        .send({ error: 'Not Authorized to access this resource' });
+    if (!user) {
+      throw new Error({ error: 'User Not Found or Not Valid Token' });
     }
-  } else {
-    return res.status(401).send({ error: 'Token has not been provided...' });
+
+    req.user = user;
+    req.token = token;
+    next();
+  } catch (error) {
+    return res
+      .status(401)
+      .send({ error: 'Not Authorized to access this resource' });
   }
 };
 

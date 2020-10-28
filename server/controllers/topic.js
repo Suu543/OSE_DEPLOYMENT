@@ -17,6 +17,7 @@ const s3 = new AWS.S3({
 exports.create = async (req, res) => {
   const { name, description, image } = req.body;
 
+  // eslint-disable-next-line new-cap
   const base64Data = new Buffer.from(
     image.replace(/^data:image\/\w+;base64,/, ''),
     'base64'

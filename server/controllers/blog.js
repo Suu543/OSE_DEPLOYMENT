@@ -22,14 +22,6 @@ const s3 = new AWS.S3({
   region: process.env.AWS_REGION,
 });
 
-exports.readAllBlogs = async (req, res) => {
-  try {
-    const allBlogs = await Blog.find({});
-    return res.status(200).json(allBlogs);
-  } catch (error) {
-    return res.status(400).json({ error });
-  }
-};
 
 exports.createBlog = async (req, res) => {
   // 태그 입력 방식 때문에 요청을 모아서 한 번에 처리
@@ -226,7 +218,7 @@ exports.readBlog = async (req, res) => {
 
   try {
     const blog = await Blog.findOne({ slug })
-      .populate('topics', 'name')
+      .populate('topics', 'name slug')
       .populate('tags', 'name');
     return res.status(200).json(blog);
   } catch (error) {
@@ -319,6 +311,15 @@ exports.findByTopic = async (req, res) => {
       .populate('tags', 'name');
 
     return res.status(200).json(blogs);
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
+exports.readAllBlogs = async (req, res) => {
+  try {
+    const allBlogs = await Blog.find({}).populate('topics', 'name slug').populate('tags', 'name');
+    return res.status(200).json(allBlogs);
   } catch (error) {
     return res.status(400).json({ error });
   }

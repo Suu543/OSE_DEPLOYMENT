@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import moment from 'moment';
 import { useParams } from 'react-router';
 import { readBlog } from '../../../actions/blog';
@@ -19,6 +18,7 @@ import {
   BlogBodyWrapper,
   BlogBody,
 } from './BlogReadElements';
+
 
 const ReadBlog = () => {
   const { slug } = useParams();

@@ -167,6 +167,7 @@ export const HeroPostCard = styled.div`
   width: 30%;
   border: 3px solid #f9f9f9;
   height: 44vh;
+  
 
   @media all and (max-width: 1100px ){
     width: 45%;
@@ -192,7 +193,7 @@ export const HeroPostCardImage = styled.div`
   img {
     display: block;
     width: 100%;
-    height: 190px;
+    height: 200px;
     object-fit: cover;
     object-position: 0 0;
   }
@@ -202,10 +203,6 @@ export const HeroPostCardContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-
-  span {
-    font-size: 1.5rem;
-  }
 
   h1 {
     margin-top: 1.5rem;
@@ -226,6 +223,13 @@ export const HeroPostCardContent = styled.div`
       font-size: 1.2rem;
     }
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+  }
+
 `;
 
 export const HeroH1 = styled.h1`

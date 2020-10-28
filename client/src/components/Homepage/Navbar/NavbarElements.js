@@ -11,14 +11,35 @@ export const Nav = styled.nav`
   align-items: center;
   font-size: 1.6rem;
   position: sticky;
+  z-index: 9999;
   top: 0;
-  z-index: 10;
+  right: 0;
   overflow: hidden;
 
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
   }
 `;
+
+export const NavBlog = styled.nav`
+  background: black;
+  height: 80px;
+  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  position: sticky;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+
+  @media screen and (max-width: 960px) {
+    transition: 0.8s all ease;
+  }
+`;
+
 
 export const NavbarContainer = styled.div`
   display: flex;
@@ -112,3 +133,9 @@ export const NavBtnLink = styled(LinkR)`
     color: #010606;
   }
 `;
+
+export const NavLogoutBtn = styled.button`
+  padding: 10px 22px;
+  color: #01bf71;
+  background: #010606;
+`

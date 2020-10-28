@@ -4,7 +4,7 @@ import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
 import { isAuth } from '../../../actions/authHelpers';
 import {
-  Nav,
+  NavBlog,
   NavbarContainer,
   NavLogo,
   MobileIcon,
@@ -14,9 +14,9 @@ import {
   NavBtn,
   NavBtnLink,
   NavLogoutBtn
-} from './NavbarElements';
+} from '../../Homepage/Navbar/NavbarElements';
 
-const Navbar = ({ toggle }) => {
+const BlogNavbar = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -52,7 +52,7 @@ const Navbar = ({ toggle }) => {
   return (
     <Fragment>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <Nav scrollNav={scrollNav}>
+        <NavBlog scrollNav={scrollNav}>
           <NavbarContainer>
             <NavLogo to="/" onClick={toggleHome}>
               OSE
@@ -136,10 +136,10 @@ const Navbar = ({ toggle }) => {
               )}
             </NavBtn>
           </NavbarContainer>
-        </Nav>
+        </NavBlog>
       </IconContext.Provider>
     </Fragment>
   );
 };
 
-export default Navbar;
+export default BlogNavbar;

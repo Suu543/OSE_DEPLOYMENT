@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const BlogContainer = styled.section`
-  padding-top: 10vh;
   width: 100%;
 `;
 
@@ -14,27 +13,49 @@ export const BlogWrapper = styled.section`
 export const BlogImage = styled.section`
   img {
     display: block;
-    width: 85%;
+    width: 70%;
     height: 70vh;
     margin: auto;
+  }
+
+  @media all and (max-width: 1250px) and (min-width: 900px) {
+    img {
+      width: 90%;
+    }
+  }
+  
+  @media all and (max-width: 900px) {
+    img {
+      width: 100%;
+    }
   }
 `;
 
 export const Blog = styled.section`
   width: 100%;
-  position: absolute;
-  top: 60%;
+  position: relative;
+  z-index: 2;
+  top: -15vh;
 `;
 
 export const BlogHeader = styled.section`
-  width: 70%;
+  width: 50%;
   margin: auto;
   background: white;
 
   hr {
-    width: 90%;
+    width: 80%;
     margin: auto;
-    padding: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  @media all and (max-width: 1250px) {
+    width: 90%;
+  }
+
+  @media all and (max-width: 900px) {
+     width: 100%;
   }
 `;
 
@@ -73,6 +94,8 @@ export const BlogTitleSection = styled.section`
   h1 {
     font-size: 4rem;
     color: #555a6e;
+    text-transform: capitalize;
+    font-weight: 500;
   }
 `;
 
@@ -83,8 +106,11 @@ export const BlogExcerptSection = styled.section`
 
   h2 {
     font-size: 2rem;
-    color: #557eb9;
+    font-weight: lighter;
+    color: #555A6E;
+    font-family: sans-serif;
   }
+  
 `;
 
 export const BlogCreateDateSNSSection = styled.section`
@@ -112,12 +138,16 @@ export const BlogDateSection = styled.section`
 `;
 
 export const BlogBodyWrapper = styled.section`
-  width: 80%;
+  width: 60%;
   margin: auto;
   /* height: 110vh;
   background: red; */
   display: flex;
   flex-direction: column;
+
+  @media all and (max-width: 1250px) {
+    width: 100%;
+  }
 `;
 
 export const BlogBody = styled.section`
@@ -129,7 +159,11 @@ export const BlogBody = styled.section`
     width: 60%;
     margin: auto;
     color: #555a6e;
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  a {
+    color: black;
   }
 
   h1,
@@ -139,11 +173,21 @@ export const BlogBody = styled.section`
   h5,
   h6 {
     width: 60%;
-    margin: auto;
-    font-size: 4rem;
+    margin: 2rem auto;
+    color: #555A6E;
+    font-size: 2.8rem;
+    font-weight: 500;
   }
 
   img {
     width: 100%;
+  }
+
+  @media all and (max-width: 1250px) {
+    p, h1, h2, h3, h4, h5, h6 {
+      width: 90%;
+    }
+
+    width: 90%;
   }
 `;

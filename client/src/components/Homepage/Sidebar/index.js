@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { isAuth } from '../../../actions/authHelpers';
 import {
   SidebarContainer,
   Icon,
@@ -12,6 +13,21 @@ import {
 
 // url을 추적해서 url이 변경되면 isOpen을 false로 변경하는 방식을 이용할 수 있지 않을까?
 const Sidebar = ({ isOpen, toggle }) => {
+  const [auth, setAuth] = useState({
+    check: false,
+    role: '',
+    name: '',
+  });
+
+  const { check, role, name } = auth;
+
+  useEffect(() => {
+    const checkAuth = isAuth();
+    console.log(checkAuth);
+    if (checkAuth)
+      setAuth({ check: true, role: checkAuth.role, name: checkAuth.name });
+  }, []);
+
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -36,9 +52,9 @@ const Sidebar = ({ isOpen, toggle }) => {
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/signin" onClick={toggle}>
-            Sign In
-          </SidebarRoute>
+          {!check && <SidebarRoute to="/signin" onClick={toggle}>Sign In</SidebarRoute>}
+          {check && role === 'admin' && <SidebarRoute to="/admin">{name}</SidebarRoute>}
+          {check && role === 'user' && <SidebarRoute to="/private">{name}</SidebarRoute>}
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

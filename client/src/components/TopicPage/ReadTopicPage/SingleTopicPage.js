@@ -22,12 +22,13 @@ export const SingleTopicContainer = styled.section`
 export const SingleTopicHeaderContainer = styled.section`
   width: 100%;
   display: grid;
-  background: #ffd3d5;
+  background: #A0BFE4;
   min-height: 70vh;
   grid-template-columns: 6fr 6fr;
 
   @media all and (max-width: 1000px) {
     grid-template-columns: 12fr;
+    padding-top: 5rem;
   }
 `;
 
@@ -44,7 +45,7 @@ export const SingleTopicHeaderLeft = styled.section`
     font-size: 3.5rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    color: rgb(70, 45, 75);
+    color: white;
   }
 
   p {

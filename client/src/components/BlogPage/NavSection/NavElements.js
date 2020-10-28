@@ -39,9 +39,15 @@ export const NavLink = styled(Link)`
   font-size: 1.4rem;
   font-family: sans-serif;
   font-weight: 700;
+  transition: all 0.2s ease-in-out;
 
   &:active {
     color: #15cefc;
+  }
+
+  &:hover {
+    padding: 2px;
+    border-bottom: 2px solid #6FD6A3;
   }
 `;
 

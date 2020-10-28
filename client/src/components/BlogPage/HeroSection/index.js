@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useReactRouter from 'use-react-router';
 import { getTopics } from '../../../actions/topic';
-import { readBlogsByTopic } from '../../../actions/blog';
+import { readAllBlogs } from '../../../actions/blog';
 import smartTrim from '../../../helpers/smartTrim';
 
 import {
@@ -32,6 +32,7 @@ const HeroSection = () => {
     excerpt: '',
     topics: {},
     updatedAt: '',
+    slug: ""
   });
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const HeroSection = () => {
 
   const loadBlogs = async () => {
     try {
-      let blogs = await readBlogsByTopic('air-pollution');
+      let blogs = await readAllBlogs();
       console.log('blogs', blogs);
       console.log(blogs[0]);
       setSingle({
@@ -59,6 +60,7 @@ const HeroSection = () => {
         excerpt: blogs[0].excerpt,
         topics: blogs[0].topics[0],
         updatedAt: blogs[0].updatedAt,
+        slug: blogs[0].slug
       });
       setBlog([...blog, ...blogs]);
     } catch (error) {
@@ -114,8 +116,12 @@ const HeroSection = () => {
                   <img src={b.image.url} alt="blog" />
                 </HeroPostCardImage>
                 <HeroPostCardContent>
-                  <span>{b.topics[0].name}</span>
-                  <h1>{b.title}</h1>
+                  <Link to={`/topic/${b.topics[0].slug}`}>{b.topics[0].name}</Link>
+                  <h1>
+                    <Link to={`/blog/${b.slug}`}>
+                    {b.title}
+                    </Link>
+                  </h1>
                   <p>{smartTrim(b.excerpt, 70, ' ', '...')}</p>
                   <div>
                     <span>{b.createdAt}</span>
