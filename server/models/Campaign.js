@@ -22,12 +22,16 @@ const campaignSchema = new mongoose.Schema(
       required: true,
     },
 
-    organizer: {
-      type: ObjectId,
-      ref: 'User',
+    link: {
+      type: String,
     },
 
-    submitBtn: {
+    image: {
+      url: String,
+      key: String,
+    },
+
+    buttonText: {
       type: String,
       required: true,
     },

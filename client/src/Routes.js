@@ -16,11 +16,12 @@ import ResetPassword from './components/AuthPage/Reset';
 import PublicRoute from './components/AuthPage/PublicRoute';
 import PrivateRoute from './components/AuthPage/PrivateRoute';
 import AdminRoute from './components/AuthPage/AdminRoute';
-import CampaignCreatePage from './components/AdminPage/CampaignPage';
+import CampaignCreatePage from './components/AdminPage/CampaignPage/CreateCampaign';
 
 import Admin from './pages/Admin';
 import AdminCreateTopic from './pages/AdminCreateTopic';
 import AdminReadTopic from "./pages/AdminReadTopic";
+import AdminReadCampaign from "./pages/AdminReadCampaign";
 
 const Routes = () => (
   <BrowserRouter>
@@ -33,10 +34,11 @@ const Routes = () => (
       <Route path="/blogs" component={blog} exact />
       <Route path="/topic/:slug" component={SingleTopic} exact />
       <Route path="/blog/:slug" component={SingleBlog} exact />
-      <Route path="/campaign" component={CampaignCreatePage} exact />
       <AdminRoute path="/admin" component={Admin} exact />
       <AdminRoute path="/admin/topics" component={AdminReadTopic} exact />
       <AdminRoute path="/admin/topic/create" component={AdminCreateTopic} exact />
+      <AdminRoute path="/admin/campaigns" component={AdminReadCampaign} exact />
+      <AdminRoute path="/admin/campaign/create" component={CampaignCreatePage} exact />
       <PublicRoute
         path="/auth/activate/:token"
         component={ActivateAccount}

@@ -1,16 +1,14 @@
 import React, { Fragment } from "react";
 import NavbarSection from "../components/AdminPage/Navbar";
-import TopicReadPage from '../components/AdminPage/TopicPage/ReadTopicPage';
 import ScrollToTop from "../components/ScrollToTop";
 
-const AdminReadTopic = () => {
+const AdminReadCampaign = () => {
     return (
         <Fragment>
-            <ScrollToTop />  
+            <ScrollToTop />
             <NavbarSection />
-            <TopicReadPage />
         </Fragment>
     )
 }
 
-export default AdminReadTopic;
+export default AdminReadCampaign;

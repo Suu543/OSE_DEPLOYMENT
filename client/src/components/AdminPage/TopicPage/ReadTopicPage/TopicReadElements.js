@@ -11,8 +11,10 @@ export const TopicInfoContainer = styled.div`
     min-height: 25vh;
     display: flex;
     flex-direction: column;
-    background: rgb(149,129,254);
-    background: linear-gradient(87deg, rgba(149,129,254,1) 0%, rgba(51,202,255,1) 100%);
+    /* background: rgb(149,129,254);
+    background: linear-gradient(87deg, rgba(149,129,254,1) 0%, rgba(51,202,255,1) 100%); */
+    background: rgb(232,21,0);
+    background: linear-gradient(167deg, rgba(232,21,0,1) 0%, rgba(236,161,55,1) 100%);
 `
 
 export const TopicInfoH1 = styled.h1`

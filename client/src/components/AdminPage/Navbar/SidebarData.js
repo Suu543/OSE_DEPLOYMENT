@@ -6,22 +6,22 @@ import * as IoIcons from "react-icons/io"
 const SidebarData = [
     {
         title: 'Home',
-        path: '/',
+        path: '/admin',
         icon: <AiIcons.AiFillHome />,
     },
     {
         title: 'Blogs',
-        path: '/admin/blog',
+        path: '/admin/blogs',
         icon: <IoIcons.IoIosPaper />,
     },
     {
         title: 'Campaigns',
-        path: '/admin/campaign',
+        path: '/admin/campaigns',
         icon: <FaIcons.FaCartPlus />,
     },
     {
         title: 'Topics',
-        path: '/admin/topic',
+        path: '/admin/topics',
         icon: <IoIcons.IoMdPeople />,
     },
     {
