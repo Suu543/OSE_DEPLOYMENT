@@ -23,6 +23,7 @@ import AdminCreateTopic from './pages/AdminCreateTopic';
 import AdminReadTopic from "./pages/AdminReadTopic";
 import AdminReadCampaign from "./pages/AdminReadCampaign";
 import AdminReadBlog from "./pages/AdminReadBlog";
+import AdminCreateBlog from "./pages/AdminCreateBlog";
 
 
 const Routes = () => (
@@ -42,6 +43,7 @@ const Routes = () => (
       <AdminRoute path="/admin/campaigns" component={AdminReadCampaign} exact />
       <AdminRoute path="/admin/campaign/create" component={CampaignCreatePage} exact />
       <AdminRoute path="/admin/blogs" component={AdminReadBlog} exact />
+      <AdminRoute path="/admin/blog/create" component={AdminCreateBlog} exact/>
       <PublicRoute
         path="/auth/activate/:token"
         component={ActivateAccount}
