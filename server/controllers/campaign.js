@@ -71,3 +71,7 @@ exports.createCampaign = async (req, res) => {
     }
   });
 };
+
+exports.removeCampaign = async (req, res) => {}
+exports.readAllCampaigns = async (req, res) => {};
+exports.readSingleCampaign = async (req, res) => {};

@@ -8,13 +8,14 @@
 
 const mongoose = require('mongoose');
 
-const { ObjectId } = mongoose.Schema;
+// const { ObjectId } = mongoose.Schema;
 
 const campaignSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       required: true,
+      unique: true,
     },
 
     description: {
