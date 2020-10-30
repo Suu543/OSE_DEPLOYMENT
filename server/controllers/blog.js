@@ -22,7 +22,6 @@ const s3 = new AWS.S3({
   region: process.env.AWS_REGION,
 });
 
-
 exports.createBlog = async (req, res) => {
   // 태그 입력 방식 때문에 요청을 모아서 한 번에 처리
   const saveMultiTags = async (tags) => {
@@ -107,42 +106,42 @@ exports.createBlog = async (req, res) => {
       } = fields;
 
       // Validation 처리는 Client 단에서
-      //   if (!title || title.length < 2) {
-      //     return res.json({
-      //       error: 'Please Enter At Least One Characters...',
-      //     });
-      //   }
+      if (!title || title.length < 2) {
+        return res.json({
+          error: 'Please Enter At Least One Characters...',
+        });
+      }
 
-      //   if (!excerpt || excerpt < 10) {
-      //     return res.json({
-      //       error: 'Please Enter At Least Ten Characters...',
-      //     });
-      //   }
+      if (!excerpt || excerpt < 10) {
+        return res.json({
+          error: 'Please Enter At Least Ten Characters...',
+        });
+      }
 
-      //   if (!body || body.length < 1) {
-      //     console.log('body error');
-      //     return res.json({
-      //       error: 'Please Enter At Least One Character...',
-      //     });
-      //   }
+      if (!body || body.length < 1) {
+        console.log('body error');
+        return res.json({
+          error: 'Please Enter At Least One Character...',
+        });
+      }
 
-      //   if (!topics || topics.length === 0) {
-      //     return res.json({
-      //       error: 'Please Pick At Least One Topic...',
-      //     });
-      //   }
+      if (!topics || topics.length === 0) {
+        return res.json({
+          error: 'Please Pick At Least One Topic...',
+        });
+      }
 
-      //   if (!tags || tags.length === 0) {
-      //     return res.json({
-      //       error: 'Please Pick At Least One Tag...',
-      //     });
-      //   }
+      if (!tags || tags.length === 0) {
+        return res.json({
+          error: 'Please Pick At Least One Tag...',
+        });
+      }
 
-      //   if (!image || image.length < 1) {
-      //     return res.json({
-      //       error: 'Please Select Main image For this Work...',
-      //     });
-      //   }
+      if (!image || image.length < 1) {
+        return res.json({
+          error: 'Please Select Main image For this Work...',
+        });
+      }
 
       let imageData = image;
       if (image.substr(0, 7) === 'base64,') {
@@ -200,7 +199,7 @@ exports.createBlog = async (req, res) => {
           const newBlog = await blog.save();
           return res.status(200).send({
             message: 'Success fully create new blog!',
-            blog: newBlog
+            blog: newBlog,
           });
         } catch (error) {
           console.log('Fourth');
@@ -321,7 +320,9 @@ exports.findByTopic = async (req, res) => {
 
 exports.readAllBlogs = async (req, res) => {
   try {
-    const allBlogs = await Blog.find({}).populate('topics', 'name slug').populate('tags', 'name');
+    const allBlogs = await Blog.find({})
+      .populate('topics', 'name slug')
+      .populate('tags', 'name');
     return res.status(200).json(allBlogs);
   } catch (error) {
     return res.status(400).json({ error });

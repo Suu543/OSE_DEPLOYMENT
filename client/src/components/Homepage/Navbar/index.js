@@ -111,14 +111,14 @@ const Navbar = ({ toggle }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="donate"
+                  to="/campaign"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Donate
+                  Campaign
                 </NavLinks>
               </NavItem>
             </NavMenu>
