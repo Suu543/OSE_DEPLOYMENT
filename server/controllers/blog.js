@@ -198,10 +198,13 @@ exports.createBlog = async (req, res) => {
 
         try {
           const newBlog = await blog.save();
-          return res.status(200).json(newBlog);
+          return res.status(200).send({
+            message: 'Success fully create new blog!',
+            blog: newBlog
+          });
         } catch (error) {
           console.log('Fourth');
-          return res.status(400).json({ error });
+          return res.status(400).send({ error });
         }
       });
     });

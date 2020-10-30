@@ -102,8 +102,9 @@ export const HeroEntryRowColumn2 = styled.div`
   padding: 2rem;
   justify-content: space-between;
 
-  span {
+  span, a {
     display: inline-block;
+    text-decoration: none;
     font-size: 1.5rem;
     padding-left: 5px;
     border-left: 2px solid #5f35d4;
@@ -125,6 +126,11 @@ export const HeroEntryRowColumn2 = styled.div`
     font-size: 3rem;
     font-weight: 700;
     font-family: sans-serif;
+
+    a {
+      font-size: 3rem;
+      font-weight: 700;
+    }
   }
 
   p {

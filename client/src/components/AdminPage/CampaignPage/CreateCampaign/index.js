@@ -47,7 +47,7 @@ const CampaignCreatePage = () => {
 
     useEffect(() => {
         if(!image) {
-            setPreview("https://www.sabre-roads.org.uk/wiki/images/3/3d/Photo-required.png");
+            setPreview(undefined);
             return
         }
 
@@ -66,7 +66,7 @@ const CampaignCreatePage = () => {
 
     const onSelectFile = e => {
         if (!e.target.files || e.target.files.length === 0 ) {
-            setState({...state, image: "https://www.sabre-roads.org.uk/wiki/images/3/3d/Photo-required.png"});
+            setState({...state, image: undefined});
             return
         }
 

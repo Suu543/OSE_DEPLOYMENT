@@ -98,9 +98,9 @@ const HeroSection = () => {
         <HeroEntryRowColumn1>
           <img src={single.image.url} alt="HeroFirstImage" />
         </HeroEntryRowColumn1>
-        <HeroEntryRowColumn2>
-          <span>{single.topics.name}</span>
-          <h1>{single.title}</h1>
+        <HeroEntryRowColumn2> 
+          <Link to={`/topic/${single.topics.slug}`}>{single.topics.name}</Link>
+          <h1><Link to={`/blog/${single.slug}`}>{single.title}</Link></h1>
           <p>{single.excerpt}</p>
           <div>
             <span>{single.updatedAt}</span>
@@ -116,7 +116,11 @@ const HeroSection = () => {
                   <img src={b.image.url} alt="blog" />
                 </HeroPostCardImage>
                 <HeroPostCardContent>
-                  <Link to={`/topic/${b.topics[0].slug}`}>{b.topics[0].name}</Link>
+                  {
+                    b.topics.map((t, i) => (
+                      <Link to={`/topic/${t.slug}`}>{t.name}</Link>
+                    ))
+                  }
                   <h1>
                     <Link to={`/blog/${b.slug}`}>
                     {b.title}

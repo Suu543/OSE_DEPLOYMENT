@@ -22,3 +22,57 @@ export const CampaignInfoH1 = styled.h1`
     padding: 1rem;
     color: #FFFFFF;
 `
+
+export const CampaignReadWrapper = styled.div`
+    width: 85%;
+    margin: auto;
+    display: flex;
+    min-height: 70vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: white;
+    border-radius: 15px;
+    align-items: center;
+    position: relative;
+    top: -7.5vh;
+`
+
+export const CampaignTableH1 = styled.h1`
+    font-size: 3rem;
+    margin: 4rem auto;
+    cursor: pointer;
+    width: 90%;
+    text-align: left;
+
+    a {
+        display: inline-block;
+        width: 100%;
+        text-decoration: none;
+        color: gray;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            color: black;
+        }
+    }
+`
+
+export const CampaignTable = styled.table`
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 90%;
+    margin-bottom: 5rem;
+    text-align: center;
+
+    tr:nth-child(even) {
+        background-color: #F9FDFE;
+    }
+`;
+
+export const CampaignTableRow = styled.tr``;
+
+export const CampaignTableHeader = styled.th`
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 2rem;
+`;
