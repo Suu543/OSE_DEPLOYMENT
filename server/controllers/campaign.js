@@ -72,6 +72,55 @@ exports.createCampaign = async (req, res) => {
   });
 };
 
-exports.removeCampaign = async (req, res) => {}
-exports.readAllCampaigns = async (req, res) => {};
-exports.readSingleCampaign = async (req, res) => {};
+exports.readAllCampaigns = async (req, res) => {
+  try {
+    const campaigns = await Campaign.find({});
+
+    return res.status(200).json(campaigns);
+  } catch (error) {
+    return res.status(400).json({
+      error: 'Failed to load Topics',
+    });
+  }
+};
+
+exports.readSingleCampaign = async (req, res) => {
+  const { title } = req.params;
+
+  try {
+    const singleCampaign = await Campaign.findOne({ title });
+
+    if (!singleCampaign) {
+      return res.status(404).json({
+        error: `${title} campaign not found...`,
+      });
+    }
+
+    return res.status(200).json(singleCampaign);
+  } catch (error) {
+    return res.status(404).json({
+      error: `${title} campaign not found...`,
+    });
+  }
+};
+
+exports.removeCampaign = async (req, res) => {
+  const { title } = req.params;
+
+  try {
+    const removedCampaign = await Campaign.findOneAndRemove({ title });
+    if (!removedCampaign) {
+      return res.status(404).json({
+        error: `${title} campaign not found...`,
+      });
+    }
+
+    return res.status(200).json({
+      message: `${title} is successfully deleted...`,
+    });
+  } catch (error) {
+    return res.status(404).json({
+      error: `Failed to delete ${title} campaign...`,
+    });
+  }
+};

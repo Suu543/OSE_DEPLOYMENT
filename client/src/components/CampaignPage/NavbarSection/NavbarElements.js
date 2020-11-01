@@ -34,18 +34,20 @@ export const CampaignNavbarLogo = styled(Link)`
   text-decoration: none;
 
   svg {
-      font-size: 4rem;
+      font-size: 3rem;
   }
 `
 
 export const CampaignNavbarTitle = styled(Link)`
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
     text-decoration: none;
+    font-weight: bold;
 `
 
 export const CampaignNavbarSignin = styled(Link)`
     color: white;
-    font-size: 4rem;
+    font-weight: 400;
+    font-size: 2.5rem;
     text-decoration: none;
 `
