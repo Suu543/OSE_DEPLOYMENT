@@ -1,14 +1,6 @@
-// CampaignID
-// Campaign Title
-// Campaign Description
-// Campaign Organizer - References User Model
-// Campaign Submit Button Text
-// Campaign Donation Amount
-// Campaign Date
-
 const mongoose = require('mongoose');
 
-// const { ObjectId } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 
 const campaignSchema = new mongoose.Schema(
   {
@@ -22,11 +14,7 @@ const campaignSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
-    link: {
-      type: String,
-    },
-
+    
     image: {
       url: String,
       key: String,
@@ -43,12 +31,34 @@ const campaignSchema = new mongoose.Schema(
       default: 0,
     },
 
+    body: {
+      type: {},
+      required: true,
+      max: 200000,
+    },
+
     startDate: {
       type: Date,
     },
 
     endDate: {
       type: Date,
+    },
+
+    references: [
+      {
+        type: ObjectId,
+        ref: 'Reference',
+      },
+    ],
+
+    like: {
+      type: [{ type: ObjectId, ref: 'User' }],
+    },
+
+    postedBy: {
+      type: ObjectId,
+      ref: 'User',
     },
   },
   {

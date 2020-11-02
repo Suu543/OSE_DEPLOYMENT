@@ -212,3 +212,16 @@ export const CampaignDate = styled.div`
 export const CampaignLink = styled.div`
     color: white;
 `
+
+export const CampaignDetailWrapper = styled.div`
+    max-width: 70%;
+    min-height: 100vh;
+    margin: auto;
+    margin-top: 5vh;
+`
+
+export const CampaignDetailH1 = styled.h1`
+   font-size: 4rem;
+   text-align: center;
+   margin-bottom: 5vh;
+`

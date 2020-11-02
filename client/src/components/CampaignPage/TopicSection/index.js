@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { CampaignTopicContainer, CampaignTopicWrapper } from "./TopicSectionElements"
+import { 
+    CampaignTopicContainer, 
+    CampaignTopicWrapper,
+    CampaignTopicList, } from "./TopicSectionElements"
 import { getTopics } from "../../../actions/topic"
 
 const CampaignTopicSection = () => {
@@ -22,7 +25,9 @@ const CampaignTopicSection = () => {
         <CampaignTopicContainer>
             <CampaignTopicWrapper>
                 {topics && topics.map((t, i) => (
-
+                    <CampaignTopicList>
+                        {t.name}
+                    </CampaignTopicList>
                 ))}
             </CampaignTopicWrapper>
         </CampaignTopicContainer>

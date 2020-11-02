@@ -12,7 +12,7 @@ export const CampaignNavbarContainer = styled.div`
     top: 0;
     right: 0;
     overflow: hidden;
-    background: #000000;
+    background: white;
 `
 
 export const CampaignNavWrapper = styled.div`
@@ -24,7 +24,7 @@ export const CampaignNavWrapper = styled.div`
 `
 
 export const CampaignNavbarLogo = styled(Link)`
-  color: #fff;
+  color: black;
   cursor: pointer;
   font-size: 2.5rem;
   display: flex;
@@ -40,13 +40,13 @@ export const CampaignNavbarLogo = styled(Link)`
 
 export const CampaignNavbarTitle = styled(Link)`
     font-size: 3rem;
-    color: white;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 `
 
 export const CampaignNavbarSignin = styled(Link)`
-    color: white;
+    color: black;
     font-weight: 400;
     font-size: 2.5rem;
     text-decoration: none;

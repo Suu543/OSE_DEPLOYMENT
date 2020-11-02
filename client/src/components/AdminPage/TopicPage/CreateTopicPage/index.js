@@ -3,7 +3,9 @@ import { getCookie } from "../../../../actions/authHelpers";
 import { TopicContainer, TopicTitleH1, TopicForm, TopicImageInput, TopicTitleInput, TopicSubmitBtn } from "./TopicCreateElements";
 import Resizer from "react-image-file-resizer";
 import { createTopic } from "../../../../actions/topic";
+import QuillEditor from "../../../../helpers/QuillEditor";
 import { ToastContainer, toast } from 'react-toastify';
+import "react-quill/dist/quill.snow.css";
 import 'react-toastify/dist/ReactToastify.min.css';
 
 const TopicCreatePage = () => {

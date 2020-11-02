@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const HeroContainer = styled.div`
     width: 100%;
     min-height: 75vh;
-    border: 1px solid #E8E8E8;
-    margin-top: 5vh;
+    border: 2px solid #E8E8E8;
 `;
 
 export const HeroWrapper = styled.div`
@@ -26,7 +25,7 @@ export const HeroColumn1 = styled.div`
     padding: 3rem;
     justify-content: center;
     gap: 2rem;
-    border-right: 1px solid #E8E8E8;
+    border-right: 2px solid #E8E8E8;
     max-height: 60vh;
     margin: auto;
 `;

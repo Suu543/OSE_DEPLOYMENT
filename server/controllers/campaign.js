@@ -24,6 +24,30 @@ exports.createCampaign = async (req, res) => {
     endDate,
   } = req.body;
 
+  const saveMultiReferences = (references) => {
+    const results = [];
+
+    references.forEach((ref) => {
+      if (ref.url.length > 0 && ref.key.length > 0) {
+        results.push(ref);
+      }
+    });
+
+    return results;
+  };
+
+  const uniqueRefs = (arr) => {
+    const filteredArr = arr.reduce((acc, current) => {
+      const dup_checker = acc.find((item) => item.url == current.url);
+      if (dup_checker) {
+        return acc.concat([current]);
+      }
+      return acc;
+    }, []);
+
+    return filteredArr;
+  };
+
   const base64Data = new Buffer.from(
     image.replace(/^data:image\/\w+;base64,/, ''),
     'base64'

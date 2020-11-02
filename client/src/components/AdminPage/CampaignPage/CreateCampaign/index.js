@@ -21,12 +21,15 @@ import {
     CampaignButtonText,
     CampaignAmount,
     CampaignDate,
-    CampaignLink
+    CampaignLink,
+    CampaignDetailWrapper,
+    CampaignDetailH1
 } from "./CampaignCreateElements";
 import { FaBars, FaTimes, FaAngleDoubleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import QuillEditor from "../../../../helpers/QuillEditor";
 
 const CampaignCreatePage = () => {
     const [selectedFile, setSelectedFile] = useState() 
@@ -38,14 +41,28 @@ const CampaignCreatePage = () => {
         description: "",
         buttonText: "",
         amount: 0,
-        link: "",
         startDate: "",
         endDate: "",
-    })
+    });
 
-    const { image, link, title, description, buttonText, amount, startDate, endDate } = state;
+    const [content, setContent] = useState({
+        body: ""
+    });
+
+    const [values, setValues] = useState({
+      formData: ""      
+    });
+
+    const [references, setReferences] = useState([]);
+
+
+    const { formData } = values;
+    const { image, title, description, buttonText, amount, startDate, endDate } = state;
+    const { body } = content;
 
     useEffect(() => {
+        setValues({ formData: new FormData()});
+
         if(!image) {
             setPreview(undefined);
             return
@@ -92,7 +109,12 @@ const CampaignCreatePage = () => {
             ...state,
             [name]: e.target.value
         });
-    }
+    };
+
+    const onEditorChange = (value) => {
+        setReferences([...references, value.reference]);
+        setContent(value.editorHtml);
+    };
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
@@ -100,7 +122,19 @@ const CampaignCreatePage = () => {
         const endD = new Date(endDate).getTime();
 
         if (startD < endD) {
-            console.log("state", state);
+            formData.set("title", title);
+            formData.set("description", description);
+            formData.set("image", image);
+            formData.set("buttonText", buttonText);
+            formData.set("amount", amount);
+            formData.set("body", body);
+            formData.set("startDate", startDate);
+            formData.set("endDate", endDate);
+            formData.set("references", references);
+
+            // 토큰 보내서 생성자 정보 추적 기능 추가
+
+
             const response = await axios.post(`${process.env.REACT_APP_API}/campaign`, state);
             toast.info(`🦄 ${response.data.message}`);
             setTimeout(() => {
@@ -136,12 +170,9 @@ const CampaignCreatePage = () => {
                         <p>{description}</p>
                     </CampaignRenderTitleWrapper>
                     <CampaignRenderInfoWrapper>
-                      <h1>Goal: &nbsp; KOR₩ {amount}</h1>
-
+                      <h1>Goal: &nbsp; ₩ {amount}</h1>
                       <h3>Start Date: &nbsp; {startDate}</h3>
                       <h3>End Date: &nbsp; {endDate}</h3>
-                      <h3>Detail: <Link to={`${link}`}>Show Details <FaAngleDoubleRight /></Link></h3>
-
                       <button>{buttonText}</button>
                     </CampaignRenderInfoWrapper>
                 </CampaignRenderContentWrapper>
@@ -197,16 +228,6 @@ const CampaignCreatePage = () => {
                            required
                         />
                     </CampaignAmount>
-                    <CampaignLink>
-                        <CampaignLabel>Link</CampaignLabel>
-                        <CampaignInput 
-                           type="text"
-                           name="link"
-                           onChange={handleChange("link")}
-                           placeholder="Campaign Link"
-                           required
-                        />
-                    </CampaignLink>
                     <CampaignDate>
                         <CampaignLabel>Start Date</CampaignLabel>
                         <CampaignInput 
@@ -226,6 +247,13 @@ const CampaignCreatePage = () => {
                     </CampaignDate>
                     <CampaignInput type="submit" />
                 </CampaignSidebarWrapper>
+                <CampaignDetailWrapper>
+                    <CampaignDetailH1>Campaign Detail</CampaignDetailH1>
+                    <QuillEditor 
+                        onEditorChange={onEditorChange}
+                        theme="snow"
+                    />
+                </CampaignDetailWrapper>
         </CampaignContainer>
     )
 }
