@@ -113,7 +113,7 @@ const CampaignCreatePage = () => {
 
     const onEditorChange = (value) => {
         setReferences([...references, value.reference]);
-        setContent(value.editorHtml);
+        setContent({ body: value.editorHtml});
     };
 
     const handleSubmit =  async (e) => {
@@ -122,20 +122,22 @@ const CampaignCreatePage = () => {
         const endD = new Date(endDate).getTime();
 
         if (startD < endD) {
+            console.log("content.body", content);
+
             formData.set("title", title);
             formData.set("description", description);
             formData.set("image", image);
             formData.set("buttonText", buttonText);
             formData.set("amount", amount);
-            formData.set("body", body);
+            formData.set("body", content.body);
             formData.set("startDate", startDate);
             formData.set("endDate", endDate);
-            formData.set("references", references);
+            formData.set("references", JSON.stringify(references));
 
             // 토큰 보내서 생성자 정보 추적 기능 추가
 
 
-            const response = await axios.post(`${process.env.REACT_APP_API}/campaign`, state);
+            const response = await axios.post(`${process.env.REACT_APP_API}/campaign`, formData);
             toast.info(`🦄 ${response.data.message}`);
             setTimeout(() => {
                 window.location.reload(false);

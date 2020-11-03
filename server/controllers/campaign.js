@@ -1,5 +1,6 @@
 const dotenv = require('dotenv');
 const { v4: uuidv4 } = require('uuid');
+const formidable = require('formidable');
 const AWS = require('aws-sdk');
 const moment = require('moment');
 const { Campaign } = require('../models/Campaign');
@@ -13,17 +14,6 @@ const s3 = new AWS.S3({
 });
 
 exports.createCampaign = async (req, res) => {
-  const {
-    title,
-    description,
-    image,
-    buttonText,
-    amount,
-    link,
-    startDate,
-    endDate,
-  } = req.body;
-
   const saveMultiReferences = (references) => {
     const results = [];
 
@@ -48,52 +38,168 @@ exports.createCampaign = async (req, res) => {
     return filteredArr;
   };
 
-  const base64Data = new Buffer.from(
-    image.replace(/^data:image\/\w+;base64,/, ''),
-    'base64'
-  );
+  try {
+    const campaign = new Campaign();
+    const form = new formidable.IncomingForm();
+    form.encoding = 'utf-8';
+    form.multiples = true;
+    form.keepExtensions = true;
 
-  const convertedStartDate = moment(startDate).format('YYYY-MM-DD hh:mm:ss');
-  const convertedEndDate = moment(endDate).format('YYYY-MM-DD hh:mm:ss');
+    form.parse(req, async (err, fields, files) => {
+      if (err) {
+        return res.status(400).json({ error: err });
+      }
 
-  const type = image.split(';')[0].split('/')[1];
-  const params = {
-    Bucket: 'ose',
-    Key: `campaign/${uuidv4()}.${type}`,
-    Body: base64Data,
-    ACL: 'public-read',
-    ContentEncoding: 'base64',
-    ContentType: `image/${type}`,
-  };
+      const {
+        title,
+        description,
+        image,
+        buttonText,
+        amount,
+        body,
+        startDate,
+        endDate,
+        references,
+      } = fields;
 
-  s3.upload(params, async (err, data) => {
-    const newCampaign = new Campaign({
-      title,
-      description,
-      buttonText,
-      amount,
-      link,
-      startDate: convertedStartDate,
-      endDate: convertedEndDate,
+      if (!title || title.length < 2) {
+        return res.status(400).send({
+          error: 'Please Enter At Least One Characters...',
+        });
+      }
+
+      if (!description || description < 10) {
+        return res.status(400).send({
+          error: 'Please Enter At Least Ten Characters...',
+        });
+      }
+
+      if (!image) {
+        return res.status(400).send({
+          error: 'Image link is required...',
+        });
+      }
+
+      if (!buttonText) {
+        return res.status(400).send({
+          error: 'Please Enter At Least Five Characters...',
+        });
+      }
+
+      if (!amount) {
+        return res.status(400).send({
+          error: 'Please Enter Amount...',
+        });
+      }
+
+      if (!startDate) {
+        return res.status(400).send({
+          error: 'start date is required...',
+        });
+      }
+
+      if (!endDate) {
+        return res.status(400).send({
+          error: 'end date is required...',
+        });
+      }
+
+      if (!body || body.length < 1) {
+        return res.status(400).send({
+          error: 'Please Enter At Least One Character...',
+        });
+      }
+
+      if (!references) {
+        return res.status(400).send({
+          error: 'references is required...',
+        });
+      }
+
+      const base64Data = new Buffer.from(
+        image.replace(/^data:image\/\w+;base64,/, ''),
+        'base64'
+      );
+
+      const type = image.split(';')[0].split('/')[1];
+      const params = {
+        Bucket: 'ose',
+        Key: `campaign/${uuidv4()}.${type}`,
+        Body: base64Data,
+        ACL: 'public-read',
+        ContentEncoding: 'base64',
+        ContentType: `image/${type}`,
+      };
+
+
+      s3.upload(params, async (err, data) => {
+        if (err) {
+          return res.status(400).send({ error: 'Upload to S3 Failed...'});
+        }
+
+        const campaignRefs = saveMultiReferences(uniqueRefs(JSON.parse(references)));
+        const convertedStartDate = moment(startDate).format('YYYY-MM-DD hh:mm:ss');
+        const convertedEndDate = moment(endDate).format('YYYY-MM-DD hh:mm:ss');
+
+        console.log("Data", data);
+
+        campaign.image.url = data.Location;
+        campaign.image.key = data.key;
+        campaign.title = title;
+        campaign.description = description;
+        campaign.buttonText = buttonText;
+        campaign.amount = amount;
+        campaign.references = campaignRefs;
+        campaign.body = body;
+        campaign.startDate = convertedStartDate;
+        campaign.endDate = convertedEndDate;
+
+        try {
+          const newCampaign = await campaign.save();
+          console.log('newCamapign', newCampaign);
+          return res.status(200).send({
+            message: 'Successfully Create New Campaign!',
+            campaign: newCampaign,
+          });
+        } catch (error) {
+          return res.status(400).send({ error });
+        }
+      });
     });
+  } catch (error) {
+    return res.status(400).send({
+      message: error.message || 'Failed to Create Campaign',
+    });
+  }
 
-    if (err) res.status(400).json({ error: 'Upload to S3 Failed...' });
-    console.log('AWS UPOLOAD RES DATA', data);
+  // s3.upload(params, async (err, data) => {
+  //   const newCampaign = new Campaign({
+  //     title,
+  //     description,
+  //     buttonText,
+  //     amount,
+  //     link,
+  //     startDate: convertedStartDate,
+  //     endDate: convertedEndDate,
+  //   });
 
-    newCampaign.image.url = data.Location;
-    newCampaign.image.key = data.key;
+  //   if (err) res.status(400).json({ error: 'Upload to S3 Failed...' });
+  //   console.log('AWS UPOLOAD RES DATA', data);
 
-    try {
-      await newCampaign.save();
-      return res.status(201).json({
-        message: `${title} campaign is successfully created...`,
-      });
-    } catch (error) {
-      return res.status(409).json({
-        error: `Failed to create ${title} campaign...`,
-      });
-    }
-  });
+  //   newCampaign.image.url = data.Location;
+  //   newCampaign.image.key = data.key;
+
+  //   try {
+  //     await newCampaign.save();
+  //     return res.status(201).json({
+  //       message: `${title} campaign is successfully created...`,
+  //     });
+  //   } catch (error) {
+  //     return res.status(409).json({
+  //       error: `Failed to create ${title} campaign...`,
+  //     });
+  //   }
+  // });
 };
 
 exports.readAllCampaigns = async (req, res) => {

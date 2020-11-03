@@ -23,13 +23,17 @@ export const CloseIcon = styled(FaTimes)`
 `;
 
 export const Icon = styled.div`
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
+  position: fixed;
+  top: 3rem;
+  right: 2.5rem;
   background: transparent;
-  font-size: 2rem;
   cursor: pointer;
   outline: none;
+
+  svg {
+    font-size: 3rem;
+    cursor: pointer;
+  }
 `;
 
 export const SidebarWrapper = styled.div``;

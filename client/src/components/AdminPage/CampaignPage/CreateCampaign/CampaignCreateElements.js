@@ -214,10 +214,26 @@ export const CampaignLink = styled.div`
 `
 
 export const CampaignDetailWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80vw;
+    min-height: 40vh;
     max-width: 70%;
-    min-height: 100vh;
     margin: auto;
     margin-top: 5vh;
+
+    div {
+      width: 100%;
+
+      div:nth-child(1) {
+      }
+
+      div:nth-child(2) {
+        max-height: 700px;
+        overflow-y: scroll;
+      }
+  }
 `
 
 export const CampaignDetailH1 = styled.h1`

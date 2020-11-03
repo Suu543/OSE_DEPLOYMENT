@@ -1,40 +1,72 @@
 /* eslint-disable camelcase */
 const { Donation } = require('../models/Donation');
+const dotenv = require("dotenv");
+dotenv.config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
+
 
 exports.createDonation = async (req, res) => {
-  const { campaign, amount, notes, patron_email, patron_name } = req.body;
-
-  const newDonation = new Donation({
-    campaign,
-    amount,
-    notes,
-    patron_email,
-    patron_name,
-  });
+  console.log('stripe-routes.js 9 | route reached', req.body);
+  let { amount, id } = req.body;
+  console.log('stripe-routes.js 10 | amount and id', amount, id);
 
   try {
-    const result = await newDonation.save();
-    if (result) {
-      return res.status(201).json({
-        message: `${amount} is donated to ${campaign} `,
-      });
-    }
+    const payment = await stripe.paymentIntents.create({
+      amount,
+      currency: 'USD',
+      description: 'Our Sole Earth Donation',
+      payment_method: id,
+      confirm: true,
+    });
+
+    console.log('stripe-routes.js 19 | payment', payment);
+    res.json({
+      message: 'Payment Successful',
+      success: true,
+    });
   } catch (error) {
-    return res.status(409).json({
-      error: `Failed to donate... Please Try Again...`,
+    console.log('stripe-routes.js 17 error', error);
+    res.json({
+      message: 'Payment Failed',
+      success: false,
     });
   }
 };
 
-exports.getDonation = async (req, res) => {
-  try {
-    const donations = await Donation.find({});
-    if (donations) {
-      return res.status(201).send(donations);
-    }
-  } catch (error) {
-    return res.status(404).json({
-      error: `Donation Not Found...`,
-    });
-  }
-};
+// exports.createDonation = async (req, res) => {
+//   const { campaign, amount, notes, patron_email, patron_name } = req.body;
+
+//   const newDonation = new Donation({
+//     campaign,
+//     amount,
+//     notes,
+//     patron_email,
+//     patron_name,
+//   });
+
+//   try {
+//     const result = await newDonation.save();
+//     if (result) {
+//       return res.status(201).json({
+//         message: `${amount} is donated to ${campaign} `,
+//       });
+//     }
+//   } catch (error) {
+//     return res.status(409).json({
+//       error: `Failed to donate... Please Try Again...`,
+//     });
+//   }
+// };
+
+// exports.getDonation = async (req, res) => {
+//   try {
+//     const donations = await Donation.find({});
+//     if (donations) {
+//       return res.status(201).send(donations);
+//     }
+//   } catch (error) {
+//     return res.status(404).json({
+//       error: `Donation Not Found...`,
+//     });
+//   }
+// };

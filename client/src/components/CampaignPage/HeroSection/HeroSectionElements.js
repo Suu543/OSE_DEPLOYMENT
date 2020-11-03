@@ -4,6 +4,7 @@ export const HeroContainer = styled.div`
     width: 100%;
     min-height: 75vh;
     border: 2px solid #E8E8E8;
+    padding-top: 3rem;
 `;
 
 export const HeroWrapper = styled.div`
@@ -17,6 +18,22 @@ export const HeroRow = styled.div`
     grid-template-columns: 6.5fr 5.5fr;
     align-items: center;
     justify-content: center;
+
+    @media all and (max-width: 1450px) {
+        width: 80%;
+    }
+
+    @media all and (max-width: 1100px) {
+        width: 90%;
+    }
+
+    @media all and (max-width: 1000px) {
+        width: 95%;
+    }
+
+    @media all and (max-width: 900px) {
+        grid-template-columns: 12fr;
+    }
 `;
 
 export const HeroColumn1 = styled.div`
@@ -39,35 +56,50 @@ export const HeroColumn2 = styled.div`
     max-height: 60vh;
     display: grid;
     grid-template-rows: 7fr 5fr;
+
+    @media all and (max-width: 900px) {
+        margin-top: 5rem;
+    }
 `;
 
 export const HeroColumn1Header = styled.h1`
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-bottom: 2px solid black;
+    padding-bottom: 1rem;
 `;
 
 export const HeroColumn1ImageWrapper = styled.div`
     width: 100%;
-    min-width: 15vh;
-
-    img {
-        display: block;
-        max-width: 100%;
-    }
+    display: flex;
+    flex-direction: column;
 `;
+
+export const HeroColumn1Image = styled.div`
+    background: ${props => `url(${props.imgURL}) no-repeat center center`};
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+`
 
 export const HeroColumn1Ttile = styled.h1`
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
 `;
 
 export const HeroColumnParagraph = styled.p`
     font-size: 2rem;
+    font-family: 'Noto Sans KR', sans-serif;
 `;
 
 export const HeroColumn2Title = styled.h1`
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-bottom: 2px solid black;
+    padding-bottom: 1rem;
 `;
 
 export const HeroColumn2Wrapper = styled.div`
@@ -94,18 +126,31 @@ export const HeroColumn2CardContent = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.3rem;
+
+    h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    p {
+        font-size: 1.3rem;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
 `
 
 export const HeroColumnCardImage = styled.div`
     width: 100%;
-
-    img {
-        display: block;
-        max-width: 100%;
-        height: 11.5vh;
-    }
 `;
+
+export const HeroColumnCardImg = styled.div`
+    background: ${props => `url(${props.imgURL}) no-repeat center center`};
+    width: 90%;
+    margin: auto;
+    min-height: 12vh;
+    background-size: cover;
+`
 
 export const HeroColumn2PaginationNavbar = styled.nav`
     width: 100%;

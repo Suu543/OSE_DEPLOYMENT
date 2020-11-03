@@ -25,7 +25,9 @@ import AdminReadCampaign from "./pages/AdminReadCampaign";
 import AdminReadBlog from "./pages/AdminReadBlog";
 import AdminCreateBlog from "./pages/AdminCreateBlog";
 
+import Donation from "./pages/Donation";
 import Campaign from "./pages/Campaign";
+import CampaignDetail from "./pages/CampaignDetail";
 
 const Routes = () => (
   <BrowserRouter>
@@ -35,7 +37,10 @@ const Routes = () => (
       <PublicRoute path="/signin" component={SigninPage} exact />
       <PrivateRoute path="/private" component={PrivatePage} exact />
       <PrivateRoute path="/private/update/:id" component={ProfileUpdatePage} exact />
-      <Route path="/campaign" component={Campaign} exact />
+      <Route path="/campaigns" component={Campaign} exact />
+      <Route path="/campaign/:id" component={CampaignDetail} exact />
+      {/* <Route path="/campaign/:id" component={} exact /> */}
+      <Route path="/donation" component={Donation} exact />
       <Route path="/blogs" component={blog} exact />
       <Route path="/topic/:slug" component={SingleTopic} exact />
       <Route path="/blog/:slug" component={SingleBlog} exact />

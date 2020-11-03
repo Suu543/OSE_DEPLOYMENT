@@ -66,11 +66,12 @@ export const MobileIcon = styled.div`
   display: none;
 
   @media screen and (max-width: 768px) {
-    display: block;
+    /* display: block; */
+    display: ${({ isOpen }) => (isOpen ? "none": "block")};
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 90%);
+    transform: translate(-100%, 95%);
     font-size: 2.3rem;
     cursor: pointer;
     color: #fff;

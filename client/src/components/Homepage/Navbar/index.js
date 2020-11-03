@@ -7,7 +7,7 @@ import {
   Nav,
   NavbarContainer,
   NavLogo,
-  MobileIcon,
+  MobileIcon, 
   NavMenu,
   NavItem,
   NavLinks,
@@ -16,7 +16,7 @@ import {
   NavLogoutBtn
 } from './NavbarElements';
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, isOpen }) => {
   const [scrollNav, setScrollNav] = useState(false);
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -57,7 +57,7 @@ const Navbar = ({ toggle }) => {
             <NavLogo to="/" onClick={toggleHome}>
               OSE
             </NavLogo>
-            <MobileIcon onClick={toggle}>
+            <MobileIcon onClick={toggle} isOpen={isOpen}>
               <FaBars />
             </MobileIcon>
             <NavMenu>
