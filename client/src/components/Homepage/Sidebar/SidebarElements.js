@@ -29,6 +29,7 @@ export const Icon = styled.div`
   background: transparent;
   cursor: pointer;
   outline: none;
+  z-index: 9999;
 
   svg {
     font-size: 3rem;

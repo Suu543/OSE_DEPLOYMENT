@@ -11,7 +11,7 @@ export const Nav = styled.nav`
   align-items: center;
   font-size: 1.6rem;
   position: sticky;
-  z-index: 9999;
+  z-index: 10;
   top: 0;
   right: 0;
   overflow: hidden;
@@ -30,7 +30,7 @@ export const NavBlog = styled.nav`
   align-items: center;
   font-size: 1.6rem;
   position: sticky;
-  z-index: 9999;
+  z-index: 10;
   top: 0;
   right: 0;
   overflow: hidden;
