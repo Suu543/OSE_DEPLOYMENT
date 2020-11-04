@@ -84,9 +84,14 @@ export const HeroColumn1Image = styled.div`
 `
 
 export const HeroColumn1Ttile = styled.h1`
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: 'Noto Sans KR', sans-serif;
+
+    a {
+        text-decoration: none;
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: 'Noto Sans KR', sans-serif;
+        color: black;
+    }
 `;
 
 export const HeroColumnParagraph = styled.p`
@@ -129,9 +134,14 @@ export const HeroColumn2CardContent = styled.div`
     gap: 1.3rem;
 
     h1 {
-        font-size: 1.6rem;
-        font-weight: 700;
-        font-family: 'Noto Sans KR', sans-serif;
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
     }
 
     p {

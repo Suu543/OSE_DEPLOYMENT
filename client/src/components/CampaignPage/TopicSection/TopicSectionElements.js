@@ -24,4 +24,10 @@ export const CampaignTopicWrapper = styled.ul`
 export const CampaignTopicList = styled.li`
     font-size: 1.5rem;
     color: #034752;
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
 `   

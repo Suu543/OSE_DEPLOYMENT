@@ -215,21 +215,21 @@ exports.readAllCampaigns = async (req, res) => {
 };
 
 exports.readSingleCampaign = async (req, res) => {
-  const { title } = req.params;
+  const { id } = req.params;
 
   try {
-    const singleCampaign = await Campaign.findOne({ title });
+    const singleCampaign = await Campaign.findById({ _id: id });
 
     if (!singleCampaign) {
       return res.status(404).json({
-        error: `${title} campaign not found...`,
+        error: 'campaign not found...',
       });
     }
 
     return res.status(200).json(singleCampaign);
   } catch (error) {
     return res.status(404).json({
-      error: `${title} campaign not found...`,
+      error: 'campaign not found...',
     });
   }
 };

@@ -1,8 +1,11 @@
 import React, { Fragment } from 'react';
+import NavbarSection from "../components/CampaignPage/NavbarSection";
+import CampaignHeroSection from "../components/CampaignPage/CampaignReadPage/HeroSection";
 
 const CampaignDetail = () => (
         <Fragment>
-            <h1>Campaign Detail</h1>
+            <NavbarSection />
+            <CampaignHeroSection />
         </Fragment>
 );
 

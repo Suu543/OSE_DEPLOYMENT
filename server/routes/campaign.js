@@ -10,7 +10,7 @@ const {
 } = require('../controllers/campaign');
 
 router.get('/campaigns', readAllCampaigns);
-router.get('/campaign/:title', readSingleCampaign);
+router.get('/campaign/:id', readSingleCampaign);
 router.post('/campaign', createCampaign);
 router.delete('/campaign/:title', removeCampaign);
 

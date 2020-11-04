@@ -23,6 +23,7 @@ import {
     HeroColumn2CardContent
 } from "./HeroSectionElements";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa"
+import { Link } from "react-router-dom";
 import { getCampaigns } from "../../../actions/campaign"
 import smartTrim from "../../../helpers/smartTrim"
 
@@ -35,9 +36,7 @@ const CampaignHeroSection = () => {
         image: {},
         title: "",
         description: "",
-        buttonText: "",
-        link: "",
-        endDate: ""
+        _id: "",
     });
 
     const [page, setPage] = useState([]);
@@ -85,9 +84,7 @@ const CampaignHeroSection = () => {
               image: campaign.image,
               title: campaign.title,
               description: campaign.description,
-              buttonText: campaign.buttonText,
-              link: campaign.link,
-              endDate: campaign.endDate
+              _id: campaign._id
           });
         } catch (error) {
             console.log('error', error);
@@ -227,7 +224,9 @@ const CampaignHeroSection = () => {
                         <HeroColumn1ImageWrapper>
                             <HeroColumn1Image imgURL={`${featuredCampaign.image.url}`} />
                         </HeroColumn1ImageWrapper>
-                        <HeroColumn1Ttile>{featuredCampaign.title}</HeroColumn1Ttile>
+                        <HeroColumn1Ttile>
+                            <Link to={`/campaign/${featuredCampaign._id}`}>{featuredCampaign.title}</Link>
+                        </HeroColumn1Ttile>
                         <HeroColumnParagraph>{(featuredCampaign.description)}</HeroColumnParagraph>
                     </HeroColumn1>
                     <HeroColumn2>
@@ -240,8 +239,8 @@ const CampaignHeroSection = () => {
                                             <HeroColumnCardImg imgURL={`${c.image.url}`} />
                                         </HeroColumnCardImage>
                                         <HeroColumn2CardContent>
-                                            <h1>{c.title}</h1>
-                                            <p>{smartTrim(c.description, 100, ' ', '...')}</p>
+                                            <h1><Link to={`/campaign/${c._id}`}>{c.title}</Link></h1>
+                                            <p>{smartTrim(c.description, 70, ' ', '...')}</p>
                                         </HeroColumn2CardContent>
                                     </HeroColumnCard>
                                 ))}
