@@ -3,6 +3,14 @@ import styled from "styled-components";
 export const RelatedCampaignContainer = styled.div`
     width: 90%;
     margin: auto;
+
+    @media all and (max-width: 1200px) {
+        width: 95%;
+    }
+
+    @media all and (max-width: 1000px) {
+        width: 100%;
+    }
 `;
 
 export const RelatedCampaignHeader = styled.h1`
@@ -28,6 +36,18 @@ export const RelatedCampaignColumn = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @media all and (max-width: 1200px) {
+        flex: 1 1 45%;
+        max-width: 45%;
+        margin: auto;
+    }
+
+    @media all and (max-width: 1000px) {
+        flex: 1 1 80%;
+        margin: auto;
+        max-width: 80%;
+    }
 `;
 
 export const RelatedCampaignColumnImage = styled.div`
