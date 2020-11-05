@@ -13,7 +13,7 @@ const TopicReadPage = () => {
     const loadTopics = async () => {
         try {
           let response = await getTopics();
-          setTopics([...topics, ...response]);
+          setTopics([...response]);
         } catch (error) {
           console.log('Error', error);
         }

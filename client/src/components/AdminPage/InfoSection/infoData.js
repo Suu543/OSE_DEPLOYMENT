@@ -18,13 +18,13 @@ const InfoData = [
         path: "/admin/campaigns"
     },
     {
-        feature: "Community",
+        feature: "Donation",
         style: {
             background: "rgb(1,172,106)",
             background: "linear-gradient(167deg, rgba(1,172,106,1) 0%, rgba(55,236,121,1) 100%)"
         },
         detail: "View Detail",
-        path: "/admin/community"
+        path: "/admin/donation"
     },
     {
         feature: "Topics",

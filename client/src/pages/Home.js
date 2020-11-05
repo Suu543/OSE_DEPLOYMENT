@@ -29,8 +29,6 @@ const Home = () => {
       <InfoSection {...homeObjTwo} />
       <Services />
       <InfoSection {...homeObjThree} />
-      <InfoSection {...homeObjFour} />
-      <Services />
       <FooterSection />
     </Fragment>
   );

@@ -10,18 +10,9 @@ const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema;
 
 const donationSchema = new mongoose.Schema({
-  campaign: {
-    type: ObjectId,
-    ref: 'Campaign',
-  },
-
   amount: {
     type: Number,
     required: true,
-  },
-
-  notes: {
-    type: String,
   },
 
   patron_email: {
@@ -29,10 +20,6 @@ const donationSchema = new mongoose.Schema({
   },
 
   patron_name: {
-    type: String,
-  },
-
-  patron_address: {
     type: String,
   },
 

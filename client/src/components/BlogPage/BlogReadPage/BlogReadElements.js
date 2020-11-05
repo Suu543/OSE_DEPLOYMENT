@@ -36,6 +36,10 @@ export const Blog = styled.section`
   position: relative;
   z-index: 2;
   top: -15vh;
+
+  @media all and (max-width: 1250px) {
+    position: static;
+  }
 `;
 
 export const BlogHeader = styled.section`
@@ -153,13 +157,26 @@ export const BlogBodyWrapper = styled.section`
 export const BlogBody = styled.section`
   width: 100%;
   margin: auto;
-  height: 100vh;
 
   p {
     width: 60%;
     margin: auto;
     color: #555a6e;
     font-size: 1.8rem;
+  }
+
+  ol {
+    width: 55%;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+
+  li {
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 500;
   }
 
   a {
@@ -191,3 +208,4 @@ export const BlogBody = styled.section`
     width: 90%;
   }
 `;
+

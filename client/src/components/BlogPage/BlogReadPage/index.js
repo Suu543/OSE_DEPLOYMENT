@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 import { useParams } from 'react-router';
+import moment from "moment";
 import { readBlog } from '../../../actions/blog';
 import {
   BlogContainer,
@@ -81,7 +81,7 @@ const ReadBlog = () => {
             <BlogCreateDateSNSSection>
               <BlogDateSection>
                 <span>OSE</span>
-                <span>{moment(createdAt).format('lll')}</span>
+                <span>{moment(createdAt).format('YYYY-MM-DD')}</span>
               </BlogDateSection>
             </BlogCreateDateSNSSection>
             <hr />
@@ -91,7 +91,7 @@ const ReadBlog = () => {
           </BlogBodyWrapper>
         </Blog>
       </BlogWrapper>
-    </BlogContainer>
+      </BlogContainer>
   );
 };
 

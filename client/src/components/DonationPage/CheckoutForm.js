@@ -70,15 +70,12 @@ const CheckoutForm = () => {
                 const { id } = paymentMethod;
                 data.id = id;
 
-                const response = await axios.post(`${process.env.REACT_APP_API}/donation`, {
-                    amount: 999,
-                    id,
-                });
+                const response = await axios.post(`${process.env.REACT_APP_API}/donation`, data);
 
                 // toast.info('Stripe 35 | data', response.data.success);
 
                 if (response.data.success) {
-                    toast.success('🦄 CheckoutForm.js 25 | payment successful!');
+                    toast.success('🦄 payment successful!');
                 }
 
             } catch (error) {

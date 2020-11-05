@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import SignupPage from './pages/Signup';
@@ -30,7 +30,7 @@ import Campaign from "./pages/Campaign";
 import CampaignDetail from "./pages/CampaignDetail";
 
 const Routes = () => (
-  <BrowserRouter>
+  <Router>
     <Switch>
       <Route path="/" component={Home} exact />
       <PublicRoute path="/signup" component={SignupPage} exact />
@@ -67,7 +67,7 @@ const Routes = () => (
         exact
       />
     </Switch>
-  </BrowserRouter>
+  </Router>
 );
 
 {

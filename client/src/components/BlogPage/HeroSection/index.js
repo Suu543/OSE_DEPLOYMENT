@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useReactRouter from 'use-react-router';
 import { getTopics } from '../../../actions/topic';
+import moment from "moment";
 import { readAllBlogs } from '../../../actions/blog';
 import smartTrim from '../../../helpers/smartTrim';
 
@@ -25,7 +26,7 @@ import {
 const HeroSection = () => {
   const { history, location, match } = useReactRouter();
   const [topics, setTopics] = useState([]);
-  const [blog, setBlog] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const [single, setSingle] = useState({
     image: {},
     title: '',
@@ -43,7 +44,7 @@ const HeroSection = () => {
   const loadTopics = async () => {
     try {
       let response = await getTopics();
-      setTopics([...topics, ...response]);
+      setTopics([...response]);
     } catch (error) {
       console.log('Error', error);
     }
@@ -62,7 +63,7 @@ const HeroSection = () => {
         updatedAt: blogs[0].updatedAt,
         slug: blogs[0].slug
       });
-      setBlog([...blog, ...blogs]);
+      setBlogs([...blogs]);
     } catch (error) {
       console.log('error', error);
     }
@@ -103,13 +104,13 @@ const HeroSection = () => {
           <h1><Link to={`/blog/${single.slug}`}>{single.title}</Link></h1>
           <p>{single.excerpt}</p>
           <div>
-            <span>{single.updatedAt}</span>
+            <span>{moment(single.createdAt).format('YYYY-MM-DD')}</span>
           </div>
         </HeroEntryRowColumn2>
       </HeroEntryRow>
       <HeroPostsRow>
         <HeroPostsColumn>
-          {blog.map((b, i) => (
+          {blogs.map((b, i) => (
             <HeroPostCard>
               <HeroPostCardWrapper>
                 <HeroPostCardImage>
@@ -128,7 +129,7 @@ const HeroSection = () => {
                   </h1>
                   <p>{smartTrim(b.excerpt, 70, ' ', '...')}</p>
                   <div>
-                    <span>{b.createdAt}</span>
+                    <span>{moment(b.createdAt).format('YYYY-MM-DD')}</span>
                   </div>
                 </HeroPostCardContent>
               </HeroPostCardWrapper>
