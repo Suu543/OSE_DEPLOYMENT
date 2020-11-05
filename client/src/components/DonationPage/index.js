@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Stripe from "./StripeContainer";
 
 const Stripe_Donation = () => (
-    <div>
+    <Fragment>
         <Stripe />
-    </div>
+    </Fragment>
 )
 
 export default Stripe_Donation
