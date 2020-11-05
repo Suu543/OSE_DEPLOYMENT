@@ -111,14 +111,14 @@ const Navbar = ({ toggle, isOpen }) => {
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="/campaign"
+                  to="/campaigns"
                   smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"
                   offset={-80}
                 >
-                  Campaign
+                  Campaigns
                 </NavLinks>
               </NavItem>
             </NavMenu>

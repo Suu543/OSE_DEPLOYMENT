@@ -20,7 +20,8 @@ const BlogRelated = () => {
     
     const loadBlogs = async () => {
         const response = await readAllBlogs();
-        setRelated([...response]);
+        const filteredRelated = response.filter((f, i) => f.slug !== slug);
+        setRelated([...filteredRelated]);
     }
 
     const paramChange = (changedParam) => () => {

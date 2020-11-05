@@ -34,15 +34,20 @@ export const BlogRelatedColumn = styled.div`
     flex-wrap: wrap;
     flex-direction: column;
     gap: 2rem;
+    max-width: 30%;
+    margin: auto;
 
 
     @media all and (max-width: 1200px) {
-        flex: 1 1 40%;
+        flex: 1 1 45%;
+        max-width: 45%;
+        margin: auto;
     }
 
     @media all and (max-width: 1000px) {
-        flex: 1 1 70%;
+        flex: 1 1 80%;
         margin: auto;
+        max-width: 80%;
     }
 `
 
