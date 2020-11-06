@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 export const SingleTopicContainer = styled.section`
   width: 100%;
+  margin-bottom: 20vh;
 
   hr {
     width: 70%;
     margin: auto;
-    padding: 0.5rem;
+    padding: 0.1rem;
     margin-top: 10vh;
 
     @media all and (max-width: 1000px) {

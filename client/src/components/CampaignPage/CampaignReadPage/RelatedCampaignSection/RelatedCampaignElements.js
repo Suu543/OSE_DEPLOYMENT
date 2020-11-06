@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RelatedCampaignContainer = styled.div`
     width: 90%;
     margin: auto;
+    margin-top: 3rem;
 
     @media all and (max-width: 1200px) {
         width: 95%;

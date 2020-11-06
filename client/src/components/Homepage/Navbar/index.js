@@ -62,62 +62,22 @@ const Navbar = ({ toggle, isOpen }) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks
-                  to="about"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="/about">
                   About Us
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="contact"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Contact
+                <NavLinks to="/topics">
+                  Topics
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="blogs"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="/blogs">
                   Blogs
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="community"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Community
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="/campaigns"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="/campaigns">
                   Campaigns
                 </NavLinks>
               </NavItem>

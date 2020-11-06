@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const BlogRelatedConatiner = styled.div`
     width: 80%;
     margin: auto;
+    margin-bottom: 20vh;
 
     @media all and (max-width: 1200px) {
         width: 90%;

@@ -16,10 +16,9 @@ export const CampaignNavbarContainer = styled.div`
 `
 
 export const CampaignNavWrapper = styled.div`
-    width: 95%;
-    margin: auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     @media all and (max-width: 850px) {
@@ -69,7 +68,7 @@ export const CampaignNavSidebar = styled.ul`
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 90vh;    
+    height: 92vh;    
     background: black;
     z-index: 1000;
     transition: transform 0.5s ease-in-out;

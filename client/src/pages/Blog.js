@@ -18,7 +18,6 @@ const Blog = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <NavSection toggle={toggle} />
       <HeroSection />
-      <InfoSection />
       <FooterSection />
     </Fragment>
   );

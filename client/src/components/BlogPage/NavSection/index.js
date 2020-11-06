@@ -30,10 +30,10 @@ const NavSection = ({ toggle }) => {
         </NavLogo>
         <Bars onClick={toggle}/>
         <NavMenu>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/campaigns">Campaigns</NavLink>
+          <NavLink to="/topics">Topics</NavLink>
           <NavLink to="/about-us">About Us</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/community">Community</NavLink>
-          <NavLink to="/donate">Donate</NavLink>
           {!check && <NavLink to="/signin">Sign in</NavLink>}
           {check && role === 'admin' && (
             <NavLink to="/admin">{name}</NavLink>

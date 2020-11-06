@@ -35,7 +35,7 @@ const InfoSection = ({
 }) => {
   return (
     <Fragment>
-      <InfoContainer lightBg={lightBg} id={id}>
+      <InfoContainer>
         <InfoWrapper>
           <InfoRow imgStart={imgStart}>
             <Column1>

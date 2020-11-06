@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import FooterSection from '../components/Homepage/FooterSection';
 import Navbar from '../components/Homepage/Navbar';
 import Sidebar from '../components/Homepage/Sidebar';
 import ScrollToTop from '../components/ScrollToTop';
@@ -17,6 +18,7 @@ const SingleTopic = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar toggle={toggle} />
       <SingleTopicPage />
+      <FooterSection />
     </Fragment>
   );
 };

@@ -42,10 +42,10 @@ const NavbarSection = () => {
                     <CampaignNavbarLogo open={open} onClick={toggle}>
                         {!open && <FaBars /> }
                         {open && <FiX /> }
-                        <CampaignNavbarTitle to="/">
-                        OSE
-                        </CampaignNavbarTitle>
                     </CampaignNavbarLogo>
+                    <CampaignNavbarTitle to="/">
+                        OSE
+                    </CampaignNavbarTitle>
                     { !check && <CampaignNavbarRightLink to="/signin">Sign in</CampaignNavbarRightLink>}
                     { check && role === "admin" && <CampaignNavbarRightLink to="/admin">{name}</CampaignNavbarRightLink>}
                     { check && role === "user" && <CampaignNavbarRightLink to="/private">{name}</CampaignNavbarRightLink> }
@@ -55,31 +55,18 @@ const NavbarSection = () => {
                         <CampaignNavSidebarLink to="/">Home</CampaignNavSidebarLink>
                     </CampaignNavSidebarList>
                     <CampaignNavSidebarList>
-                        <CampaignNavSidebarLink to="/">Home</CampaignNavSidebarLink>
-                    </CampaignNavSidebarList>
-                    <CampaignNavSidebarList>
                         <CampaignNavSidebarLink to="/blogs">Blogs</CampaignNavSidebarLink>
                     </CampaignNavSidebarList>
                     <CampaignNavSidebarList>
-                        <CampaignNavSidebarLink to="/donation">Donate</CampaignNavSidebarLink>
+                        <CampaignNavSidebarLink to="/topics">Topics</CampaignNavSidebarLink>
+                    </CampaignNavSidebarList>
+                    <CampaignNavSidebarList>
+                        <CampaignNavSidebarLink to="/about-us">About Us</CampaignNavSidebarLink>
                     </CampaignNavSidebarList>
                 </CampaignNavSidebar>
             </CampaignNavbarContainer>
         </Fragment>
     )
 }
-
-// {!check && <NavBtnLink to="/signin">Sign in</NavBtnLink>}
-// {check && role === 'admin' && (
-//   <Fragment>
-//     <NavBtnLink to="/admin">{name}</NavBtnLink>
-//   </Fragment>
-// )}
-// {check && role === 'user' && (
-//   <Fragment>
-//     <NavBtnLink to="/private">{name}</NavBtnLink>
-//   </Fragment>
-// )}
-
 
 export default NavbarSection;

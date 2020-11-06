@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeroContainer = styled.div`
   max-width: 1200px;
   margin: auto;
+  margin-bottom: 20vh;
 `;
 
 export const HeroTopicWrapper = styled.div`

@@ -7,12 +7,10 @@ import Services from '../components/Homepage/Services';
 import InfoSection from '../components/Homepage/InfoSection';
 import FooterSection from '../components/Homepage/FooterSection';
 
-import {
-  homeObjOne,
-  homeObjTwo,
-  homeObjThree,
-  homeObjFour,
-} from '../components/Homepage/InfoSection/Data';
+
+import TopicSection from '../components/Homepage/TopicSection';
+import CampaignSection from '../components/Homepage/CampaignSection';
+import BlogSection from "../components/Homepage/BlogSection";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +23,10 @@ const Home = () => {
       <Sidebar isOpen={isOpen} toggle={toggle} />
       <Navbar  isOpen={isOpen} toggle={toggle} />
       <HeroSection />
-      <InfoSection {...homeObjOne} />
-      <InfoSection {...homeObjTwo} />
       <Services />
-      <InfoSection {...homeObjThree} />
+      <TopicSection />
+      <CampaignSection />
+      <BlogSection />
       <FooterSection />
     </Fragment>
   );

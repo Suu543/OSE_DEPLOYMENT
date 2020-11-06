@@ -15,12 +15,12 @@ import {
 const Services = () => {
   return (
     <ServicesContainer>
-      <ServicesH1>Our Services</ServicesH1>
+      <ServicesH1>OSE 핵심가치</ServicesH1>
       <ServicesWrapper>
         <ServicesCard>
           <ServicesIcon src={Icon1} />
           <ServicesH2>
-            Advertise <br /> Eco-Product
+            환경 보호 정보 제공
           </ServicesH2>
           <ServicesP>
             We Help reduce your fess and increase your overall revenue.
@@ -29,7 +29,7 @@ const Services = () => {
         <ServicesCard>
           <ServicesIcon src={Icon2} />
           <ServicesH2>
-            Environment <br /> Information
+            환경 단체 후원
           </ServicesH2>
           <ServicesP>
             You can access our platform online anywhere in the world.
@@ -38,8 +38,7 @@ const Services = () => {
         <ServicesCard>
           <ServicesIcon src={Icon3} />
           <ServicesH2>
-            Environment <br />
-            Campaign
+            친환경 제품소개
           </ServicesH2>
           <ServicesP>
             We Help reduce your fess and increase your overall revenue.

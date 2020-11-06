@@ -4,6 +4,7 @@ import Sidebar from '../components/Homepage/Sidebar';
 import ScrollToTop from '../components/ScrollToTop';
 import BlogNavbar from "../components/BlogPage/BlogReadPage/BlogNavbar";
 import BlogRelated from '../components/BlogPage/BlogReadPage/BlogRelated';
+import FooterSection from '../components/Homepage/FooterSection';
 
 const SingleBlog = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ const SingleBlog = () => {
       <BlogNavbar toggle={toggle} />
       <ReadBlog  isOpen={isOpen} toggle={toggle} />
       <BlogRelated />
+      <FooterSection />
     </Fragment>
   );
 };
