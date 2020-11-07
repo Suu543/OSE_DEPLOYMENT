@@ -44,7 +44,7 @@ export const CampaignSectionColumn = styled.div`
 
     &:hover {
         transform: scale(1.2);
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.3s ease-in-out;
     }
 `
 

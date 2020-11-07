@@ -8,12 +8,15 @@ import {
     BlogTableH1,
     BlogTable,
     BlogTableRow,
-    BlogTableHeader
+    BlogTableHeader,
+    BlogTableRowData,
+    BlogTableButton
 } from "./BlogReadElements"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { getCookie } from "../../../../actions/authHelpers";
-import { readAllBlogs } from "../../../../actions/blog";
+import { readAllBlogs, deleteBlog } from "../../../../actions/blog";
+import smartTrim from "../../../../helpers/smartTrim";
 
 const BlogReadPage = () => {
     const [blogs, setBlogs] = useState([]);
@@ -30,7 +33,11 @@ const BlogReadPage = () => {
     }
 
     const deleteBlogAndUpdateBlog = async (slug, token) => {
-        
+        const response = await deleteBlog(slug, token);
+        toast.info(`🦄 ${response.message} `);
+
+        const updatedBlogs = await readAllBlogs();
+        setBlogs([...updatedBlogs]);
     }
 
     useEffect(() => {
@@ -63,6 +70,20 @@ const BlogReadPage = () => {
                             <BlogTableHeader>Update</BlogTableHeader>
                             <BlogTableHeader>Delete</BlogTableHeader>
                         </BlogTableRow>
+                        {
+                            blogs && blogs.map((b, i) => (
+                                <BlogTableRow key={i}>
+                                    <BlogTableRowData>{b.title}</BlogTableRowData>
+                                    <BlogTableRowData>{smartTrim(b.excerpt, 50, ' ', '...')}</BlogTableRowData>
+                                    <BlogTableRowData>
+                                        <BlogTableButton style={{ background: "#D1ECF1", color: "#487AB0" }}>Update</BlogTableButton>
+                                    </BlogTableRowData>
+                                    <BlogTableRowData>
+                                        <BlogTableButton onClick={() => deleteBlogAndUpdateBlog(b.slug, token)} style={{ background: "#F8D7DA", color: "#B67B81" }}>Delete</BlogTableButton>
+                                    </BlogTableRowData>
+                                </BlogTableRow>
+                            ))
+                        }
                     </BlogTable>
                 </BlogReadWrapper>
         </BlogReadContainer>

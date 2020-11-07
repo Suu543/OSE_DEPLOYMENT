@@ -61,3 +61,26 @@ export const imageUpload = (formData) => {
   );
   return response;
 };
+
+export const deleteBlog = async (slug, token) => {
+  const Checker = window.confirm(`정말 ${slug} 글을 삭제하기를 원하십니까?`);
+  if(Checker) {
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_API}/blog/${slug}`,
+        {
+          headers: {
+            Authorization: 'Bearer ' + token
+          }
+        }
+      );
+
+      console.log('response', response.data);
+      return response.data;
+    } catch (error) {
+      return error
+    }
+  } else {
+    return;
+  }
+}

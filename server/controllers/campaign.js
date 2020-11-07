@@ -4,6 +4,7 @@ const formidable = require('formidable');
 const AWS = require('aws-sdk');
 const moment = require('moment');
 const { Campaign } = require('../models/Campaign');
+const Reference = require('../models/Reference');
 
 dotenv.config();
 
@@ -171,35 +172,6 @@ exports.createCampaign = async (req, res) => {
       message: error.message || 'Failed to Create Campaign',
     });
   }
-
-  // s3.upload(params, async (err, data) => {
-  //   const newCampaign = new Campaign({
-  //     title,
-  //     description,
-  //     buttonText,
-  //     amount,
-  //     link,
-  //     startDate: convertedStartDate,
-  //     endDate: convertedEndDate,
-  //   });
-
-  //   if (err) res.status(400).json({ error: 'Upload to S3 Failed...' });
-  //   console.log('AWS UPOLOAD RES DATA', data);
-
-  //   newCampaign.image.url = data.Location;
-  //   newCampaign.image.key = data.key;
-
-  //   try {
-  //     await newCampaign.save();
-  //     return res.status(201).json({
-  //       message: `${title} campaign is successfully created...`,
-  //     });
-  //   } catch (error) {
-  //     return res.status(409).json({
-  //       error: `Failed to create ${title} campaign...`,
-  //     });
-  //   }
-  // });
 };
 
 exports.readAllCampaigns = async (req, res) => {
@@ -237,13 +209,47 @@ exports.readSingleCampaign = async (req, res) => {
 exports.removeCampaign = async (req, res) => {
   const { title } = req.params;
 
+  const deleteImage = async (key) => {
+    const deleteParams = {
+      Bucket: 'ose',
+      Key: `${key}`,
+    };
+
+    s3.deleteObject(deleteParams, (err, data) => {
+      if (err) console.log('S3 DELETE ERROR DURING...', err);
+      else console.log('S3 DELETED DURING', data);
+    });
+  };
+
   try {
     const removedCampaign = await Campaign.findOneAndRemove({ title });
+
     if (!removedCampaign) {
       return res.status(404).json({
         error: `${title} campaign not found...`,
       });
     }
+
+    const removedReferences = removedCampaign.references;
+    const removedImage = removedCampaign.image.key;
+
+    await deleteImage(removedImage);
+
+    removedReferences.map(async (ref) => {
+      const deletedRef = await Reference.findByIdAndDelete({ _id: ref });
+
+      if (deletedRef) {
+        const deletedParams = {
+          Bucket: 'ose',
+          Key: `${deletedRef.key}`,
+        };
+
+        s3.deleteObject(deletedParams, (err, data) => {
+          if (err) console.log('S3 DELETE ERROR DURING', err);
+          else console.log('S3 DELETED DURING', data);
+        });
+      }
+    });
 
     return res.status(200).json({
       message: `${title} is successfully deleted...`,

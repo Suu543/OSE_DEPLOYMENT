@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams } from "react-router";
 import moment from "moment";
+import DisqusThread from "../../../../helpers/Disqus";
 import { Link } from "react-router-dom";
+
 import {
     CampaignDetailContainer,
     CampaignDetailHeroWrapper,
@@ -17,7 +19,8 @@ import {
     CampaignDetailColumn2SEndDate,
     CampaignBodyWrapper,
     CampaignBodyH1,
-    CampaignBody
+    CampaignBody,
+    CampaignDisqusWrapper
 } from "./CampaignHeroElements";
 
 const CampaignHeroSection = () => {
@@ -89,6 +92,9 @@ const CampaignHeroSection = () => {
                 <CampaignBodyH1>{title} 알아보기</CampaignBodyH1>
                 <CampaignBody dangerouslySetInnerHTML={{ __html: body }}></CampaignBody>
             </CampaignBodyWrapper>  
+            <CampaignDisqusWrapper>
+                <DisqusThread />
+            </CampaignDisqusWrapper>
         </CampaignDetailContainer>
     )
 }

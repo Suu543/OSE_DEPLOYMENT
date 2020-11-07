@@ -8,3 +8,24 @@ export const getCampaigns = async () => {
         return error;
     }
 }
+
+export const deleteCampaign = async (title, token) => {
+    const Checker = window.confirm(`${title} 캠페인을 삭제하기를 원하십니까?`);
+    if (Checker) {
+        try {
+            const response = await axios.delete(
+                `${process.env.REACT_APP_API}/campaign/${title}`,
+                {
+                    headers: {
+                        Authorization: 'Bearer ' + token
+                    }
+                }
+            )
+
+            console.log('response', response.data);
+            return response.data;
+        } catch (error) {
+            return error;
+        }
+    }    
+}

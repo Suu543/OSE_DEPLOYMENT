@@ -8,7 +8,7 @@ module.exports = function () {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
   };
 
   const DB = process.env.MONGO_ATLAS;

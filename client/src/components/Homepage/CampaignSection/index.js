@@ -26,7 +26,7 @@ const CampaignSection = () => {
 
     useEffect(() => {
         loadCampaign();
-    }, [])
+    }, []);
 
     return (
         <Fragment>

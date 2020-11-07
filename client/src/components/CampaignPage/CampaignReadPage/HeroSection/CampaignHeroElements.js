@@ -112,6 +112,7 @@ export const CampaignBody = styled.div`
     justify-content: center;
     width: 65%;
     margin: auto;
+    margin-bottom: 3rem;
     gap: 1.5rem;
 
     h1 {
@@ -128,4 +129,10 @@ export const CampaignBody = styled.div`
         width: 100%;
     }
 
+`
+
+export const CampaignDisqusWrapper = styled.div`
+    width: 65%;
+    margin: auto;
+    margin-bottom: 2vh;
 `

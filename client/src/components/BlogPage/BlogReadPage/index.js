@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import moment from "moment";
+import DisqusThread from "../../../helpers/Disqus";
 import { readBlog } from '../../../actions/blog';
 import {
   BlogContainer,
@@ -17,6 +18,7 @@ import {
   BlogDateSection,
   BlogBodyWrapper,
   BlogBody,
+  BlogCommentWrapper
 } from './BlogReadElements';
 
 
@@ -51,6 +53,14 @@ const ReadBlog = () => {
       createdAt: response.createdAt,
     });
   };
+
+  const showComments = () => {
+    return (
+      <BlogCommentWrapper>
+        <DisqusThread id={slug} title={slug} path={`/blog/${slug}`} />
+      </BlogCommentWrapper>
+    )
+  }
 
   return (
     <BlogContainer>
@@ -90,6 +100,7 @@ const ReadBlog = () => {
             <BlogBody dangerouslySetInnerHTML={{ __html: body }}></BlogBody>
           </BlogBodyWrapper>
         </Blog>
+        {showComments()}
       </BlogWrapper>
       </BlogContainer>
   );

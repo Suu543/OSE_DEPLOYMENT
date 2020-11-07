@@ -157,6 +157,7 @@ export const BlogBodyWrapper = styled.section`
 export const BlogBody = styled.section`
   width: 100%;
   margin: auto;
+  margin-bottom: 3.5vh;
 
   p {
     width: 60%;
@@ -209,3 +210,8 @@ export const BlogBody = styled.section`
   }
 `;
 
+export const BlogCommentWrapper = styled.div`
+  width: 65%;
+  margin: auto;
+  margin-bottom: 3rem;
+`

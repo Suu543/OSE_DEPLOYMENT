@@ -296,9 +296,13 @@ exports.removeBlog = async (req, res) => {
       }
     });
 
-    return res.status(200).json(removedBlog);
+    return res.status(200).json({
+      message: `${slug} 글이 성공적으로 삭제되었습니다.`,
+    });
   } catch (error) {
-    return res.status(400).json({ error });
+    return res.status(400).json({ 
+      error: `${slug} 글 삭제에 실패했습니다.`,
+    });
   }
 };
 

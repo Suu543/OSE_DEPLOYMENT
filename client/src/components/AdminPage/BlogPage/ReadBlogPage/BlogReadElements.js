@@ -76,3 +76,18 @@ export const BlogTableHeader = styled.th`
     border: 1px solid #ddd;
     font-size: 2rem;
 `
+
+export const BlogTableRowData = styled.td`
+    font-size: 1.8rem;
+    padding: 10px;
+`
+
+export const BlogTableButton = styled.button`
+    border: none;
+    padding: 1.4rem;
+    color: white;
+    font-weight: 9px;
+    border-radius: 9px;
+    outline: none;
+    cursor: pointer;
+`
