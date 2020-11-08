@@ -21,6 +21,7 @@ import {
   HeroPostCardWrapper,
   HeroPostCardImage,
   HeroPostCardContent,
+  HeroPostCardTopic
 } from './HeroElements';
 
 const HeroSection = () => {
@@ -117,11 +118,13 @@ const HeroSection = () => {
                   <img src={b.image.url} alt="blog" />
                 </HeroPostCardImage>
                 <HeroPostCardContent>
+                  <HeroPostCardTopic>
                   {
                     b.topics.map((t, i) => (
                       <Link to={`/topic/${t.slug}`}>{t.name}</Link>
                     ))
                   }
+                  </HeroPostCardTopic>
                   <h1>
                     <Link to={`/blog/${b.slug}`}>
                     {b.title}

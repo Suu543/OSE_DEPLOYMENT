@@ -10,6 +10,7 @@ import FooterSection from '../components/Homepage/FooterSection';
 
 import TopicSection from '../components/Homepage/TopicSection';
 import CampaignSection from '../components/Homepage/CampaignSection';
+import DonationSection from '../components/Homepage/DonationSection';
 import BlogSection from "../components/Homepage/BlogSection";
 
 const Home = () => {
@@ -25,8 +26,9 @@ const Home = () => {
       <HeroSection />
       <Services />
       <TopicSection />
-      <CampaignSection />
       <BlogSection />
+      <CampaignSection />
+      <DonationSection />
       <FooterSection />
     </Fragment>
   );

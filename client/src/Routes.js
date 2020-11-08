@@ -28,11 +28,15 @@ import AdminCreateBlog from "./pages/AdminCreateBlog";
 import Donation from "./pages/Donation";
 import Campaign from "./pages/Campaign";
 import CampaignDetail from "./pages/CampaignDetail";
+import DropdownNav from "./pages/DropdownNav";
+
+import Topic from "./pages/Topic";
 
 const Routes = () => (
   <Router>
     <Switch>
       <Route path="/" component={Home} exact />
+      <Route path="/dropdown" component={DropdownNav} exact />
       <PublicRoute path="/signup" component={SignupPage} exact />
       <PublicRoute path="/signin" component={SigninPage} exact />
       <PrivateRoute path="/private" component={PrivatePage} exact />
@@ -42,6 +46,7 @@ const Routes = () => (
       {/* <Route path="/campaign/:id" component={} exact /> */}
       <Route path="/donation" component={Donation} exact />
       <Route path="/blogs" component={blog} exact />
+      <Route path="/topics" component={Topic} exact />
       <Route path="/topic/:slug" component={SingleTopic} exact />
       <Route path="/blog/:slug" component={SingleBlog} exact />
       <AdminRoute path="/admin" component={Admin} exact />
@@ -69,14 +74,5 @@ const Routes = () => (
     </Switch>
   </Router>
 );
-
-{
-  /* 
-<PrivateRoute path="/private" exact component={Private} />
-<AdminbRoute path="/admin" exact component={Admin} />
-<AdminbRoute path="/admin/topic/create" exact component={CreateTopic} />
-<AdminbRoute path="/admin/blog/create" exact component={CreateBlog} /> 
-*/
-}
 
 export default Routes;

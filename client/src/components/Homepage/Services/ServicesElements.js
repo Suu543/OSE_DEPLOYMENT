@@ -42,7 +42,7 @@ export const ServicesWrapper = styled.div`
 `;
 
 export const ServicesCard = styled.div`
-  background: #172735;
+  background: #42b0f5;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -72,10 +72,12 @@ export const ServicesIcon = styled.img`
 `;
 
 export const ServicesH1 = styled.h1`
-  font-size: 5rem;
+  font-size: 7rem;
   color: #172735;
   margin-bottom: 64px;
   font-family: 'Noto Sans KR', sans-serif;
+  /* font-family: 'Poor Story', cursive; */
+  /* font-family: 'Nanum Gothic Coding', monospace; */
 
   @media screen and (max-width: 480px) {
     font-size: 2rem;
@@ -83,10 +85,14 @@ export const ServicesH1 = styled.h1`
 `;
 
 export const ServicesH2 = styled.h2`
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-bottom: 10px;
   color: white;
-  font-family: 'Noto Sans KR', sans-serif;
+  /* font-family: 'Noto Sans KR', sans-serif; */
+  /* font-family: 'Poor Story', cursive; */
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-weight: 700;
+
 `;
 
 export const ServicesP = styled.p`

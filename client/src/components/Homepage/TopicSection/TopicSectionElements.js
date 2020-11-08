@@ -16,14 +16,18 @@ export const TopicSectionContainer = styled.div`
 export const TopicSectionHeader = styled.h1`
     width: 100%;
     font-size: 5rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    /* font-family: 'Poor Story', cursive; */
+    font-family: 'Nanum Gothic Coding', monospace;
     color: #172735;
     text-align: center;   
 `
 
 export const TopicSectionSubHeader = styled.h3`
     font-size: 3rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    /* font-family: 'Poor Story', cursive; */
+    font-family: 'Nanum Gothic Coding', monospace;
     color: #172735;
     text-align: center;  
     padding: 6rem;
@@ -47,7 +51,8 @@ export const TopicSectionElement = styled.span`
     a {
         font-size: 2rem;
         color: black;
-        font-family: 'Noto Sans KR', sans-serif;
+        /* font-family: 'Noto Sans KR', sans-serif; */
+        font-family: 'Nanum Gothic Coding', monospace;
         text-decoration: none;
         color: black;
     }

@@ -28,11 +28,6 @@ const HeroSection = () => {
       </HeroBg>
       <HeroContent>
         <HeroH1>Our Sole Earth</HeroH1>
-        <HeroP>
-          There's one issue that will define the contours of this century more
-          dramatically than any other, and that is the urgent threat of a
-          changing climate.
-        </HeroP>
         <HeroBtnWrapper>
           <Button
             to="signup"

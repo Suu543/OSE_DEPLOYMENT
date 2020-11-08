@@ -15,7 +15,8 @@ export const CampaignSectionContainer = styled.div`
 export const CampaignSectionHeader = styled.h1`
     font-size: 5rem;
     color: #172735;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Poor Story', cursive;
     text-align: center;
     margin-bottom: 5rem;
 `
@@ -50,14 +51,17 @@ export const CampaignSectionColumn = styled.div`
 
 export const CampaignSectionColumnHeader = styled.h1`
     font-size: 3rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 600;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Poor Story', cursive;
     padding: 1rem;
     color: #172735;
 `
 
 export const CampaignSectionColumnParagraph = styled.p`
     font-size: 2rem;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Poor Story', cursive;
     padding: 1rem;
     color: #172735;
 `
@@ -67,12 +71,12 @@ export const CampaignSectionColumnLink = styled.button`
     border: none;
     border-radius: 20px;
     min-width: 30%;
-    background: #4BCC8C;
+    background: #42b0f5;
 
     a {
         text-decoration: none;
          color: white;
-         font-size: 1.5rem;
+         font-size: 2rem;
          font-family: 'Noto Sans KR', sans-serif;
      }
 `

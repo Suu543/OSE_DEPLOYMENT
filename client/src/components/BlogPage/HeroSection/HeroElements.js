@@ -173,7 +173,10 @@ export const HeroPostCard = styled.div`
   display: flex;
   width: 30%;
   border: 3px solid #f9f9f9;
-  height: 44vh;
+  min-height: 48vh;
+  max-height: 48vh;
+  -webkit-box-shadow: 3px 5px 15px 5px #D1D1D1;   
+  box-shadow: 3px 5px 15px 5px #D1D1D1;
   
 
   @media all and (max-width: 1100px ){
@@ -193,7 +196,7 @@ export const HeroPostCardWrapper = styled.article`
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 
 export const HeroPostCardImage = styled.div`
@@ -206,6 +209,18 @@ export const HeroPostCardImage = styled.div`
   }
 `;
 
+export const HeroPostCardTopic = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-self: flex-start;
+
+  a {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+`
+
 export const HeroPostCardContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -213,13 +228,18 @@ export const HeroPostCardContent = styled.div`
 
   h1 {
     margin-top: 1.5rem;
-    font-size: 2rem;
-    font-weight: 600;
+
+    a {
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
   }
 
   p {
     margin-top: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   div {
@@ -228,6 +248,7 @@ export const HeroPostCardContent = styled.div`
 
     span {
       font-size: 1.2rem;
+      align-self: flex-end;
     }
   }
 
