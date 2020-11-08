@@ -18,7 +18,8 @@ export const TopicSectionHeader = styled.h1`
     font-size: 5rem;
     /* font-family: 'Noto Sans KR', sans-serif; */
     /* font-family: 'Poor Story', cursive; */
-    font-family: 'Nanum Gothic Coding', monospace;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+    font-family: 'Encode Sans Expanded', sans-serif;
     color: #172735;
     text-align: center;   
 `
@@ -27,7 +28,8 @@ export const TopicSectionSubHeader = styled.h3`
     font-size: 3rem;
     /* font-family: 'Noto Sans KR', sans-serif; */
     /* font-family: 'Poor Story', cursive; */
-    font-family: 'Nanum Gothic Coding', monospace;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+    font-family: 'Encode Sans Expanded', sans-serif;
     color: #172735;
     text-align: center;  
     padding: 6rem;

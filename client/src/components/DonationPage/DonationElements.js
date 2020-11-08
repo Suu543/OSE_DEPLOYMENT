@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const DonationHeaderWrapper = styled.div`
     width: 100%;
-    background: #07B76E;
+    background: #42B0F5;
 
     h1 {
         width: 70%;
@@ -30,7 +30,7 @@ export const DonationHeaderWrapper = styled.div`
 export const DonationContainer = styled.div`
     width: 100%;
     min-height: 91vh;    
-    background: #07B76E;
+    background: #42B0F5;
 
     @media all and (max-width: 850px) {
         display: grid;
@@ -84,7 +84,7 @@ export const DonationInfoColumn = styled.div`
     display: flex;
     min-height: 20vh;
     flex-direction: column;
-    background: #80C342;
+    background: white;
     gap: 1.5rem;
 
     @media all and (max-width: 1150px) {
@@ -108,14 +108,14 @@ export const DonationInfoColumnImage = styled.div`
 
 export const DonationInfoColumnHeader = styled.h1`
     font-size: 2.5rem;
-    color: white;
+    color: #42B0F5;
     font-family: 'Noto Sans KR', sans-serif;
     padding: 1.3rem;
 `
 
 export const DonationInfoColumnContent = styled.p`
     font-size: 1.8rem;
-    color: white;
+    color: #42B0F5;
     font-family: 'Noto Sans KR', sans-serif;
     padding: 1.3rem;
 `

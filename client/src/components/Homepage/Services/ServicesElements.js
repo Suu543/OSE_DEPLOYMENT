@@ -75,7 +75,8 @@ export const ServicesH1 = styled.h1`
   font-size: 7rem;
   color: #172735;
   margin-bottom: 64px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Encode Sans Expanded', sans-serif;
+  /* font-family: 'Noto Sans KR', sans-serif; */
   /* font-family: 'Poor Story', cursive; */
   /* font-family: 'Nanum Gothic Coding', monospace; */
 

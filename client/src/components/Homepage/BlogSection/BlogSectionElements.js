@@ -15,7 +15,8 @@ export const BlogHeader = styled.h1`
     font-size: 5rem;
     width: 80%;
     margin: auto;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Encode Sans Expanded', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
     /* font-family: 'Poor Story',cursive;   */
     /* font-family: 'Nanum Gothic Coding', monospace; */
     text-align: center;
@@ -99,8 +100,9 @@ export const BlogCardInfoWrapper = styled.div`
 export const BlogCardName = styled.div`
     font-size: 3rem;
     /* font-family: 'Poor Story',cursive;   */
-    font-family: 'Nanum Gothic Coding', monospace;
-    font-weight: 100;
+    /* font-family: 'Nanum Gothic Coding', monospace; */
+    font-family: 'Encode Sans Expanded', sans-serif;
+    font-weight: 600;
 `;
 
 export const BlogCardExcerpt = styled.div`

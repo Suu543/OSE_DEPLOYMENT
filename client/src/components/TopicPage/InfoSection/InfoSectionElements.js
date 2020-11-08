@@ -14,7 +14,8 @@ export const InfoSectionHeader = styled.h1`
     width: 60%;
     margin: auto;
     margin-top: 6vh;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'Encode Sans Expanded', sans-serif;
 `
 
 export const InfoSectionArrow = styled.div`
@@ -73,7 +74,8 @@ export const InfoSectionCard = styled.div`
   a {
         text-decoration: none;
         font-size: 2.5rem;
-        font-family: 'Noto Serif KR', serif;
+        font-family: 'Encode Sans Expanded', sans-serif;
+        /* font-family: 'Noto Serif KR', serif; */
         color: white;
     }
 `
@@ -125,7 +127,9 @@ export const InfoSectionDetailImage = styled.div`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    /* border-tpradius: 15px; */
 `
 
 export const InfoSectionDetailContent = styled.div`
@@ -133,16 +137,18 @@ export const InfoSectionDetailContent = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
-    gap: 1rem;
+    gap: 1.4rem;
 
     h1 {
-        font-size: 4rem;
-        font-family: 'Noto Serif KR', serif;
+        font-size: 3rem;
+        font-family: 'Encode Sans Expanded', sans-serif;
+        /* font-family: 'Noto Serif KR', serif; */
     }
 
     p {
-        font-size: 2rem;
-        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1.5rem;
+        /* font-family: 'Noto Sans KR', sans-serif; */
+        font-family: 'Encode Sans Expanded', sans-serif;
         font-weight: 300;
     }
 
@@ -157,8 +163,9 @@ export const InfoSectionDetailContent = styled.div`
     }
 
     a {
-        font-size: 2rem;
-        font-family: 'Noto Serif KR', serif;
+        font-size: 1.5rem;
+        /* font-family: 'Noto Serif KR', serif; */
+        font-family: 'Encode Sans Expanded', sans-serif;
         color: white;
         text-decoration: none;
     }

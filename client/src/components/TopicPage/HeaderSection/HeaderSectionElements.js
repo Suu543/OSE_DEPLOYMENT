@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
     width: 100%;
-    min-height: 40vh;
 `
 
 export const HeaderHeroWrapper = styled.div`

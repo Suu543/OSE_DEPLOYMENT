@@ -28,14 +28,16 @@ export const DonationContent = styled.div`
 `
 
 export const DonationContenth1 = styled.h1`
-    font-size: 6rem;
-    font-family: 'Poor Story', cursive;
+    font-size: 5rem;
+    /* font-family: 'Poor Story', cursive; */
+    font-family: 'Encode Sans Expanded', sans-serif;
     color: white;
 `
 
 export const DonationContenth2 = styled.h1`
-    font-size: 4rem;
-    font-family: 'Poor Story', cursive;
+    font-size: 3.5rem;
+    /* font-family: 'Poor Story', cursive; */
+    font-family: 'Encode Sans Expanded', sans-serif;
     color: white;   
 `
 
@@ -55,5 +57,6 @@ export const DonationLink = styled(Link)`
     text-align: center;
     color: white;
     border-radius: 20px;
-    font-family: 'Poor Story', cursive;
+    /* font-family: 'Poor Story', cursive; */
+    font-family: 'Encode Sans Expanded', sans-serif;
 `

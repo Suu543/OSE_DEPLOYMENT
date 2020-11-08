@@ -20,7 +20,7 @@ const Services = () => {
         <ServicesCard>
           <ServicesIcon src={Icon1} />
           <ServicesH2>
-            환경 보호 정보 제공
+            환경보호 정보제공
           </ServicesH2>
           <ServicesP>
             We Help reduce your fess and increase your overall revenue.
