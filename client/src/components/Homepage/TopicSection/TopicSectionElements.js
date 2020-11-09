@@ -66,4 +66,9 @@ export const TopicSectionElement = styled.span`
         text-decoration: none;
         color: black;
     }
+
+    &:hover {
+        background: #01BF71;
+        transition: all 0.3s ease-in-out;
+    }
 `

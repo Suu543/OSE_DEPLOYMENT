@@ -4,6 +4,24 @@ export const HeroContainer = styled.div`
   max-width: 1200px;
   margin: auto;
   margin-bottom: 20vh;
+  min-height: 150vh;
+  max-height: 150vh;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: grey;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
 `;
 
 export const HeroTopicWrapper = styled.div`

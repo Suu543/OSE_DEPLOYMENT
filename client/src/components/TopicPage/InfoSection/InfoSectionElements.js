@@ -114,6 +114,26 @@ export const InfoSectionDetailWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 4rem;
+
+    min-height: 120vh;
+    max-height: 120vh;
+    overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #2f3542;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: rgba(46, 49, 49, 0.3);
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+
 `
 
 export const InfoSectionDetailCard = styled.div`
