@@ -9,13 +9,18 @@ export const InfoSectionContainer = styled.div`
 `
 
 export const InfoSectionHeader = styled.h1`
-    font-size: 4rem;
+    font-size: 5rem;
     color: black;
     width: 60%;
     margin: auto;
     margin-top: 6vh;
-    /* font-family: 'Noto Sans KR', sans-serif; */
-    font-family: 'Encode Sans Expanded', sans-serif;
+    margin-bottom: 3vh;
+    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Encode Sans Expanded', sans-serif; */
+
+    @media all and (max-width: 1150px) {
+       font-size: 3.2rem;
+    }
 `
 
 export const InfoSectionArrow = styled.div`
@@ -29,6 +34,11 @@ export const InfoSectionArrow = styled.div`
 
     svg {
         font-size: 2.5rem;
+    }
+
+    @media all and (max-width: 1150px) {
+        text-align: center;
+        justify-content: center;
     }
 `
 
@@ -110,33 +120,53 @@ export const InfoSectionDetailCard = styled.div`
     width: 60%;
     margin: auto;
     display: grid;
-    grid-template-columns: 7fr 5fr;
+    grid-template-columns: 5fr 7fr;
     min-height: 35vh;
     -webkit-box-shadow: 0px 5px 15px 5px #D6D6D6; 
     box-shadow: 0px 5px 15px 5px #D6D6D6;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px; 
 
     &:hover {
-        transform: scale(1.2);
-        transition: transform 1s ease-in-out;
+        transform: scale(1.1);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    @media all and (max-width: 1150px) {
+        width: 80%;
+        grid-template-columns: 12fr;
     }
 `
 
 export const InfoSectionDetailImage = styled.div`
-    background-image: url(${(props) => props.imgUrl});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    /* border-tpradius: 15px; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    img {
+        width: 90%;
+        height: 80%;
+        margin: auto;
+        border-radius: 15px;
+    }
+
+    @media all and (max-width: 1150px) {
+        img {
+           width: 100%;
+           border-top-left-radius: 15px;
+           border-top-right-radius: 15px; 
+           border-bottom-left-radius: 0;
+           border-bottom-right-radius: 0;
+        }
+    }
 `
 
 export const InfoSectionDetailContent = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
+    min-height: 80%;
+    justify-content: space-around;
+    padding: 3rem;
     gap: 1.4rem;
 
     h1 {
@@ -146,24 +176,32 @@ export const InfoSectionDetailContent = styled.div`
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 2rem;
         /* font-family: 'Noto Sans KR', sans-serif; */
         font-family: 'Encode Sans Expanded', sans-serif;
         font-weight: 300;
     }
 
     button {
-        width: 80%;
-        margin: auto;
-        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        margin-right: auto;
+        padding: 1rem;
         border: none;
-        background: #64686D;
-        outline: none;
+        border-radius: 10px;
+        background: rgb(66,176,245);
+        background: linear-gradient(90deg, rgba(66,176,245,1) 0%, rgba(80,154,250,0.9668242296918768) 100%);        outline: none;
         cursor: pointer;
+
+        svg {
+            font-size: 1.5rem;
+        }
     }
 
     a {
-        font-size: 1.5rem;
+        font-size: 2rem;
         /* font-family: 'Noto Serif KR', serif; */
         font-family: 'Encode Sans Expanded', sans-serif;
         color: white;

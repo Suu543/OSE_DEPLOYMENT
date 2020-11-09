@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   padding: 8vh 0;
   z-index: 10;
 
-  @media all and (max-width: 1100px ){
+  @media all and (max-width: 1100px){
     width: 95%;
     margin: auto;
   }
@@ -73,17 +73,53 @@ export const NavMenu = styled.div`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`;
+
+export const NavDropdown = styled.div`
+  position: relative;
 
   a {
-    &:nth-child(5) {
-      background: #4bcc8c;
-      color: white;
-      padding: 1.5rem;
+    font-size: 1.4rem;
+    color: #172735;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+  }
 
-      &:hover {
-        transition: all 0.3s ease-in-out;
-        background: #0056b3;
-      }
-    }
+  h4 {
+    font-size: 2rem;
+    cursor: pointer;
   }
 `;
+
+export const NavDropdownUl = styled.ul`
+  position: absolute;
+  display: ${({ dropdown }) => (dropdown ? 'flex' : 'none')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 10vh;
+  top: 24px;
+  bottom: -20px;
+  right: 0;
+  background: black;
+  color: white;
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  li {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+
+`

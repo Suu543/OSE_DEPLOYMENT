@@ -1,6 +1,15 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { isAuth } from '../../../actions/authHelpers';
-import { Nav, NavLink, Bars, NavMenu, NavLogo } from './NavElements';
+import { isAuth, signout } from '../../../actions/authHelpers';
+import { Link } from "react-router-dom";
+import { 
+  Nav, 
+  NavLink, 
+  Bars, 
+  NavMenu, 
+  NavLogo, 
+  NavDropdown,
+  NavDropdownUl 
+} from './NavElements';
 
 const NavSection = ({ toggle }) => {
   const [auth, setAuth] = useState({
@@ -8,6 +17,12 @@ const NavSection = ({ toggle }) => {
     role: '',
     name: '',
   });
+
+  const [dropdown, setDropdown] = useState(false);
+
+  const dropdownToggle = () => {
+    setDropdown(!dropdown);
+  }
 
   const { check, role, name } = auth;
   
@@ -36,10 +51,21 @@ const NavSection = ({ toggle }) => {
           <NavLink to="/about-us">About Us</NavLink>
           {!check && <NavLink to="/signin">Sign in</NavLink>}
           {check && role === 'admin' && (
-            <NavLink to="/admin">{name}</NavLink>
+            <NavDropdown onClick={dropdownToggle}>
+              <h4 to="/admin">{name}</h4>
+              <NavDropdownUl dropdown={dropdown}>
+                <Link to="/admin">{name}</Link>
+                <li onClick={() => signout(() => window.location.reload(false))}>Sign Out</li>
+              </NavDropdownUl>
+            </NavDropdown>
           )}
           {check && role === 'user' && (
-            <NavLink to="/private">{name}</NavLink>
+            <NavDropdown onClick={dropdownToggle}>
+              <Link to="/private">{name}</Link>
+              <NavDropdownUl dropdown={dropdown}>
+                <li onClick={() => signout(() => window.location.reload(false))}>Sign Out</li>
+              </NavDropdownUl>
+            </NavDropdown>
           )}
         </NavMenu>
       </Nav>

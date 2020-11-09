@@ -32,6 +32,10 @@ export const DonationContenth1 = styled.h1`
     /* font-family: 'Poor Story', cursive; */
     font-family: 'Encode Sans Expanded', sans-serif;
     color: white;
+
+    @media all and (max-width: 1150px) {
+        font-size: 3rem;
+    }
 `
 
 export const DonationContenth2 = styled.h1`
@@ -39,6 +43,10 @@ export const DonationContenth2 = styled.h1`
     /* font-family: 'Poor Story', cursive; */
     font-family: 'Encode Sans Expanded', sans-serif;
     color: white;   
+
+    @media all and (max-width: 1150px) {
+        font-size: 2.5rem;
+    }
 `
 
 export const DonationLinkWrapper = styled.div`
@@ -59,4 +67,8 @@ export const DonationLink = styled(Link)`
     border-radius: 20px;
     /* font-family: 'Poor Story', cursive; */
     font-family: 'Encode Sans Expanded', sans-serif;
+
+    @media all and (max-width: 1150px) {
+        font-size: 2rem;
+    }
 `

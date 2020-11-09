@@ -115,12 +115,22 @@ export const NavBtn = styled.nav`
   }
 `;
 
+export const NavDropdown = styled.div`
+  position: relative;
+
+  &:hover {
+    ul {
+      display: flex;
+    }
+  }
+`
+
 export const NavBtnLink = styled(Link)`
   border-radius: 50px;
-  background: #01bf71;
+  color: white;
+  background: #42B0F5;
   white-space: nowrap;
   padding: 10px 22px;
-  color: #010606;
   outline: none;
   border: none;
   cursor: pointer;
@@ -134,8 +144,32 @@ export const NavBtnLink = styled(Link)`
   }
 `;
 
+export const NavDropdownUl = styled.ul`
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  max-width: 100px;
+  list-style: none;
+  padding: 1.3rem;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  top: 60px;
+  z-index: 9999;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+  li {
+      font-size: 1.3rem;
+      color: black;
+      cursor: pointer;
+  }
+`
+
 export const NavLogoutBtn = styled.button`
   padding: 10px 22px;
-  color: #01bf71;
-  background: #010606;
+  color: white;
+  background: #42B0F5;
 `

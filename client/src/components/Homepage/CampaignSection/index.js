@@ -1,12 +1,15 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getCampaigns } from "../../../actions/campaign"
+import { FaRegPaperPlane } from "react-icons/fa";
 import {
     CampaignSectionContainer,
     CampaignSectionHeader,
     CampaignSectionWrapper,
     CampaignSectionRow,
     CampaignSectionColumn,
+    CampaignSectionColumnImage,
+    CampaignSectionColumnContent,
     CampaignSectionColumnHeader,
     CampaignSectionColumnLink,
     CampaignSectionColumnParagraph,
@@ -35,11 +38,14 @@ const CampaignSection = () => {
                 <CampaignSectionWrapper>
                     <CampaignSectionRow>
                         {campaigns && campaigns.map((c, i) => (
-                            <CampaignSectionColumn imgUrl={c.image.url}>
-                                <CampaignSectionColumnHeader>{c.title}</CampaignSectionColumnHeader>
-                                <CampaignSectionColumnLink>
-                                    <Link to={`/campaign/${c._id}`}>{c.buttonText}</Link>
-                                </CampaignSectionColumnLink>
+                            <CampaignSectionColumn>
+                                <Link to={`/campaign/${c._id}`}>
+                                    <CampaignSectionColumnImage imgUrl={c.image.url} />
+                                    <CampaignSectionColumnContent>
+                                        <CampaignSectionColumnHeader>{c.title}</CampaignSectionColumnHeader>
+                                        <FaRegPaperPlane />
+                                    </CampaignSectionColumnContent>
+                                </Link>
                             </CampaignSectionColumn>
                         ))}
                         <CampaignShowMore>
@@ -53,3 +59,7 @@ const CampaignSection = () => {
 }
 
 export default CampaignSection;
+
+{/* <CampaignSectionColumnLink>
+<Link to={`/campaign/${c._id}`}>{c.buttonText}</Link>
+</CampaignSectionColumnLink> */}

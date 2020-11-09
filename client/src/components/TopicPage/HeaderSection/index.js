@@ -11,7 +11,7 @@ const HeaderSection = () => (
             <HeaderContainer>
                 <HeaderHeroWrapper>
                     <HeaderH1>
-                        OSE 주제보기
+                        TOPIC
                     </HeaderH1>
                 </HeaderHeroWrapper>
             </HeaderContainer>

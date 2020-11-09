@@ -19,8 +19,9 @@ export const HeaderHeroWrapper = styled.div`
 `
 
 export const HeaderH1 = styled.h1`
-    font-size: 5rem;
+    font-size: 6rem;
     color: white;
+    font-weight: 700;
 `
 
 export const HeaderWrapper = styled.div`

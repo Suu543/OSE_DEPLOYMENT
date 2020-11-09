@@ -28,7 +28,6 @@ import AdminCreateBlog from "./pages/AdminCreateBlog";
 import Donation from "./pages/Donation";
 import Campaign from "./pages/Campaign";
 import CampaignDetail from "./pages/CampaignDetail";
-import DropdownNav from "./pages/DropdownNav";
 
 import Topic from "./pages/Topic";
 
@@ -36,14 +35,12 @@ const Routes = () => (
   <Router>
     <Switch>
       <Route path="/" component={Home} exact />
-      <Route path="/dropdown" component={DropdownNav} exact />
       <PublicRoute path="/signup" component={SignupPage} exact />
       <PublicRoute path="/signin" component={SigninPage} exact />
       <PrivateRoute path="/private" component={PrivatePage} exact />
       <PrivateRoute path="/private/update/:id" component={ProfileUpdatePage} exact />
       <Route path="/campaigns" component={Campaign} exact />
       <Route path="/campaign/:id" component={CampaignDetail} exact />
-      {/* <Route path="/campaign/:id" component={} exact /> */}
       <Route path="/donation" component={Donation} exact />
       <Route path="/blogs" component={blog} exact />
       <Route path="/topics" component={Topic} exact />

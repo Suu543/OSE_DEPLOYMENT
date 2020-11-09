@@ -61,7 +61,7 @@ const NavbarSection = () => {
                         <CampaignNavSidebarLink to="/topics">Topics</CampaignNavSidebarLink>
                     </CampaignNavSidebarList>
                     <CampaignNavSidebarList>
-                        <CampaignNavSidebarLink to="/about-us">About Us</CampaignNavSidebarLink>
+                        <CampaignNavSidebarLink to="/donation">Donation</CampaignNavSidebarLink>
                     </CampaignNavSidebarList>
                 </CampaignNavSidebar>
             </CampaignNavbarContainer>

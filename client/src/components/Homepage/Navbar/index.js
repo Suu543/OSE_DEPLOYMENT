@@ -2,7 +2,8 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
-import { isAuth } from '../../../actions/authHelpers';
+import { Link } from "react-router-dom";
+import { isAuth, signout } from '../../../actions/authHelpers';
 import {
   Nav,
   NavbarContainer,
@@ -13,6 +14,8 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
+  NavDropdown,
+  NavDropdownUl,
   NavLogoutBtn
 } from './NavbarElements';
 
@@ -85,14 +88,26 @@ const Navbar = ({ toggle, isOpen }) => {
             <NavBtn>
               {!check && <NavBtnLink to="/signin">Sign in</NavBtnLink>}
               {check && role === 'admin' && (
-                <Fragment>
-                  <NavBtnLink to="/admin">{name}</NavBtnLink>
-                </Fragment>
+                <NavDropdown>
+                  <NavBtnLink to="/admin">
+                    {name}
+                  </NavBtnLink>
+                  <NavDropdownUl>
+                    <li onClick={() => {
+                      signout(() => window.location.reload(false))
+                    }}>Sign Out</li>
+                  </NavDropdownUl>
+                </NavDropdown>
               )}
               {check && role === 'user' && (
-                <Fragment>
+                <NavDropdown>
                   <NavBtnLink to="/private">{name}</NavBtnLink>
-                </Fragment>
+                  <NavDropdownUl>
+                    <li onClick={() => {
+                      signout(() => window.location.reload(false))
+                    }}>Sign Out</li>
+                  </NavDropdownUl>
+                </NavDropdown>
               )}
             </NavBtn>
           </NavbarContainer>

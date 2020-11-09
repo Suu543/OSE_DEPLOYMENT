@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export const CampaignSectionContainer = styled.div`
     width: 100%;
     min-height: 100vh;
-    max-height: 100vh;
     background-image: url("https://uxstudioteam.com/website/wp-content/themes/uxstudio-wordpress/dist/images/main-bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -35,28 +34,61 @@ export const CampaignSectionRow = styled.div`
 `  
 
 export const CampaignSectionColumn = styled.div`
-    flex: 1 1 45%;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    width: 45%;
+    margin: auto;
     min-height: 35vh;
-    background: linear-gradient(rgba(255, 255, 255, 0.7), transparent), ${props => `url(${props.imgUrl}) no-repeat center center`};
-    background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     border-radius: 20px;
+    -webkit-box-shadow: 1px 5px 15px -15px rgba(209,209,209,0.17); 
+    box-shadow: 1px 5px 15px -15px rgba(209,209,209,0.17);
 
     &:hover {
         transform: scale(1.2);
         transition: transform 0.3s ease-in-out;
     }
+
+    
+    @media all and (max-width: 1150px) {
+        grid-template-columns: 12fr;
+        width: 80%;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+`
+
+export const CampaignSectionColumnImage = styled.div`
+    background-image: url(${props => props.imgUrl});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 25vh;
+`
+
+export const CampaignSectionColumnContent = styled.div`
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+
+    svg {
+        font-size: 3rem;
+    }
 `
 
 export const CampaignSectionColumnHeader = styled.h1`
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     /* font-family: 'Noto Sans KR', sans-serif; */
     /* font-family: 'Poor Story', cursive; */
     font-family: 'Encode Sans Expanded', sans-serif;
-    padding: 1rem;
     color: #172735;
 `
 

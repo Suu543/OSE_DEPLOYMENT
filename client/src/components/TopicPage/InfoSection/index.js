@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { getTopics } from "../../../actions/topic";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight, FaCrow } from "react-icons/fa";
+import smartTrim from "../../../helpers/smartTrim"
 import { Link } from "react-router-dom";
 import {
     InfoSectionContainer,
@@ -63,7 +64,7 @@ const InfoSection = () => {
     return (
         <Fragment>
             <InfoSectionContainer>
-                <InfoSectionHeader>OSE 토픽 둘러보기</InfoSectionHeader>
+                <InfoSectionHeader>요약</InfoSectionHeader>
                 <InfoSectionArrow>
                     <InfoSectionArrowLeft>
                         <FaAngleLeft onClick={() => prevProperty()} />
@@ -94,12 +95,14 @@ const InfoSection = () => {
                 <InfoSectionDetailWrapper>
                     {topics && topics.map((t, i) => (
                         <InfoSectionDetailCard>
-                            <InfoSectionDetailImage imgUrl={t.image.url} />
+                            <InfoSectionDetailImage>
+                                <img src={t.image.url} />
+                            </InfoSectionDetailImage>
                             <InfoSectionDetailContent>
                                 <h1>{t.name}</h1>
-                                <p>{t.description}</p>
+                                <p>&nbsp;{smartTrim(t.description, 50, " ", "...")}</p>
                                 <button>
-                                    <Link>토픽 자세히 보기</Link>
+                                    <Link>더보기 <FaCrow /></Link>
                                 </button>
                             </InfoSectionDetailContent>
                         </InfoSectionDetailCard>
