@@ -25,6 +25,11 @@ export const CampaignInfoRow = styled.div`
     justify-content: center;
     align-items: flex-start;
     gap: 2.3rem;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
 `
 
 export const CampaignInfoColumn = styled.div`
@@ -34,7 +39,15 @@ export const CampaignInfoColumn = styled.div`
     margin: auto;
     min-height: 40vh;
     display: grid;
+    grid-gap: 1.5rem;
     grid-template-columns: 6fr 6fr;
+    -webkit-box-shadow: -1px 4px 6px 3px #CECECE; 
+    box-shadow: -1px 4px 6px 3px #CECECE;
+
+    @media all and (max-width: 1150px) {
+        grid-template-columns: 12fr;
+        width: 100%;
+    }
 `
 
 export const CampaignInfoColumnImage = styled.div`
@@ -43,6 +56,10 @@ export const CampaignInfoColumnImage = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    @media all and (max-width: 1150px) {
+        min-height: 35vh;
+    }
 `
 
 export const CampaignInfoColumnContent = styled.div`
@@ -51,7 +68,7 @@ export const CampaignInfoColumnContent = styled.div`
     width: 80%;
     min-height: 100%;
     margin: auto;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: space-around;
 
     h1 {
@@ -65,7 +82,7 @@ export const CampaignInfoColumnContent = styled.div`
     }
 
     button {
-        padding: 2rem;
+        padding: 1.5rem;
         border: none;
         border-radius: 10px;
         outline: none;
@@ -77,5 +94,11 @@ export const CampaignInfoColumnContent = styled.div`
             font-family: 'Noto Sans KR', sans-serif;
             color: white;
         }
+    }
+
+
+    @media all and (max-width: 1150px) {
+        width: 100%;
+        padding: 2.5rem;
     }
 `

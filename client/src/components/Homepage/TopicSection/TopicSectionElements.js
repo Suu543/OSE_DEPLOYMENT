@@ -22,6 +22,10 @@ export const TopicSectionHeader = styled.h1`
     font-family: 'Encode Sans Expanded', sans-serif;
     color: #172735;
     text-align: center;   
+
+    @media all and (max-width: 900px) {
+        font-size: 3rem;
+    }
 `
 
 export const TopicSectionSubHeader = styled.h3`
@@ -33,6 +37,10 @@ export const TopicSectionSubHeader = styled.h3`
     color: #172735;
     text-align: center;  
     padding: 6rem;
+
+    @media all and (max-width: 900px) {
+        font-size: 2.5rem;
+    }
 `
 
 

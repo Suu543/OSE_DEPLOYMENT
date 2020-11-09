@@ -89,7 +89,7 @@ const CampaignHeroSection = () => {
                 </CampaignDetailHeroContentRow>
             </CampaignDetailHeroWrapper>
             <CampaignBodyWrapper>
-                <CampaignBodyH1>{title} 알아보기</CampaignBodyH1>
+                <CampaignBodyH1>{title}</CampaignBodyH1>
                 <CampaignBody dangerouslySetInnerHTML={{ __html: body }}></CampaignBody>
             </CampaignBodyWrapper>  
             <CampaignDisqusWrapper>

@@ -36,6 +36,10 @@ export const DonationContenth1 = styled.h1`
     @media all and (max-width: 1150px) {
         font-size: 3rem;
     }
+
+    @media all and (max-width: 700px) {
+        font-size: 2.5rem;
+    }
 `
 
 export const DonationContenth2 = styled.h1`
@@ -44,8 +48,12 @@ export const DonationContenth2 = styled.h1`
     font-family: 'Encode Sans Expanded', sans-serif;
     color: white;   
 
-    @media all and (max-width: 1150px) {
+    @media all and (max-width: 1150px) and (min-width: 700px) {
         font-size: 2.5rem;
+    }
+
+    @media all and (max-width: 700px) {
+        font-size: 2rem;
     }
 `
 
@@ -68,7 +76,11 @@ export const DonationLink = styled(Link)`
     /* font-family: 'Poor Story', cursive; */
     font-family: 'Encode Sans Expanded', sans-serif;
 
-    @media all and (max-width: 1150px) {
+    @media all and (max-width: 1150px) and (min-width: 700px) {
         font-size: 2rem;
+    }
+
+    @media all and (max-width: 700px) {
+        font-size: 1.5rem;
     }
 `

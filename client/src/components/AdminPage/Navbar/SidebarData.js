@@ -23,11 +23,6 @@ const SidebarData = [
         title: 'Topics',
         path: '/admin/topics',
         icon: <IoIcons.IoMdPeople />,
-    },
-    {
-        title: 'Community',
-        path: '/admin/community',
-        icon: <FaIcons.FaEnvelopeOpenText />,
     }
 ];
 

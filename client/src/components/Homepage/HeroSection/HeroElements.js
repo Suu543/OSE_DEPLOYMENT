@@ -38,8 +38,6 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border-radius: 40px;
-  background: linear-gradient(rgba(255, 255, 255, 0.4), transparent); */
 `;
 
 export const HeroH1 = styled.h1`

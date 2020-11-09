@@ -41,7 +41,7 @@ const HeroSection = () => {
             exact="true"
             offset={-80}
           >
-            Get Started {hover ? <ArrowForward /> : <ArrowRight />}
+            둘러보기 {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>
       </HeroContent>

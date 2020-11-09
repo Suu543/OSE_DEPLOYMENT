@@ -32,13 +32,10 @@ export const ServicesWrapper = styled.div`
   padding: 0 50px;
 
   @media screen and (max-width: 1000px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     padding: 0 20px;
   }
+
 `;
 
 export const ServicesCard = styled.div`
@@ -47,6 +44,7 @@ export const ServicesCard = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   border-radius: 10px;
   /* max-height: 340px; */
   min-height: 30vh;
@@ -58,6 +56,9 @@ export const ServicesCard = styled.div`
     transform: scale(1.1);
     transition: all 1s ease-in-out;
     cursor: pointer;
+  }
+
+  @media all and (max-width: 1100px) {
   }
 `;
 
@@ -80,8 +81,8 @@ export const ServicesH1 = styled.h1`
   /* font-family: 'Poor Story', cursive; */
   /* font-family: 'Nanum Gothic Coding', monospace; */
 
-  @media screen and (max-width: 480px) {
-    font-size: 2rem;
+  @media screen and (max-width: 900px) {
+    font-size: 5rem;
   }
 `;
 

@@ -67,7 +67,6 @@ const CampaignHeroSection = () => {
             setSelectedCampaigns([...selectedCamp]);
           }
 
-          console.log("response", allCampaigns);
           setCampaigns(allCampaigns);
           initiPaginate(campaignsLength);
           fetchPageNumbers(campaignsLength);

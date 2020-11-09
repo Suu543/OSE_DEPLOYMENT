@@ -28,7 +28,7 @@ const Home = () => {
       <TopicSection />
       <BlogSection />
       <CampaignSection />
-      <DonationSection />
+      <DonationSection imgUrl="https://images.unsplash.com/photo-1576870755431-edd028371a7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80" />
       <FooterSection />
     </Fragment>
   );

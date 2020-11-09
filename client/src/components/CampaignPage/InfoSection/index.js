@@ -34,16 +34,18 @@ const CampaignInfoSection = () => {
             <CampaignInfoWrapper>
                 <CampaignInfoRow>
                     {campaigns && campaigns.map((c, i) => (
+                    <Link to={`/campaign/${c._id}`}>
                         <CampaignInfoColumn>
-                            <CampaignInfoColumnImage imgUrl={c.image.url} />
-                            <CampaignInfoColumnContent>
-                                <h1>{c.title}</h1>
-                                <p>{c.description}</p>
-                                <button>
-                                    <Link to={`/campaign/${c._id}`}>{c.buttonText}</Link>
-                                </button>
-                            </CampaignInfoColumnContent>
+                               <CampaignInfoColumnImage imgUrl={c.image.url} />
+                               <CampaignInfoColumnContent>
+                                   <h1>{c.title}</h1>
+                                   <p>{c.description}</p>
+                                   <button>
+                                      <Link to={`/campaign/${c._id}`}>{c.buttonText}</Link>
+                                   </button>
+                               </CampaignInfoColumnContent>
                         </CampaignInfoColumn>
+                    </Link>
                     ))}
                 </CampaignInfoRow>
             </CampaignInfoWrapper>

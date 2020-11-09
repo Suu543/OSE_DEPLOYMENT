@@ -49,10 +49,6 @@ export const HeroColumn1 = styled.div`
 
 export const HeroColumn2 = styled.div`
     margin-left: 3rem;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 2rem; */
     max-height: 60vh;
     display: grid;
     grid-template-rows: 7fr 5fr;

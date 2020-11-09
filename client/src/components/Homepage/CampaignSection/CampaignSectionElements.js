@@ -31,6 +31,11 @@ export const CampaignSectionRow = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+
+    @media all and (max-width: 900px) {
+        width: 90%;
+        margin: auto;
+    }
 `  
 
 export const CampaignSectionColumn = styled.div`

@@ -9,11 +9,11 @@ import {
     DonationLink
 } from "./DonationElements"
 
-const DonationSection = () => {
+const DonationSection = ({ imgUrl }) => {
     
     return (
         <Fragment>
-            <DonationContainer  imgUrl='https://images.unsplash.com/photo-1576870755431-edd028371a7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80'>
+            <DonationContainer  imgUrl={imgUrl}>
                 <DonationWrapper>
                     <DonationContent>
                         <DonationContenth1>
