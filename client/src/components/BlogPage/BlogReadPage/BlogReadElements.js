@@ -158,6 +158,15 @@ export const BlogBody = styled.section`
   width: 100%;
   margin: auto;
   margin-bottom: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+
+  iframe {
+    width: 60%;
+    margin: auto;
+  }
 
   p {
     width: 60%;
@@ -207,6 +216,11 @@ export const BlogBody = styled.section`
     }
 
     width: 90%;
+
+    iframe {
+    width: 100%;
+    margin: auto;
+    }
   }
 `;
 

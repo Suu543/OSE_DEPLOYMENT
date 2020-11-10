@@ -20,28 +20,28 @@ const Services = () => {
         <ServicesCard>
           <ServicesIcon src={Icon1} />
           <ServicesH2>
-            환경보호 정보제공
+            환경정보제공
           </ServicesH2>
           <ServicesP>
-            We Help reduce your fess and increase your overall revenue.
+          환경과 관련한 양질의 정보를 제공합니다.
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon2} />
           <ServicesH2>
-            환경 단체 후원
+            환경 캠페인
           </ServicesH2>
           <ServicesP>
-            You can access our platform online anywhere in the world.
+          환경 보존을 위한 캠페인 및 모금 활동을 진행합니다.
           </ServicesP>
         </ServicesCard>
         <ServicesCard>
           <ServicesIcon src={Icon3} />
           <ServicesH2>
-            친환경 제품소개
+            동아리 협업
           </ServicesH2>
           <ServicesP>
-            We Help reduce your fess and increase your overall revenue.
+          환경과 관련한 동아리와 협업을 통해 다양한 친환경 제품을 홍보합니다.
           </ServicesP>
         </ServicesCard>
       </ServicesWrapper>

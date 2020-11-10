@@ -124,7 +124,7 @@ exports.createCampaign = async (req, res) => {
 
       const type = image.split(';')[0].split('/')[1];
       const params = {
-        Bucket: 'ose',
+        Bucket: 'osestorage',
         Key: `campaign/${uuidv4()}.${type}`,
         Body: base64Data,
         ACL: 'public-read',
@@ -211,7 +211,7 @@ exports.removeCampaign = async (req, res) => {
 
   const deleteImage = async (key) => {
     const deleteParams = {
-      Bucket: 'ose',
+      Bucket: 'osestorage',
       Key: `${key}`,
     };
 
@@ -240,7 +240,7 @@ exports.removeCampaign = async (req, res) => {
 
       if (deletedRef) {
         const deletedParams = {
-          Bucket: 'ose',
+          Bucket: 'osestorage',
           Key: `${deletedRef.key}`,
         };
 

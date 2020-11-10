@@ -65,12 +65,12 @@ export const BlogRelatedHeader = styled.h1`
     a {
         text-decoration: none;
         color: black;
-        font-size: 1.5rem;
+        font-size: 1.9rem;
         font-family: 'Noto Sans KR', sans-serif;
     }
 `
 
 export const BlogRelatedParagraph = styled.p`
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: 'Noto Sans KR', sans-serif;
 `

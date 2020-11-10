@@ -159,10 +159,10 @@ exports.createBlog = async (req, res) => {
         });
 
       const keyName = uuidv4();
-      const key = `ose/${keyName}.${detectedExt}`;
+      const key = `osestorage/${keyName}.${detectedExt}`;
 
       const params = {
-        Bucket: 'ose',
+        Bucket: 'osestorage',
         Key: key,
         Body: buffer,
         ACL: 'public-read',
@@ -181,7 +181,7 @@ exports.createBlog = async (req, res) => {
 
         console.log('Third');
 
-        const url = `https://ose.s3-${process.env.AWS_REGION}.amazonaws.com/${key}`;
+        const url = `https://osestorage.s3-${process.env.AWS_REGION}.amazonaws.com/${key}`;
 
         blog.image.url = url;
         blog.image.key = key;
@@ -232,7 +232,7 @@ exports.uploadS3 = multer({
   storage: multerS3({
     acl: 'public-read',
     s3,
-    bucket: 'ose',
+    bucket: 'osestorage',
     contentType: multerS3.AUTO_CONTENT_TYPE,
     metadata(req, file, cb) {
       cb(null, { fieldName: file.fieldname });
@@ -240,7 +240,7 @@ exports.uploadS3 = multer({
     key(req, file, cb) {
       const keyName = uuidv4();
       const extension = path.extname(file.originalname);
-      cb(null, `ose/blogBody/${keyName}${extension}`);
+      cb(null, `osestorage/blogBody/${keyName}${extension}`);
     },
   }),
 });
@@ -263,7 +263,7 @@ exports.removeBlog = async (req, res) => {
 
   const deleteimage = async (key) => {
     const deletedParams = {
-      Bucket: 'ose',
+      Bucket: 'osestorage',
       Key: `${key}`,
     };
 
@@ -285,7 +285,7 @@ exports.removeBlog = async (req, res) => {
 
       if (deletedRef) {
         const deletedParams = {
-          Bucket: 'ose',
+          Bucket: 'osestorage',
           Key: `${deletedRef.key}`,
         };
 

@@ -26,7 +26,7 @@ exports.create = async (req, res) => {
   const slug = slugify(name).toLowerCase();
   const type = image.split(';')[0].split('/')[1];
   const params = {
-    Bucket: 'ose',
+    Bucket: 'osestorage',
     Key: `image/${uuidv4()}.${type}`,
     Body: base64Data,
     ACL: 'public-read',
