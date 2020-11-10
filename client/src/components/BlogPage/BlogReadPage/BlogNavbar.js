@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
-import { isAuth } from '../../../actions/authHelpers';
+import { isAuth, signout } from '../../../actions/authHelpers';
 import {
   NavBlog,
   NavbarContainer,
@@ -13,7 +13,8 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
-  NavLogoutBtn
+  NavDropdown,
+  NavDropdownUl,
 } from '../../Homepage/Navbar/NavbarElements';
 
 const BlogNavbar = ({ toggle }) => {
@@ -62,62 +63,22 @@ const BlogNavbar = ({ toggle }) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks
-                  to="about"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  About Us
+                <NavLinks to="/topics">
+                  Topics
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="contact"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Contact
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks
-                  to="blogs"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="/Blogs">
                   Blogs
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="community"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
-                  Community
+                <NavLinks to="/campaigns">
+                  Campaigns
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks
-                  to="donate"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                >
+                <NavLinks to="/donation">
                   Donate
                 </NavLinks>
               </NavItem>
@@ -125,14 +86,24 @@ const BlogNavbar = ({ toggle }) => {
             <NavBtn>
               {!check && <NavBtnLink to="/signin">Sign in</NavBtnLink>}
               {check && role === 'admin' && (
-                <Fragment>
+                <NavDropdown>
                   <NavBtnLink to="/admin">{name}</NavBtnLink>
-                </Fragment>
+                  <NavDropdownUl>
+                    <li onClick={() => {
+                      signout(() => window.location.reload(false))
+                    }}>Sign Out</li>
+                  </NavDropdownUl>
+                </NavDropdown>
               )}
               {check && role === 'user' && (
-                <Fragment>
+                <NavDropdown>
                   <NavBtnLink to="/private">{name}</NavBtnLink>
-                </Fragment>
+                  <NavDropdownUl>
+                    <li onClick={() => {
+                      signout(() => window.location.reload(false))
+                    }}>Sign Out</li>
+                  </NavDropdownUl>
+                </NavDropdown>
               )}
             </NavBtn>
           </NavbarContainer>

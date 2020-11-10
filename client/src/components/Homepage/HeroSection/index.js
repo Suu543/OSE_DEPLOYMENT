@@ -8,7 +8,6 @@ import {
   VideoBg,
   HeroContent,
   HeroH1,
-  HeroP,
   HeroBtnWrapper,
   ArrowForward,
   ArrowRight,
@@ -30,16 +29,11 @@ const HeroSection = () => {
         <HeroH1>Our Sole Earth</HeroH1>
         <HeroBtnWrapper>
           <Button
-            to="signup"
+            to="/topics"
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"
             dark="true"
-            smooth
-            duration={500}
-            spy
-            exact="true"
-            offset={-80}
           >
             둘러보기 {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>

@@ -44,7 +44,6 @@ export const getLocalStorage = (key) => {
 
 // Authenticate User By Passing data to cookie and localStorage during signin
 export const authenticate = (res, next) => {
-  console.log('Authenticate Helper on signin response', res);
   setCookie('token', res.data.token);
   setLocalStorage('user', res.data.user);
   next();

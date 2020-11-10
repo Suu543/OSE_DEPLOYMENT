@@ -38,7 +38,7 @@ const CampaignSection = () => {
                 <CampaignSectionWrapper>
                     <CampaignSectionRow>
                         {campaigns && campaigns.map((c, i) => (
-                            <CampaignSectionColumn>
+                            <CampaignSectionColumn key={c._id}>
                                 <Link to={`/campaign/${c._id}`}>
                                     <CampaignSectionColumnImage imgUrl={c.image.url} />
                                     <CampaignSectionColumnContent>
@@ -59,7 +59,3 @@ const CampaignSection = () => {
 }
 
 export default CampaignSection;
-
-{/* <CampaignSectionColumnLink>
-<Link to={`/campaign/${c._id}`}>{c.buttonText}</Link>
-</CampaignSectionColumnLink> */}

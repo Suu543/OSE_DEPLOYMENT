@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { isAuth } from '../../../actions/authHelpers';
+import React, { useState, useEffect, Fragment } from 'react';
+import { isAuth, signout } from '../../../actions/authHelpers';
 import {
   SidebarContainer,
   Icon,
@@ -9,10 +9,10 @@ import {
   SidebarLink,
   SideBtnWrap,
   SidebarRoute,
+  SidebarBtn
 } from './SidebarElements';
 
-// url을 추적해서 url이 변경되면 isOpen을 false로 변경하는 방식을 이용할 수 있지 않을까?
-const Sidebar = ({ isOpen, toggle }) => {
+const Sidebar = ({ isOpen, toggle, about }) => {
   const [auth, setAuth] = useState({
     check: false,
     role: '',
@@ -35,26 +35,39 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="/about" onClick={toggle}>
-            About Us
-          </SidebarLink>
-          <SidebarLink to="/contact" onClick={toggle}>
-            Contact
-          </SidebarLink>
+          {
+            about ? 
+            <SidebarLink to="/about" onClick={toggle}>
+              About Us
+            </SidebarLink> :
+            <SidebarLink to="/" onClick={toggle}>
+              Home
+            </SidebarLink>
+          }
           <SidebarLink to="/blogs" onClick={toggle}>
             Blogs
           </SidebarLink>
-          <SidebarLink to="/community" onClick={toggle}>
-            Community
+          <SidebarLink to="/topics" onClick={toggle}>
+            Topics
           </SidebarLink>
-          <SidebarLink to="/donate" onClick={toggle}>
-            Donate
+          <SidebarLink to="/campaigns" onClick={toggle}>
+            Campaigns
           </SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
           {!check && <SidebarRoute to="/signin" onClick={toggle}>Sign In</SidebarRoute>}
-          {check && role === 'admin' && <SidebarRoute to="/admin">{name}</SidebarRoute>}
-          {check && role === 'user' && <SidebarRoute to="/private">{name}</SidebarRoute>}
+          {check && role === 'admin' && 
+          <Fragment>
+            <SidebarRoute to="/admin">{name}</SidebarRoute>
+            <SidebarBtn onClick={() => signout(() => window.location.reload(false))}>Sign Out</SidebarBtn>
+          </Fragment>
+          }
+          {check && role === 'user' && 
+          <Fragment>
+            <SidebarRoute to="/private">{name}</SidebarRoute>
+            <SidebarBtn onClick={() => signout(() => window.location.reload(false))}>Sign Out</SidebarBtn>
+          </Fragment>
+          }
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

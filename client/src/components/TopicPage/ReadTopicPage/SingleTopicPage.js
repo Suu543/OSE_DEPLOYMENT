@@ -43,17 +43,17 @@ export const SingleTopicHeaderLeft = styled.section`
   gap: 4rem;
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     color: white;
   }
 
   p {
-    font-size: 1.7rem;
+    font-size: 3rem;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 600;
-    color: rgb(70, 45, 75);
+    font-weight: 300;
+    color: white;
   }
 
   section {
@@ -61,7 +61,7 @@ export const SingleTopicHeaderLeft = styled.section`
     display: flex;
 
     input {
-      width: 40%;
+      min-width: 40%;
       height: 5rem;
       margin-right: 5%;
       border: none;
@@ -82,7 +82,7 @@ export const SingleTopicHeaderLeft = styled.section`
     }
 
     button {
-      width: 30%;
+      min-width: 30%;
       height: 5rem;
       background: #004e5f;
       border: none;
@@ -93,19 +93,21 @@ export const SingleTopicHeaderLeft = styled.section`
     }
   }
 
-  @media all and (max-width: 1000px) {
+  @media all and (max-width: 1050px) {
     width: 100%;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 
     h1 {
-      margin-top: 5rem;
+      margin-top: 4rem;
       font-size: 5rem;
     }
 
     p {
       width: 80%;
       margin: auto;
+      font-size: 2rem;
     }
 
     section {
@@ -125,23 +127,19 @@ export const SingleTopicHeaderLeft = styled.section`
 `;
 
 export const SingleTopicHeaderRight = styled.section`
-  display: flex;
+  background: url(${props => props.imgUrl});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 70%;
+  height: 70%;
   margin: auto;
-  align-items: center;
-  justify-content: flex-start;
+  border-radius: 20px;
 
-  img {
-    display: block;
-    width: 50%;
-    height: 50%;
-  }
-
-  @media all and (max-width: 1000px) {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-  }
+  @media all and (max-width: 1050px) {
+    width: 80%;
+    min-height: 30vh;
+  } 
 `;
 
 export const SingleTopicLatestContainer = styled.section`

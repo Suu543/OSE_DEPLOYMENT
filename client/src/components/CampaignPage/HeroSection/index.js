@@ -177,11 +177,9 @@ const CampaignHeroSection = () => {
                 }
             }
 
-            console.log([1, ...pages, totalPages]);
             return setPage([1, ...pages, totalPages]);
         }
 
-        console.log(range(1, totalPages));
         return setPage([...range(1, totalPages)]);
         // return range(1, totalPages);
     }
@@ -205,10 +203,7 @@ const CampaignHeroSection = () => {
         const currentPage = Math.max(0, Math.min(page, totalPages));
         const offset = (currentPage - 1) * pageLimit;
         // console.log('offset', offset);
-        console.log("campaigns123456", currentPage);
         const currentCampaigns = campaigns.slice(offset, offset + pageLimit);   
-        console.log("campaigns", campaigns);
-        console.log('currentCapmaigns', currentCampaigns);
 
         setPaginate({ ...paginate, currentPage, totalPages});
         setSelectedCampaigns([...currentCampaigns]);
@@ -233,7 +228,7 @@ const CampaignHeroSection = () => {
                             <HeroColumn2Title>추천 캠페인</HeroColumn2Title>
                             <HeroColumn2Cards>
                                 { selectedCampaigns && selectedCampaigns.map((c, i) => (
-                                    <HeroColumnCard>
+                                    <HeroColumnCard key={c._id}>
                                         <HeroColumnCardImage>
                                             <HeroColumnCardImg imgURL={`${c.image.url}`} />
                                         </HeroColumnCardImage>
@@ -249,25 +244,25 @@ const CampaignHeroSection = () => {
                             <HeroColumn2PaginationLists>
                                 {page.map((p, i) => {
                                     if (p === LEFT_PAGE) return (
-                                        <HeroColumn2PaginationList onClick={handleMoveLeft}>
+                                        <HeroColumn2PaginationList key={p._id} onClick={handleMoveLeft}>
                                             <FaAngleDoubleLeft />
                                         </HeroColumn2PaginationList>
                                     )
 
                                     if (p === RIGHT_PAGE) return (
-                                        <HeroColumn2PaginationList onClick={handleMoveRight}>
+                                        <HeroColumn2PaginationList key={p._id} onClick={handleMoveRight}>
                                             <FaAngleDoubleRight />
                                         </HeroColumn2PaginationList>
                                     )
 
                                     if (p === currentPage) return (
-                                        <HeroColumn2PaginationActiveList onClick={handleClick(p)}>
+                                        <HeroColumn2PaginationActiveList key={p._id} onClick={handleClick(p)}>
                                             {p}
                                         </HeroColumn2PaginationActiveList>
                                     )
 
                                     return (
-                                        <HeroColumn2PaginationList onClick={handleClick(p)}>
+                                        <HeroColumn2PaginationList key={p._id} onClick={handleClick(p)}>
                                             {p}
                                         </HeroColumn2PaginationList>
                                     )

@@ -22,7 +22,6 @@ export const deleteCampaign = async (title, token) => {
                 }
             )
 
-            console.log('response', response.data);
             return response.data;
         } catch (error) {
             return error;

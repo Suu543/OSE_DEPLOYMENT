@@ -30,6 +30,7 @@ import Campaign from "./pages/Campaign";
 import CampaignDetail from "./pages/CampaignDetail";
 
 import Topic from "./pages/Topic";
+import AboutPage from "./pages/About";
 
 const Routes = () => (
   <Router>
@@ -39,6 +40,7 @@ const Routes = () => (
       <PublicRoute path="/signin" component={SigninPage} exact />
       <PrivateRoute path="/private" component={PrivatePage} exact />
       <PrivateRoute path="/private/update/:id" component={ProfileUpdatePage} exact />
+      <Route path="/about" component={AboutPage} exact />
       <Route path="/campaigns" component={Campaign} exact />
       <Route path="/campaign/:id" component={CampaignDetail} exact />
       <Route path="/donation" component={Donation} exact />

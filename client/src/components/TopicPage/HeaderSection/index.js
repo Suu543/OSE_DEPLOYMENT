@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { getTopics } from "../../../actions/topic";
+import React, { Fragment } from 'react';
 import {
     HeaderContainer,
     HeaderHeroWrapper,

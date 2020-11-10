@@ -26,7 +26,7 @@ export const CampaignNavWrapper = styled.div`
     }
 `
 
-export const CampaignNavbarLogo = styled(Link)`
+export const CampaignNavbarLogo = styled.span`
   color: white;
   cursor: pointer;
   font-size: 2.5rem;
@@ -50,11 +50,42 @@ export const CampaignNavbarTitle = styled(Link)`
     margin-left: 1.5rem;
 `
 
-export const CampaignNavbarRightLink = styled(Link)`
-  color: white;
+export const CampaignNavbarRightWrapper = styled.div`
+    color: white;
     font-weight: 500;
     font-size: 2rem;
     text-decoration: none;
+    position: relative;
+
+    h1 {
+        font-size: 2.1rem;
+    }
+`
+
+export const CampaignNavbarRightLink = styled(Link)`
+    color: white;
+    font-weight: 500;
+    font-size: 2rem;
+    text-decoration: none;
+`
+
+export const CampaignNavbarDropdown = styled.ul`
+    display: ${({ dropdown }) => (dropdown ? "flex" : "none" )};
+    background: black;
+    width: 8%;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    min-height: 10vh;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    li {
+        font-size: 2rem;
+        font-family: 'Encode Sans Expanded', sans-serif;
+    }
 `
 
 export const CampaignNavSidebar = styled.ul`

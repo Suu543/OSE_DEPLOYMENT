@@ -54,8 +54,6 @@ const HeroSection = () => {
   const loadBlogs = async () => {
     try {
       let blogs = await readAllBlogs();
-      console.log('blogs', blogs);
-      console.log(blogs[0]);
       setSingle({
         image: blogs[0].image,
         title: blogs[0].title,
@@ -83,7 +81,7 @@ const HeroSection = () => {
       <HeroTopicWrapper>
         <HeroTopic>Filter By Topcis</HeroTopic>
         {topics.map((t, i) => (
-          <HeroTopic>
+          <HeroTopic key={t._id}>
             <Link to={`/topic/${t.slug}`}>{t.name}</Link>
           </HeroTopic>
         ))}
@@ -92,7 +90,7 @@ const HeroSection = () => {
         <HeroSelect onChange={changeTopic}>
           <option selected disabled>Filter By Topcis</option>
           {topics.map((t, i) => (
-            <option value={`/topic/${t.slug}`}>{t.name}</option>
+            <option key={t._id} value={`/topic/${t.slug}`}>{t.name}</option>
           ))}
         </HeroSelect>
       </HeroTopicSelectWrapper>
@@ -112,7 +110,7 @@ const HeroSection = () => {
       <HeroPostsRow>
         <HeroPostsColumn>
           {blogs.map((b, i) => (
-            <HeroPostCard>
+            <HeroPostCard key={b._id}>
               <HeroPostCardWrapper>
                 <HeroPostCardImage>
                   <img src={b.image.url} alt="blog" />
@@ -121,7 +119,7 @@ const HeroSection = () => {
                   <HeroPostCardTopic>
                   {
                     b.topics.map((t, i) => (
-                      <Link to={`/topic/${t.slug}`}>{t.name}</Link>
+                      <Link key={t._id} to={`/topic/${t.slug}`}>{t.name}</Link>
                     ))
                   }
                   </HeroPostCardTopic>

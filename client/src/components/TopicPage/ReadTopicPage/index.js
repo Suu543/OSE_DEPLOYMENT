@@ -33,13 +33,14 @@ const SingleTopicPage = () => {
 
   useEffect(() => {
     loadCurrentTopic();
-    loadBlogsByTopic();
   }, []);
 
   const loadCurrentTopic = async () => {
     let response = await readTopic(slug);
     let { image, name, description } = response;
     setTopic({ image, name, description });
+
+    await loadBlogsByTopic();
   };
 
   const loadBlogsByTopic = async () => {
@@ -78,9 +79,7 @@ const SingleTopicPage = () => {
             <button>Subscribe</button>
           </section>
         </SingleTopicHeaderLeft>
-        <SingleTopicHeaderRight>
-          <img src={topic.image.url} alt="topic" />
-        </SingleTopicHeaderRight>
+        <SingleTopicHeaderRight imgUrl={topic.image.url} />
       </SingleTopicHeaderContainer>
       <SingleTopicLatestContainer>
         <h1>Latest Articles</h1>
@@ -89,7 +88,7 @@ const SingleTopicPage = () => {
             latests.map((b, i) => {
               if (i === 0) {
                 return (
-                  <SingleTopicLatestFirstCard>
+                  <SingleTopicLatestFirstCard key={b._id}>
                     <SingleTopicLatestFirstCardContent>
                       <h6>{b.tags[0].name}</h6>
                       <Link to={`/blog/${b.slug}`}>
@@ -106,7 +105,7 @@ const SingleTopicPage = () => {
 
               if (i === 1) {
                 return (
-                  <SingleTopicLatestSecondCard>
+                  <SingleTopicLatestSecondCard key={b._id}>
                     <img src={`${b.image.url}`} alt="topic" />
                     <Link to={`/blog/${b.slug}`}>
                       <h1>{b.title}</h1>
@@ -118,7 +117,7 @@ const SingleTopicPage = () => {
 
               if (i === 2) {
                 return (
-                  <SingleTopicLatestThirdCard>
+                  <SingleTopicLatestThirdCard key={b._id}>
                     <img src={`${b.image.url}`} alt="topic" />
                     <Link to={`/blog/${b.slug}`}>
                       <h1>{b.title}</h1>
@@ -136,7 +135,7 @@ const SingleTopicPage = () => {
         <SingleTopicBlogWrapper>
           {blogs.length > 0 &&
             blogs.map((b, i) => (
-              <SingleTopicBlogCard>
+              <SingleTopicBlogCard key={b._id}>
                 <img src={`${b.image.url}`} alt="topic" />
                 <Link to={`/blog/${b.slug}`}>
                   <h1>{b.title}</h1>

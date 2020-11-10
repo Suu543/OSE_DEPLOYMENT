@@ -134,6 +134,11 @@ export const InfoSectionDetailWrapper = styled.div`
     box-shadow: inset 0px 0px 5px white;
   }
 
+  a {
+      text-decoration: none;
+      color: black;
+  }
+
 `
 
 export const InfoSectionDetailCard = styled.div`

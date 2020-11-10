@@ -88,7 +88,7 @@ export const CampaignInfoColumnContent = styled.div`
         outline: none;
         background: #4BCC8C;
 
-        a {
+        span {
             text-decoration: none;
             font-size: 1.7rem;
             font-family: 'Noto Sans KR', sans-serif;

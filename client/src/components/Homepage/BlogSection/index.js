@@ -74,7 +74,7 @@ const BlogSection = () => {
                     length={blogs.length}
                 >
                     {blogs && blogs.map((b, i) => (
-                        <BlogCard blogIdx={blog.index} idx={b.index} index={i} >
+                        <BlogCard key={b._id} blogIdx={blog.index} idx={b.index} index={i} >
                             <BlogCardImageWrapper imgUrl={b.image.url} />
                             <BlogCardInfoWrapper>
                                 <BlogCardName>{b.title}</BlogCardName>

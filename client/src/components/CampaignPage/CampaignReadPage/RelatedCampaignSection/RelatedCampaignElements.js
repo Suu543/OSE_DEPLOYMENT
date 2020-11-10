@@ -4,6 +4,7 @@ export const RelatedCampaignContainer = styled.div`
     width: 90%;
     margin: auto;
     margin-top: 3rem;
+    margin-bottom: 10vh;
 
     @media all and (max-width: 1200px) {
         width: 95%;
@@ -26,7 +27,7 @@ export const RelatedCampaignRow = styled.div`
     width: 90%;
     margin: auto;
     margin-top: 5rem;
-    gap: 2rem;
+    gap: 4rem;
     justify-content: center;
     align-items: center;
 `;

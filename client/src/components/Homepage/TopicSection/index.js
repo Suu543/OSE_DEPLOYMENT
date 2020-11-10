@@ -29,7 +29,7 @@ const TopicSection = () => {
                 <TopicSectionSubHeader>관심 있는 문제를 클릭하시면 더 많은 정보를 확인할 수 있습니다!</TopicSectionSubHeader>
                 <TopicSectionWrapper>
                     {topics.map((t, i) => (
-                        <TopicSectionElement>
+                        <TopicSectionElement key={t._id}>
                             <Link to={`/topic/${t.slug}`}>
                             {t.name}
                             </Link>

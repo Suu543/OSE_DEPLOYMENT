@@ -75,7 +75,6 @@ export const deleteBlog = async (slug, token) => {
         }
       );
 
-      console.log('response', response.data);
       return response.data;
     } catch (error) {
       return error

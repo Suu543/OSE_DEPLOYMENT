@@ -1,13 +1,15 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa";
 import { FiX } from "react-icons/fi";
-import { isAuth } from "../../../actions/authHelpers";
+import { isAuth, signout } from "../../../actions/authHelpers";
 import { 
     CampaignNavbarContainer, 
     CampaignNavWrapper, 
     CampaignNavbarLogo, 
     CampaignNavbarTitle, 
+    CampaignNavbarRightWrapper,
     CampaignNavbarRightLink,
+    CampaignNavbarDropdown,
     CampaignNavSidebar,
     CampaignNavSidebarList,
     CampaignNavSidebarLink
@@ -21,12 +23,18 @@ const NavbarSection = () => {
         name: '',
     });
 
+    const [dropdown, setDropdown] = useState(false);
+
     const [open, setOpen] = useState(false);
     const toggle = () => {
         setOpen(!open);
     };
 
     const { check, role, name } = auth;
+
+    const setDropdownToggle = () => {
+        setDropdown(!dropdown);
+    }
 
     useEffect(() => {
         const checkAuth = isAuth();
@@ -47,8 +55,26 @@ const NavbarSection = () => {
                         OSE
                     </CampaignNavbarTitle>
                     { !check && <CampaignNavbarRightLink to="/signin">Sign in</CampaignNavbarRightLink>}
-                    { check && role === "admin" && <CampaignNavbarRightLink to="/admin">{name}</CampaignNavbarRightLink>}
-                    { check && role === "user" && <CampaignNavbarRightLink to="/private">{name}</CampaignNavbarRightLink> }
+                    { 
+                    check && role === "admin" && 
+                    <CampaignNavbarRightWrapper dropdown={dropdown}>
+                        <h1 onClick={setDropdownToggle}>{name}</h1>
+                        <CampaignNavbarDropdown dropdown={dropdown}>
+                            <li onClick={() => signout(() => window.location.reload(false))}>Sign Out</li>
+                            <CampaignNavbarRightLink to="/private">{name}</CampaignNavbarRightLink>
+                        </CampaignNavbarDropdown>
+                    </CampaignNavbarRightWrapper>
+                    }
+                    { 
+                    check && role === "user" && 
+                    <CampaignNavbarRightWrapper dropdown={dropdown}>
+                        <h1 onClick={setDropdownToggle}>{name}</h1>
+                        <CampaignNavbarDropdown dropdown={dropdown}>
+                           <li onClick={() => signout(() => window.location.reload(false))}>Sign Out</li>       
+                           <CampaignNavbarRightLink to="/private">{name}</CampaignNavbarRightLink>
+                        </CampaignNavbarDropdown>
+                    </CampaignNavbarRightWrapper>
+                    }
                 </CampaignNavWrapper>
                 <CampaignNavSidebar open={open}>
                     <CampaignNavSidebarList>

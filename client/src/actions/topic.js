@@ -23,7 +23,6 @@ export const readTopic = async (slug) => {
 
 export const deleteTopic = async (slug, token) => {
   const Checker = window.confirm(`Do you really want to delete ${slug} topic? It will delete all the blogs related to this topics... Please Be careful of deleting topics...`);
-  console.log("token", token);
   if(Checker) {
     try {
       const response = await axios.delete(

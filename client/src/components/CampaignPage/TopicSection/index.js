@@ -26,7 +26,7 @@ const CampaignTopicSection = () => {
         <CampaignTopicContainer>
             <CampaignTopicWrapper>
                 {topics && topics.map((t, i) => (
-                    <CampaignTopicList>
+                    <CampaignTopicList key={t._id}>
                         <Link to={`/topic/${t.slug}`}>
                         {t.name}
                         </Link>

@@ -53,42 +53,41 @@ const Navbar = ({ toggle, isOpen }) => {
 
   return (
     <Fragment>
-      <IconContext.Provider value={{ color: '#fff' }}>
         <Nav scrollNav={scrollNav}>
           <NavbarContainer>
-            <NavLogo to="/" onClick={toggleHome}>
+            <NavLogo to="/" onClick={toggleHome} scrollNav={scrollNav}>
               OSE
             </NavLogo>
-            <MobileIcon onClick={toggle} isOpen={isOpen}>
+            <MobileIcon scrollNav={scrollNav} onClick={toggle} isOpen={isOpen}>
               <FaBars />
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks to="/about">
+                <NavLinks to="/about" scrollNav={scrollNav}>
                   About Us
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/topics">
+                <NavLinks to="/topics" scrollNav={scrollNav}>
                   Topics
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/blogs">
+                <NavLinks to="/blogs" scrollNav={scrollNav}>
                   Blogs
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/campaigns">
+                <NavLinks to="/campaigns" scrollNav={scrollNav}>
                   Campaigns
                 </NavLinks>
               </NavItem>
             </NavMenu>
             <NavBtn>
-              {!check && <NavBtnLink to="/signin">Sign in</NavBtnLink>}
+              {!check && <NavBtnLink  scrollNav={scrollNav} to="/signin">Sign in</NavBtnLink>}
               {check && role === 'admin' && (
                 <NavDropdown>
-                  <NavBtnLink to="/admin">
+                  <NavBtnLink  scrollNav={scrollNav} to="/admin">
                     {name}
                   </NavBtnLink>
                   <NavDropdownUl>
@@ -100,7 +99,7 @@ const Navbar = ({ toggle, isOpen }) => {
               )}
               {check && role === 'user' && (
                 <NavDropdown>
-                  <NavBtnLink to="/private">{name}</NavBtnLink>
+                  <NavBtnLink  scrollNav={scrollNav} to="/private">{name}</NavBtnLink>
                   <NavDropdownUl>
                     <li onClick={() => {
                       signout(() => window.location.reload(false))
@@ -111,7 +110,6 @@ const Navbar = ({ toggle, isOpen }) => {
             </NavBtn>
           </NavbarContainer>
         </Nav>
-      </IconContext.Provider>
     </Fragment>
   );
 };

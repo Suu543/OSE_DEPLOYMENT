@@ -48,7 +48,7 @@ const RelatedCampaignSection = () => {
                 </RelatedCampaignHeader>
                 <RelatedCampaignRow>
                     {relatedCampaigns && relatedCampaigns.map((r, i) => (
-                        <RelatedCampaignColumn>
+                        <RelatedCampaignColumn key={r._id}>
                             <RelatedCampaignColumnImage imgUrl={r.image.url} />
                             <RelatedCampaignColumnHeader>
                                 <Link onClick={paramChange(r._id)} to={`/campaign/${r._id}`}>{r.title}</Link>

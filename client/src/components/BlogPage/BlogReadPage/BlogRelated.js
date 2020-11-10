@@ -42,7 +42,7 @@ const BlogRelated = () => {
                 <BlogRelatedTitle>관련 글</BlogRelatedTitle>
                 <BlogRelatedRow>
                     {related && related.map((r, i) => (
-                        <BlogRelatedColumn>
+                        <BlogRelatedColumn key={r._id}>
                             <BlogRelatedImageWrapper imgUrl={r.image.url} />
                             <BlogRelatedHeader>
                                 <Link onClick={paramChange(r.slug)} to={`/blog/${r.slug}`}>{r.title}</Link>

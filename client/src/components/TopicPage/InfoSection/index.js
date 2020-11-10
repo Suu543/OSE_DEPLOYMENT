@@ -80,7 +80,7 @@ const InfoSection = () => {
                         length={topics.length}
                     >
                         {topics && topics.map((t, i) => (
-                            <InfoSectionCard topicIdx={topic.index} idx={t.index} index={i}>
+                            <InfoSectionCard key={t._id} topicIdx={topic.index} idx={t.index} index={i}>
                                 <Link to={`/topic/${t.slug}`}>
                                     <InfoSectionImageWrapper imgUrl={t.image.url} />
                                     <InfoSectionCardHeader>
@@ -94,18 +94,20 @@ const InfoSection = () => {
                 <InfoSectionHeader>OSE 토픽</InfoSectionHeader>
                 <InfoSectionDetailWrapper>
                     {topics && topics.map((t, i) => (
-                        <InfoSectionDetailCard>
-                            <InfoSectionDetailImage>
-                                <img src={t.image.url} />
-                            </InfoSectionDetailImage>
-                            <InfoSectionDetailContent>
-                                <h1>{t.name}</h1>
-                                <p>&nbsp;{smartTrim(t.description, 50, " ", "...")}</p>
-                                <button>
-                                    <Link>더보기 <FaCrow /></Link>
-                                </button>
-                            </InfoSectionDetailContent>
-                        </InfoSectionDetailCard>
+                        <Link key={t._id} to={`/topic/${t.slug}`}>
+                            <InfoSectionDetailCard>
+                                <InfoSectionDetailImage>
+                                    <img src={t.image.url} />
+                                </InfoSectionDetailImage>
+                                <InfoSectionDetailContent>
+                                    <h1>{t.name}</h1>
+                                    <p>&nbsp;{smartTrim(t.description, 50, " ", "...")}</p>
+                                    <button>
+                                        더보기 <FaCrow />
+                                    </button>
+                                </InfoSectionDetailContent>
+                            </InfoSectionDetailCard>                        
+                        </Link>
                     ))}
                 </InfoSectionDetailWrapper>
             </InfoSectionContainer>

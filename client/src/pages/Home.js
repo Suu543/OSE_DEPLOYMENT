@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Sidebar isOpen={isOpen} toggle={toggle} about="false"/>
       <Navbar  isOpen={isOpen} toggle={toggle} />
       <HeroSection />
       <Services />

@@ -63,7 +63,7 @@ const ReadBlog = () => {
   }
 
   return (
-    <BlogContainer>
+    <BlogContainer key={slug}>
       <BlogWrapper>
         <BlogImage>
           <img src={`${blog.image.url}`} alt="image" />
@@ -73,12 +73,12 @@ const ReadBlog = () => {
             <BlogTopicAndTagWrapper>
               <BlogTopicSection>
                 {topics.map((t, i) => (
-                  <span key={i}>{t.name}</span>
+                  <span key={t._id}>{t.name}</span>
                 ))}
               </BlogTopicSection>
               <BlogTagSection>
                 {tags.map((t, i) => (
-                  <span key={i}>{t.name}</span>
+                  <span key={t._id}>{t.name}</span>
                 ))}
               </BlogTagSection>
             </BlogTopicAndTagWrapper>
