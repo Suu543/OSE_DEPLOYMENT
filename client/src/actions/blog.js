@@ -3,7 +3,7 @@ import axios from 'axios';
 export const readBlogsByTopic = async (topic) => {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_API}/blogs/${topic}`,
+      `${process.env.REACT_APP_API}/api/blogs/${topic}`,
     );
     return response.data;
   } catch (error) {
@@ -15,7 +15,7 @@ export const readBlogsByTopic = async (topic) => {
 export const readAllBlogs = async () => {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_API}/blogs`
+      `${process.env.REACT_APP_API}/api/blogs`
     )
 
     return response.data;
@@ -28,7 +28,7 @@ export const readAllBlogs = async () => {
 export const createBlog = async (formData, token) => {
   try {
     let response = await axios.post(
-      `${process.env.REACT_APP_API}/blog`,
+      `${process.env.REACT_APP_API}/api/blog`,
       formData,
       {
         headers: {
@@ -46,7 +46,7 @@ export const createBlog = async (formData, token) => {
 
 export const readBlog = async (slug) => {
   try {
-    let response = await axios.get(`${process.env.REACT_APP_API}/blog/${slug}`);
+    let response = await axios.get(`${process.env.REACT_APP_API}/api/blog/${slug}`);
     return response.data;
   } catch (error) {
     console.log('error');
@@ -56,7 +56,7 @@ export const readBlog = async (slug) => {
 
 export const imageUpload = (formData) => {
   const response = axios.post(
-    `${process.env.REACT_APP_API}/blog/upload`,
+    `${process.env.REACT_APP_API}/api/blog/upload`,
     formData,
   );
   return response;
@@ -67,7 +67,7 @@ export const deleteBlog = async (slug, token) => {
   if(Checker) {
     try {
       const response = await axios.delete(
-        `${process.env.REACT_APP_API}/blog/${slug}`,
+        `${process.env.REACT_APP_API}/api/blog/${slug}`,
         {
           headers: {
             Authorization: 'Bearer ' + token

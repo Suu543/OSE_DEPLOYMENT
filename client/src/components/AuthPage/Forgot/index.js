@@ -38,7 +38,6 @@ const ForgotPassword = () => {
       );
 
       if (response) {
-        console.log('response', response);
         toast.info(`🦄 + ${response.data.message}`);
         setText({ buttonText: 'Requested...' });
       }

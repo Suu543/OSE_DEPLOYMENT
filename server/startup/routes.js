@@ -19,11 +19,11 @@ module.exports = function (app) {
   app.use(helmet());
   app.use(cors());
 
-  app.use('/', authRoutes);
-  app.use('/', userRoutes);
-  app.use('/', tagRoutes);
-  app.use('/', topicRoutes);
-  app.use('/', blogRoutes);
-  app.use('/', campaignRoutes);
-  app.use('/', donationRoutes);
+  app.use('/api', authRoutes);
+  app.use('/api', userRoutes);
+  app.use('/api', tagRoutes);
+  app.use('/api', topicRoutes);
+  app.use('/api', blogRoutes);
+  app.use('/api', campaignRoutes);
+  app.use('/api', donationRoutes);
 };

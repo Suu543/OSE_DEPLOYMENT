@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getCampaigns = async () => {
     try {
-       const response = await axios.get(`${process.env.REACT_APP_API}/campaigns`);
+       const response = await axios.get(`${process.env.REACT_APP_API}/api/campaigns`);
        return response.data;
     } catch (error) {
         return error;
@@ -14,7 +14,7 @@ export const deleteCampaign = async (title, token) => {
     if (Checker) {
         try {
             const response = await axios.delete(
-                `${process.env.REACT_APP_API}/campaign/${title}`,
+                `${process.env.REACT_APP_API}/api/campaign/${title}`,
                 {
                     headers: {
                         Authorization: 'Bearer ' + token

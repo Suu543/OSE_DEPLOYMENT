@@ -22,7 +22,6 @@ const FacebookButton = styled.button`
 
 const Facebook = ({ informParent = (f) => f }) => {
   const responseFacebook = (response) => {
-    console.log(response);
     axios({
       method: 'POST',
       url: `${process.env.REACT_APP_API}/facebook-login`,
