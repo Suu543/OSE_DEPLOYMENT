@@ -32,7 +32,7 @@ export const createBlog = async (formData, token) => {
       formData,
       {
         headers: {
-          Authorization: 'Bearer ' + token,
+          Authorization: 'Bearer ' + token
         },
       },
     );

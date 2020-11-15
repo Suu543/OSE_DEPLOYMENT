@@ -33,7 +33,7 @@ const ForgotPassword = () => {
   const onSubmit = async (formData) => {
     try {
       let response = await axios.post(
-        `${process.env.REACT_APP_API}/forgot-password`,
+        `${process.env.REACT_APP_API}/api/forgot-password`,
         formData,
       );
 

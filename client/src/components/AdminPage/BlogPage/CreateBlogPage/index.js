@@ -181,11 +181,12 @@ const CreateBlogPage = () => {
             setContent({ body: "", references: [] });
             setFiles([]);
     
-
-            setTimeout(() => {
+		  /*
+           setTimeout(() => {
               window.location.reload();
             }, 3000);
-          }
+	*/
+	  }
         } catch (error) {
           toast.error(error);
           // console.log("error", error);

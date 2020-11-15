@@ -24,7 +24,7 @@ const Facebook = ({ informParent = (f) => f }) => {
   const responseFacebook = (response) => {
     axios({
       method: 'POST',
-      url: `${process.env.REACT_APP_API}/facebook-login`,
+      url: `${process.env.REACT_APP_API}/api/facebook-login`,
       data: { userID: response.userID, accessToken: response.accessToken },
     })
       .then((response) => {

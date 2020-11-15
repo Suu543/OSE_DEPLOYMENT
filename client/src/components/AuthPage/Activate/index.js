@@ -41,7 +41,7 @@ const ActivateAccount = () => {
     try {
       const tokenData = { token };
       const response = await axios.post(
-        `${process.env.REACT_APP_API}/account-activation`,
+        `${process.env.REACT_APP_API}/api/account-activation`,
         tokenData,
       );
 

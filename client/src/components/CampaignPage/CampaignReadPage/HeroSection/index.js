@@ -43,7 +43,7 @@ const CampaignHeroSection = () => {
     }, []);
 
     const loadCampaign = async () => {
-        const response = await axios.get(`${process.env.REACT_APP_API}/campaign/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/campaign/${id}`);
         const { title, description, image, buttonText, amount, body, startDate, endDate} = response.data;
         setCampaign({
             title,

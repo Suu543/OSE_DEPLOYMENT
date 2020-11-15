@@ -55,7 +55,7 @@ const ProfileUpdate = () => {
     const token = getCookie("token");
     const getProfile = async (id, token) => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_API}/user/${id}`, {
+            const response = await axios.get(`${process.env.REACT_APP_API}/api/user/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }

@@ -128,7 +128,7 @@ const HeroSection = () => {
                     {b.title}
                     </Link>
                   </h1>
-                  <p>{smartTrim(b.excerpt, 70, ' ', '...')}</p>
+                  <p>{smartTrim(b.excerpt, 40, ' ', '...')}</p>
                   <div>
                     <span>{moment(b.createdAt).format('YYYY-MM-DD')}</span>
                   </div>

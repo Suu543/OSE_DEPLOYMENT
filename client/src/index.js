@@ -5,9 +5,9 @@ import Routes from './Routes';
 import './App.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Routes />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root'),
 );
 

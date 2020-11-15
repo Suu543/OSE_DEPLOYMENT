@@ -24,7 +24,7 @@ const UpdateNameSection = ({ name }) => {
     const token = getCookie("token");
     const onSubmit = async (formData) => {
         try {
-            let response = await axios.put(`${process.env.REACT_APP_API}/user/update/name/${id}`, formData, {
+            let response = await axios.put(`${process.env.REACT_APP_API}/api/user/update/name/${id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

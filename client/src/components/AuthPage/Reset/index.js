@@ -60,7 +60,7 @@ const ResetPassword = () => {
 
     try {
       let response = await axios.put(
-        `${process.env.REACT_APP_API}/reset-password`,
+        `${process.env.REACT_APP_API}/api/reset-password`,
         formData,
       );
 

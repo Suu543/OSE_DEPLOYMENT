@@ -137,7 +137,7 @@ const CampaignCreatePage = () => {
             // 토큰 보내서 생성자 정보 추적 기능 추가
 
 
-            const response = await axios.post(`${process.env.REACT_APP_API}/campaign`, formData);
+            const response = await axios.post(`${process.env.REACT_APP_API}/api/campaign`, formData);
             toast.info(`🦄 ${response.data.message}`);
             setTimeout(() => {
                 window.location.reload(false);

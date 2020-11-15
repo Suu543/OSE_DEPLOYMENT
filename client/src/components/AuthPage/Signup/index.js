@@ -41,7 +41,7 @@ const Signup = () => {
   const onSubmit = async (formData) => {
     try {
       let response = await axios.post(
-        `${process.env.REACT_APP_API}/signup`,
+        `${process.env.REACT_APP_API}/api/signup`,
         formData,
       );
 

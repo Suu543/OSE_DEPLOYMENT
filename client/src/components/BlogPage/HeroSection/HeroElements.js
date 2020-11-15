@@ -192,7 +192,6 @@ export const HeroPostCard = styled.div`
   width: 30%;
   border: 3px solid #f9f9f9;
   min-height: 48vh;
-  max-height: 48vh;
   -webkit-box-shadow: 3px 5px 15px 5px #D1D1D1;   
   box-shadow: 3px 5px 15px 5px #D1D1D1;
   

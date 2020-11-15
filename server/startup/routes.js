@@ -13,8 +13,9 @@ const campaignRoutes = require('../routes/campaign');
 const donationRoutes = require('../routes/donation');
 
 module.exports = function (app) {
-  app.use(express.json({ limit: '5mb', type: 'application/json' }));
-  app.use(express.urlencoded({ extended: false }));
+
+  app.use(express.json({ limit: '50mb', type: 'application/json' }));
+  app.use(express.urlencoded({ limit: '50mb', extended: true }));
   app.use(morgan('dev'));
   app.use(helmet());
   app.use(cors());
