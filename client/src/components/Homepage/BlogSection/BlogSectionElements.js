@@ -103,6 +103,11 @@ export const BlogCardName = styled.div`
     /* font-family: 'Nanum Gothic Coding', monospace; */
     font-family: 'Encode Sans Expanded', sans-serif;
     font-weight: 600;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
 `;
 
 export const BlogCardExcerpt = styled.div`

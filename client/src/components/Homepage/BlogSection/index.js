@@ -77,7 +77,9 @@ const BlogSection = () => {
                         <BlogCard key={b._id} blogIdx={blog.index} idx={b.index} index={i} >
                             <BlogCardImageWrapper imgUrl={b.image.url} />
                             <BlogCardInfoWrapper>
-                                <BlogCardName>{b.title}</BlogCardName>
+                                <BlogCardName>
+                                    <Link to={`/blog/${b.slug}`}>{b.title}</Link>
+                                </BlogCardName>
                             </BlogCardInfoWrapper>
                         </BlogCard> 
                     ))}
